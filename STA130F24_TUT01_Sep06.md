@@ -4,7 +4,7 @@
 
 ## 🚧 🏗️ (Using notebooks and ChatBots) Demo [45 minutes]  
       
-#### 1. *[About 8 of the 45 minutes]* Demonstrate going to the course [Quercus homepage](https://q.utoronto.ca/courses/354091); accessing the [Course GitHub Repo](https://github.com/pointOfive/STA130_ChatGPT); opening new and uploaded notebooks on [UofT Jupyterhub](https://datatools.utoronto.ca) (or students may use [google collab](https://colab.research.google.com/)); and using Jupyter notebooks as a "`Python` calculator" and editing ["Markdown cells"](http://markdownguide.org)<br>
+#### 1. *[About 8 of the 45 minutes]* Demonstrate going to the course [Quercus homepage](https://q.utoronto.ca/courses/354091); accessing the [Course GitHub Repo](https://github.com/pointOfive/STA130_ChatGPT); opening new and uploaded notebooks on [UofT Jupyterhub](https://datatools.utoronto.ca) (classic jupyter notebook, or jupyterhub is fine, or students may use [google collab](https://colab.research.google.com/)); and using Jupyter notebooks as a "`Python` calculator" and editing ["Markdown cells"](https://www.markdownguide.org/cheat-sheet/)<br>
 
 <details class="details-example"><summary style="color:blue"><u>Further Guidance</u></summary>
 
@@ -26,11 +26,11 @@
 > 2. ChatBots often cannot pivot away substantially from initial answers; so, be ready for your efforts at follow up and correction with the ChatBot to prove frustratingly futile (which, may in this case actually have a lot to do with the following fact, that...)
 > 3. ChatBots don't seem to be very aware of the contents of datasets that are avalable online (or even working url links where datasets are); so, ChatBot are not currently a substitue for exploring dataset repository such as [TidyTuesday](https://github.com/rfordatascience/tidytuesday) (or other data repositiory resources) and reviewing data yourself (although, ChatBot interactions can nonetheless be help with brainstorm dataset ideas and provide a way to "search for content", perhaps especially when referencing a specific website in the conversation)<br><br>
 > 
-> Examples of this task going pretty well are available [here](../CHATLOG/SLS/COP/00006_copilot_funnyamusingNAdataset.md), [here](../CHATLOG/SLS/COP/00007_copilot_funnyamusingNAdatasetV4.md), and [here](../CHATLOG/SLS/GPT/00001_gpt3p5_villagersdata.md); while, examples of this going poorly are available [here](../CHATLOG/SLS/COP/00002_copilot_funnyamusingNAdataset.md) and [here](../CHATLOG/SLS/GPT/00002_gpt3p5_funnyasusingNAdataset.md). Successes and failures are found within the Microsoft Copilot and ChatGPT ChatBots both, suggesting the quality of the results likely has to do more with "randomness" and perhaps the nature of the prompting and engagement as opposed to the actual ChatBot version being used...
+> Examples of this task going pretty well are available [here](https://github.com/pointOfive/stat130chat130/blob/main/CHATLOG/wk1/COP/SLS/00006_copilot_funnyamusingNAdatasetV3.md), [here](https://github.com/pointOfive/stat130chat130/blob/main/CHATLOG/wk1/COP/SLS/00007_copilot_funnyamusingNAdatasetV4.md), and [here](https://github.com/pointOfive/stat130chat130/blob/main/CHATLOG/wk1/GPT/SLS/00001_gpt3p5_villagersdata.md); while, examples of this going poorly are available [here](https://github.com/pointOfive/stat130chat130/blob/main/CHATLOG/wk1/COP/SLS/00002_copilot_funnyamusingNAdataset.md) and [here](https://github.com/pointOfive/stat130chat130/blob/main/CHATLOG/wk1/GPT/SLS/00002_gpt3p5_funnyasusingNAdataset.md). Successes and failures are found within the Microsoft Copilot and ChatGPT ChatBots both, suggesting the quality of the results likely has to do more with "randomness" and perhaps the nature of the prompting and engagement as opposed to the actual ChatBot version being used...
     
 </details>
 
-#### 3. *[About 7 of the 45 minutes]* Demonstrate saving your python jupyter notebook in your own account and "repo" on [github.com](github.com), and sharing (a) notebook links, (b), ChatBot transcript log links, (c) ChatBot summaries through a piazza post and a Quercus announcement (so students can use this later for their homework assignment if they wish)<br><br>
+#### 3. *[About 7 of the 45 minutes]* Demonstrate saving your python jupyter notebook in your own account and "repo" on [github.com](https://github.com), and sharing (a) notebook links, (b), ChatBot transcript log links, (c) ChatBot summaries through a piazza post and a Quercus announcement (so students can use this later for their homework assignment if they wish)<br><br>
 
 
 ## 💬 🗣️ Communication [55 minutes]  
@@ -45,7 +45,7 @@
 1. Where would you like to add armour to planes for future missions?
 2. Hint: there is a hypothetical dataset of the bullet holes on the planes that didn't return which is what we'd ideally compare against the dataset we observe...
         
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Survivorship-bias.svg/640px-Survivorship-bias.svg.png)
+![Classic image of survivorship bias of WW2 planes](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Survivorship-bias.svg/640px-Survivorship-bias.svg.png)
            
 #### 3. *[About 10 of the 55 minutes]* Monte Hall problem: there is a gameshow with three doors, one of which has a prize, and you select one of the doors and the gameshow host reveals one of the other two unchosen doors which does not have the prize... would you like to change your guess to the other unchosen door?
 
@@ -61,7 +61,7 @@
 
 <details class="details-example"><summary style="color:blue"><u>Further Guidance</u></summary>
     
-> This could be done like [this](../CHATLOG/SLS/COP/00009_copilot_survivorshipbias_spotify.md) or [this](../CHATLOG/SLS/GPT/00003_gpt3p5_spotify_Survivorship_Bias.md), or you could instead try to approach things more generally like [this](../CHATLOG/SLS/COP/00008_copilot_survivorshipbiasgeneral.md) or [this](../CHATLOG/SLS/GPT/00004_gpt3p5_general_Survivorship_Bias.md)
+> This could be done like [this](https://github.com/pointOfive/stat130chat130/blob/main/CHATLOG/wk1/COP/SLS/00009_copilot_survivorshipbias_spotify.md) or [this](https://github.com/pointOfive/stat130chat130/blob/main/CHATLOG/wk1/GPT/SLS/00003_gpt3p5_spotify_Survivorship_Bias.md), or you could instead try to approach things more generally like [this](https://github.com/pointOfive/stat130chat130/blob/main/CHATLOG/wk1/GPT/SLS/00004_gpt3p5_general_Survivorship_Bias.md)
 > 
 > Two ends of the ChatBot prompting spectrum are
 > 
@@ -77,12 +77,12 @@
     
 > ChatBots fail to correctly analyze the Monte Hall problem when they're asked for a formal probabilistic argument...
 >
-> - [ChatGPT fails by wrongly calculating a probability of 1/2...](../CHATLOG/SLS/GPT/00005_gpt3p5_MonteHallWrong.md)
-    > - [Copilot fares similarly poorly without substantial guidance...](../CHATLOG/SLS/COP/00010_copilot_montehallwrong.md)<br><br>
-    > 
-    > *demonstrating (a) that there are clear limits to how deeply ChatBots actually "reason", and (b) that they are instead better understood as simply being information regurgitation machines, and (c) that this means  they can suffer from the "garbage in, garbage out" problem if the quality of the information their responses are based on are is poor and inaccurate (as is notoriously the case in the Monte Hall problem, for which many incorrect mathematical analyses have been "published" into the collection of human generated textual data on which ChatBots are based)*
+> - [ChatGPT fails by wrongly calculating a probability of 1/2...](https://github.com/pointOfive/stat130chat130/blob/main/CHATLOG/wk1/GPT/SLS/00005_gpt3p5_MonteHallWrong.md)
+> - [Copilot fares similarly poorly without substantial guidance...](https://github.com/pointOfive/stat130chat130/blob/main/CHATLOG/wk1/COP/SLS/00010_copilot_montehallwrong.md)<br><br>
+> 
+> *demonstrating (a) that there are clear limits to how deeply ChatBots actually "reason", and (b) that they are instead better understood as simply being information regurgitation machines, and (c) that this means  they can suffer from the "garbage in, garbage out" problem if the quality of the information their responses are based on are is poor and inaccurate (as is notoriously the case in the Monte Hall problem, for which many incorrect mathematical analyses have been "published" into the collection of human generated textual data on which ChatBots are based)*
     
-    </details>
+</details>
 
 
 ```python

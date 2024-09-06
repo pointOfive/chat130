@@ -87,7 +87,7 @@ In the case of the former (1), adding constraints specifying the limits of consi
 > You can further reduce the scope of your inquiry with if needed with something like
 > - "I've already downloaded the data and want to understand the size (or dimensions) of the dataset to start with"
 > 
-> *Some ChatBots can upload your data and do this for you; but, extended usage of this feature [likely requires a paid subscription](../CHATLOG/SLS/GPT/00006_gpt3p5_LoadDataPaywall.md); and, anyway, you need to run the code yourself rather than having a ChatBot do that for you; and, for STA130 we don't want a ChatBot to just do the analysis for us; rather, we instead want ChatBots to help us understand the steps we need to take to analyze the data; so,* **you DO NOT need to purchase an upgraded version of any ChatBots**
+> *Some ChatBots can upload your data and do this for you; but, extended usage of this feature [likely requires a paid subscription](https://github.com/pointOfive/stat130chat130/blob/main/CHATLOG/wk1/GPT/SLS/00006_gpt3p5_LoadDataPaywall.md); and, anyway, you need to run the code yourself rather than having a ChatBot do that for you; and, for STA130 we don't want a ChatBot to just do the analysis for us; rather, we instead want ChatBots to help us understand the steps we need to take to analyze the data; so,* **you DO NOT need to purchase an upgraded version of any ChatBots**
 > - Free-tier level ChatBots like [GPT4o-mini](https://chat.openai.com/) or [Copilot](https://copilot.microsoft.com/) (which is partially based on [ChatGPT4.0](https://chat.openai.com/), and which you have access to through your UofT account) are sufficiently sophisticated and perfectly appropriate for the STA130 course
     
 </details>
@@ -116,7 +116,7 @@ In the case of the former (1), adding constraints specifying the limits of consi
 
 <details class="details-example"><summary style="color:blue"><u>Further Guidance</u></summary>
 
-> If the dataset you're using does not have (a) non-numeric variables and (b) missing values in numeric variables (e.g., the `"villagers.csv"` example above has only a single numeric variable `row_n` which has no missing values), instead download and use the "https://raw.githubusercontent.com/mwaskom/seaborn-data/master/titanic.csv" data to answer this question  
+> If the dataset you're using does not have (a) non-numeric variables and (b) missing values in numeric variables (e.g., the `"villagers.csv"` example above has only a single numeric variable `row_n` which has no missing values), instead download and use the [https://raw.githubusercontent.com/mwaskom/seaborn-data/master/titanic.csv](https://raw.githubusercontent.com/mwaskom/seaborn-data/master/titanic.csv)" data to answer this question  
 >
 > In (a) above, the "columns it analyzes" refers to the columns of the output of `df.describe()` which will only include "numeric" columns by default, but you can can see the names of all the columns in a dataset using `df.columns`; and, make sure `df.shape` is refering to the dataset you think it is... if you've loaded a different dataset it might not have been called `df`(!)
 >
@@ -214,31 +214,38 @@ Feel free to work on the "Postlecture" HW below if you're making good progress a
 3. Intentionally introduce the following errors into your code and report your opinion as to whether it's easier to (a) work in a ChatBot session to fix the errors, or (b) use google to search for and fix errors: first share the errors you get in the ChatBot session and see if you can work with ChatBot to troubleshoot and fix the coding errors, and then see if you think a google search for the error provides the necessary toubleshooting help more quickly than ChatGPT<br><br>
     
     1. Forget to include `import pandas as pd` in your code 
-        
-    > Use Kernel->Restart from the notebook menu to restart the jupyter notebook session unload imported libraries and start over so you can create this error
-    >  - When python has an error, it sometimes provides a lot of "stack trace" output, but that's not usually very important for troubleshooting. For this problem for example, all you need to share with ChatGPT or search on google is `"NameError: name 'pd' is not defined"`
+       <br> 
+       Use Kernel->Restart from the notebook menu to restart the jupyter notebook session unload imported libraries and start over so you can create this error
+       <br><br>
+       When python has an error, it sometimes provides a lot of "stack trace" output, but that's not usually very important for troubleshooting. For this problem for example, all you need to share with ChatGPT or search on google is `"NameError: name 'pd' is not defined"`<br><br>
 
     2. Mistype "titanic.csv" as "titanics.csv"
-        
-    > 1. If ChatBot troubleshooting is based on downloading the file, just replace the whole url with "titanics.csv" and try to troubleshoot the subsequent `FileNotFoundError: [Errno 2] No such file or directory: 'titanics.csv'` (assuming the file is indeed not present)
-    > 2. Explore introducing typos into a couple other parts of the url and note the slightly different errors this produces
+       <br> 
+       If ChatBot troubleshooting is based on downloading the file, just replace the whole url with "titanics.csv" and try to troubleshoot the subsequent `FileNotFoundError: [Errno 2] No such file or directory: 'titanics.csv'` (assuming the file is indeed not present)
+       <br><br>
+       Explore introducing typos into a couple other parts of the url and note the slightly different errors this produces<br><br>
       
     3. Try to use a dataframe before it's been assigned into the variable
-        
-    > You can simulate this by just misnaming the variable. For example, if you should write `df.groupby("col1")["col2"].describe()` based on how you loaded the data, then instead write `DF.groupby("col1")["col2"].describe()`
-            > - Make sure you've fixed your file name so that's not the error any more
+       <br> 
+       You can simulate this by just misnaming the variable. For example, if you should write `df.groupby("col1")["col2"].describe()` based on how you loaded the data, then instead write `DF.groupby("col1")["col2"].describe()`
+       <br><br>
+       Make sure you've fixed your file name so that's not the error any more<br><br>
         
     4. Forget one of the parentheses somewhere the code
-    > For example, if the code should be `pd.read_csv(url)` the change it to `pd.read_csv(url` 
+       <br>
+       For example, if the code should be `pd.read_csv(url)` the change it to `pd.read_csv(url`<br><br>
         
     5. Mistype one of the names of the chained functions with the code 
-    > For example, try something like `df.group_by("col1")["col2"].describe()` and `df.groupby("col1")["col2"].describle()`
+       <br>
+       For example, try something like `df.group_by("col1")["col2"].describe()` and `df.groupby("col1")["col2"].describle()`<br><br>
         
     6. Use a column name that's not in your data for the `groupby` and column selection 
-    > For example, try capitalizing the columns for example replacing "sex" with "Sex" in `titanic_df.groupby("sex")["age"].describe()`, and then instead introducing the same error of "age"
+       <br>
+       For example, try capitalizing the columns for example replacing "sex" with "Sex" in `titanic_df.groupby("sex")["age"].describe()`, and then instead introducing the same error of "age"<br><br>
         
     7. Forget to put the column name as a string in quotes for the `groupby` and column selection, and see if the ChatBot and google are still as helpful as they were for the previous question
-    > For example, something like `titanic_df.groupby(sex)["age"].describe()`, and then `titanic_df.groupby("sex")[age].describe()`
+       <br>
+       For example, something like `titanic_df.groupby(sex)["age"].describe()`, and then `titanic_df.groupby("sex")[age].describe()`
         
 #### 9. Have you reviewed the course [wiki-textbook](https://github.com/pointOfive/stat130chat130/wiki) and interacted with a ChatBot (or, if that wasn't sufficient, real people in the course piazza discussion board or TA office hours) to help you understand all the material in the tutorial and lecture that you didn't quite follow when you first saw it?<br>
     
@@ -256,8 +263,8 @@ The "Ethical Profesionalism Considerations" and "Current Course Project Capabili
 
 <details class="details-example"><summary style="color:blue"><u>Ethical Professionalism Considerations</u></summary>
 
-> ## Ethical Professionalism Considerations
->
+## Ethical Professionalism Considerations
+
 > If the observed data is "no events occured" does this mean the data is "missing" and [should be ignored](https://priceonomics.com/the-space-shuttle-challenger-explosion-and-the-o)?
 > 
 > - NASA: \<determines temperature doesn't affects "o-ring" by subseting data to just "o-ring" incidents\>
@@ -275,12 +282,12 @@ if you just look at "o-ring" failure event data|if you instead look at ALL the d
 
 <details class="details-example"><summary style="color:blue"><u>Current Course Project Capability Level</u></summary>
 
-> ## Current Course Project Capability Level
->
-> The data we'll use for the STA130 course project is based on the [Canadian Social Connection Survey](https://casch.org/cscs). Please see the [data use agreement](https://static1.squarespace.com/static/60283c2e174c122f8ebe0f39/t/6239c284d610f76fed5a2e69/1647952517436/Data+Use+Agreement+for+the+Canadian+Social+Connection+Survey.pdf) regarding the appropriate and ethical professional use of this data.
+## Current Course Project Capability Level
+
+> The data we'll use for the STA130 course project is based on the [Canadian Social Connection Survey](https://casch.org/cscs). Please see the [data use agreement](https://static1.squarespace.com/static/60283c2e174c122f8ebe0f39/t/6239c284d610f76fed5a2e69/1647952517436/Data+Use+Agreement+for+the+Canadian+Social+Connection+Survey.pdf) regarding the appropriate and ethical professional use of this data (available at the bottom of the [CSCS](https://casch.org/cscs) webpage).
 > 
-> 1. Have a very quick look at the list of available variables [here](/Users/scottschwartz/Downloads/var_names.csv); then, 
-> 2. examine the code in the first thirteen cells of `STA130F24_CourseProject.ipynb` to get an initital understanding of how we might subset to different studies included in the [data](/Users/scottschwartz/Downloads/CSCS_data_anon.csv); then, 
+> 1. Have a very quick look at the list of available variables available using the [link](https://drive.google.com/file/d/1ISVymGn-WR1lcRs4psIym2N3or5onNBi/view) (again at the bottom of the [CSCS](https://casch.org/cscs) webpage); then, 
+> 2. examine the code in the first thirteen code cells of [STA130F24_CourseProject.ipynb](https://github.com/pointOfive/stat130chat130/blob/main/CP/STA130F24_CourseProject.ipynb) to get an initital understanding of how we might subset to different studies included in the [data](https://drive.google.com/file/d/1mbUQlMTrNYA7Ly5eImVRBn16Ehy9Lggo/view) (again accessible at the bottom of the [CSCS](https://casch.org/cscs) webpage); then,     
 > 3. review the fourteenth and fifteenth cells (with the comments "Here's a high level summary of the data" and "And here are some explanations about the columns in the data") a little more closely to get a better sense of which columns seem to be the most interesting and whether or not they seem to have a lot of missing data
     
 </details>        
