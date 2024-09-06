@@ -1,35 +1,32 @@
 # Data Summarization
 
-- Function/Method arguments and attributes<br><br>
-    - `inplace="ISO-8859-1"` encoding with the amazon data set (...a subtle introduction of "data" and "object" types)
-    - **coercion** as in `df.isnull().sum(axis=1)`<br><br>
+#### 1. Function/Method arguments and attributes<br><br>
+1. `inplace="ISO-8859-1"` encoding with the amazon data set (...a subtle introduction of "data" and "object" types)
+2. **coercion** as in `df.isnull().sum(axis=1)`<br><br>
 
-
-- "Data" types (as opposed to "Object" types which will be discussed formally next week)<br><br>
-    - `.dtypes` and `.astype()`<br><br>
+<!-- #region -->
+#### 2."Data" types (as opposed to "Object" types which will be discussed formally next week)<br><br>
+1. `.dtypes` and `.astype()`<br><br>
     
-- Summarizing data with `df.describe()` and **statistics** (as opposed to **Statistics**)<br><br>
+#### 3.Summarizing data with `df.describe()` and **statistics** (as opposed to **Statistics**)<br><br>
 
-    - $\bar x$ the **sample mean** `df['col'].mean()` 
+1. $\bar x$ the **sample mean** `df['col'].mean()`  <br><br> $\displaystyle \bar x = \frac{1}{n}\sum_{i=1}^n x_i$ 
 
-      $\displaystyle \bar x = \frac{1}{n}\sum_{i=1}^n x_i$ 
-
-    - $s^2$ the **sample variance** `df['col'].var()` and $s$ the **sample standard deviation (std)**  `df['col'].std()`
+2. $s^2$ the **sample variance** `df['col'].var()` and $s$ the **sample standard deviation (std)** <br><br>`df['col'].std()`<br><br>$\displaystyle s^2 = \frac{1}{n-1}\sum_{i=1}^n (x_i-\bar x)^2 \quad \text{ and } \quad s = \sqrt{s^2}$<br><br>     
       
-      $\displaystyle s^2 = \frac{1}{n-1}\sum_{i=1}^n (x_i-\bar x)^2 \quad \text{ and } \quad s = \sqrt{s^2}$<br><br>     
-      
-    - **min** `df['col'].min()`, **max** `df['col'].max()` (and $Q1$, the **median**, and $Q3$ which will be discussed later)
+3. **min** `df['col'].min()`, **max** `df['col'].max()` (and $Q1$, the **median**, and $Q3$ which will be discussed later)
     
     
-- Sorting, (0-based) indexing, and subsetting<br><br>
+#### 4.Sorting, (0-based) indexing, and subsetting<br><br>
 
-    - `.sort_values()`
-    - `df[]` versus `df.loc[]` versus `df.iloc[]` (and "index" versus "row")<br><br>
-        - *boolean selection* with *logical conditionals* `>` and `==` (and `!=`) versus `=` and `~` / `&` / `|` (and/or)
+1. `.sort_values()`<br><br>
+2. `df[]` versus `df.loc[]` versus `df.iloc[]` (and "index" versus "row")<br><br>
+        1. *boolean selection* with *logical conditionals* `>` and `==` (and `!=`) versus `=` and `~` / `&` / `|` (and/or)
 
 
 ## Function/Method arguments and attributes
 
+<!-- #endregion -->
 
 ```python
 import pandas as pd
@@ -152,20 +149,20 @@ pokeaman.describe()
 
 Because these are summaries for **numieric** data types...
 
-- $\bar x$ the **sample mean** `df['col'].mean()` 
+#### 1.$\bar x$ the **sample mean** `df['col'].mean()` 
 
-  $\displaystyle \bar x = \frac{1}{n}\sum_{i=1}^n x_i$ 
+1. $\displaystyle \bar x = \frac{1}{n}\sum_{i=1}^n x_i$ 
 
-- $s$ the **sample standard deviation (std)** `df['col'].std()`
+#### 2.$s$ the **sample standard deviation (std)** `df['col'].std()`
 
-  $\displaystyle s = \sqrt{s^2}$
+1. $\displaystyle s = \sqrt{s^2}$
 
   > $s^2$ the **sample variance** `df['col'].var()`
   >  
   > $\displaystyle s^2 = \frac{1}{n-1}\sum_{i=1}^n (x_i-\bar x)^2$      
         
-- and where **min** `df['col'].min()` and **max** `df['col'].max()` are (hopefully) obvious
-- and **25%, 50%, and 75%** are the first, second, and third **quantiles** referred to as $Q1$, the **median**, and $Q3$ (but these will not be discussed later)
+#### 3.and where **min** `df['col'].min()` and **max** `df['col'].max()` are (hopefully) obvious
+#### 4.and **25%, 50%, and 75%** are the first, second, and third **quantiles** referred to as $Q1$, the **median**, and $Q3$ (but these will not be discussed later)
 
 
 
@@ -275,7 +272,7 @@ pokeaman.loc[~(pokeaman.HP > 120) | (pokeaman.Defense > 180)]
 ```
 
 > There's probably not time, but if there is... we could review/demo the pokemon data set a little bit more
-    - with more complex *chaining* `df.dropna.groupby('col1')...`
+>  with more complex *chaining* `df.dropna.groupby('col1')...`
 
 
 ```python
