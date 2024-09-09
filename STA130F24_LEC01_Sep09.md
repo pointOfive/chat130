@@ -1,34 +1,37 @@
 # Data Summarization
 
-- Function/Method arguments and attributes<br><br>
-    - `inplace="ISO-8859-1"` encoding with the amazon data set (...a subtle introduction of "data" and "object" types)
-    - **coercion** as in `df.isnull().sum(axis=1)`<br><br>
+- **Functions**, **arguments**, and **attributes** via `pd.read_csv()`<br><br>
+    - `inplace="ISO-8859-1"` encoding the amazon data set (a subtle introduction of "data" and "object" types)
+    - `.shape` and `.columns` (and in the next section `df["new_columns"] = ...`)<br><br>
 
-
-- "Data" types (as opposed to "Object" types which will be discussed formally next week)<br><br>
+- **Methods**, **chaining**, and **coercion** as in `df.isnull().sum(axis=1)`<br><br>
+    - "data" types (as opposed to "Object" types which will be discussed formally next week)
+    - **numeric** `float64` and `int64`, **categorical** `category`, and **object**
     - `.dtypes` and `.astype()`<br><br>
     
-- Summarizing data with `df.describe()` and **statistics** (as opposed to **Statistics**)<br><br>
+- **Summarizing data** with `df.describe()` and **statistics** (as opposed to **Statistics**)<br><br>
 
     - $\bar x$ the **sample mean** `df['col'].mean()` 
 
-      $\displaystyle \bar x = \frac{1}{n}\sum_{i=1}^n x_i$ 
+      $\displaystyle \bar x = \frac{1}{n}\sum_{i=1}^n x_i$<br><br> 
 
-    - $s^2$ the **sample variance** `df['col'].var()` and $s$ the **sample standard deviation (std)**  `df['col'].std()`
+    - $s^2$ the **sample variance (var)** `df['col'].var()` and $s$ the **sample standard deviation (std)**  `df['col'].std()`
       
-      $\displaystyle s^2 = \frac{1}{n-1}\sum_{i=1}^n (x_i-\bar x)^2 \quad \text{ and } \quad s = \sqrt{s^2}$<br><br>     
+      $\displaystyle s^2 = \frac{1}{n-1}\sum_{i=1}^n (x_i-\bar x)^2 \quad \text{ and } \quad s = \sqrt{s^2}$<br><br>  
       
-    - **min** `df['col'].min()`, **max** `df['col'].max()` (and $Q1$, the **median**, and $Q3$ which will be discussed later)
+    - **min** `df['col'].min()`, **max** `df['col'].max()` (and $Q1$, the **median**, and $Q3$ to be discussed later)<br><br>
     
-    
-- Sorting, (0-based) indexing, and subsetting<br><br>
+- **Summarizing data** with `df['categorical_column'].value_counts()` and (one more **statistic**) the **mode**<br><br>
+
+- **Sorting**, **indexing**, and **subsetting**<br><br>
 
     - `.sort_values()`
-    - `df[]` versus `df.loc[]` versus `df.iloc[]` (and "index" versus "row")<br><br>
-        - *boolean selection* with *logical conditionals* `>` and `==` (and `!=`) versus `=` and `~` / `&` / `|` (and/or)
+    - `df[]` 0-based (row) and (column) name indexing (and "index" versus "row")<br>versus fully 0-based indexing with `df.iloc[]` and "slicing" with `:`
+    - versus `df[]` or `df.loc[]` **boolean selection** with **logical conditionals**<br> 
+      `>=` / `>` / `<=` / `<` /  and `==` (and `!=` in contrast to `=`) and `~` / `&` / `|` (not/and/or)
 
 
-## Function/Method arguments and attributes
+## **Functions**, **arguments**, and **attributes**
 
 
 ```python
@@ -42,8 +45,8 @@ url = "https://raw.githubusercontent.com/pointOfive/STA130_F23/main/Data/amazonb
 
 # a *function* with required and default *arguments*
 ab = pd.read_csv(url, encoding='UTF-8') # fails
-#ab = pd.read_csv(url) # fails, because it defaults to UTF-8
-#ab = pd.read_csv(url, encoding="ISO-8859-1")# works!
+# ab = pd.read_csv(url) # fails, because it defaults to UTF-8
+# ab = pd.read_csv(url, encoding="ISO-8859-1")# works!
 ab
 ```
 
@@ -55,8 +58,18 @@ ab.shape
 
 
 ```python
+# *attribute* (not a *method*)
+ab.columns
+```
+
+## Chaining and coercion and<br>"data" types (as opposed to "Object" types to be discussed later)
+
+
+
+```python
 # *methods* (with no *arguments)
 ab.isnull().sum()  # missing per column
+ab.isa().sum()  # missing per column
 ```
 
 
@@ -71,9 +84,6 @@ ab['# missing on row'] = ab.isna().sum(axis=1)
 ab
 ```
 
-## "Data" types<br>(as opposed to "Object" types which will be discussed formally next week)
-
-
 
 ```python
 ab_isna = ab.isna()
@@ -83,7 +93,7 @@ ab_isna.head()  # now they're all boolean
 
 
 ```python
-# Why  then are these numbers?
+# Why then are these numbers?
 print(ab.isna().sum(), end='\n\n')
 ab.isna().sum(axis=1)
 ```
@@ -138,7 +148,7 @@ $$\huge \displaystyle \bar x = \frac{1}{n}\sum_{i=1}^n x_i \quad\quad\quad \disp
 ```python
 url = "https://raw.githubusercontent.com/KeithGalli/pandas/master/pokemon_data.csv"
 # fail https://github.com/KeithGalli/pandas/blob/master/pokemon_data.csv
-pokeaman = pd.read_csv(url) 
+pokeaman = pd.read_csv(url)
 colnames_wtype = {k:k+" ("+v+")" for k,v in zip(pokeaman.columns,pokeaman.dtypes.values.astype(str))}
 pokeaman.rename(columns=colnames_wtype, inplace=True)
 pokeaman
@@ -147,7 +157,7 @@ pokeaman
 
 ```python
 # Why does this not have all the columns?
-pokeaman.describe()
+pokeaman.describe()  # more coercion... if you see it?
 ```
 
 Because these are summaries for **numieric** data types...
@@ -160,7 +170,7 @@ Because these are summaries for **numieric** data types...
 
   $\displaystyle s = \sqrt{s^2}$
 
-  > $s^2$ the **sample variance** `df['col'].var()`
+  > $s^2$ the **sample variance (var)** `df['col'].var()`
   >  
   > $\displaystyle s^2 = \frac{1}{n-1}\sum_{i=1}^n (x_i-\bar x)^2$      
         
@@ -168,9 +178,13 @@ Because these are summaries for **numieric** data types...
 - and **25%, 50%, and 75%** are the first, second, and third **quantiles** referred to as $Q1$, the **median**, and $Q3$ (but these will not be discussed later)
 
 
+## **Summarizing data** with<br><br>`df['categorical_column'].value_counts()`
+
 
 ```python
 # Another "explanation" as to why `.describe()` doesn't have all the columns is "because"
+# ...obviously this is not an explanation... it's just an example of why 
+# `.value_counts()` is what we should use for categorical data
 pokeaman['Type 1 (object)'].value_counts()
 # where the most frequently occuring value is called the *mode*
 ```
@@ -181,7 +195,10 @@ pokeaman['Type 1 (object)'].value_counts()
 pokeaman['Type 2 (object)'].value_counts(dropna=False)  # 'Type 1 (object)' doesn't have NaNs
 ```
 
-## Sorting, (0-based) indexing, and subsetting
+## Sorting, indexing, and subsetting<br>OR
+
+### `.sort_values()`<br><br>`df[]` 0-based (row) and (column) name indexing (and "index" versus "row")<br><br>$\quad$versus fully 0-based indexing with `df.iloc[]` and "slicing" with `:`<br><br>$\quad\quad$versus `df[]` or `df.loc[]` **boolean selection** with **logical conditionals**<br><sub>$\quad\quad\;\;$ `>=` / `>` / `<=` / `<` /  and `==` (and `!=` in contrast to `=`) and `~` / `&` / `|` (not/and/or)</sub>
+
 
 
 ```python
@@ -197,56 +214,56 @@ pokeaman.sort_values("Attack", ascending=False)
 
 
 ```python
+# indexing V1: 0-based (row) and (column) name indexing 
+# [row_sequence_subset] or [column_name_list] or [row_sequence_subset][column_name_list]
+# pokeaman[:10]
+# or try 
+# pokeaman[['Name','Type 1']] # but note that `pokeaman['Name','Type 1']` won't work(!)
 pokeaman[:10][['Name','Type 1']]
 ```
 
 
 ```python
-# (0-based) indexing 
-
-# indexing V1: .iloc and [ rows , cols] specifically [ rowStart : rowEndPlus1 , colstart : rowEndPlus1]
-
-pokeaman.iloc[ :10 , : ] 
-pokeaman.iloc[ 0:10 , : ] 
-pokeaman.iloc[ :10 , 1:3 ] 
+# (and "index" versus "row")
+pokeaman.dropna()[:10][['Name','Type 1']]
 ```
 
 
 ```python
-# "rows" versus "index"
-pokeaman.dropna().iloc[ :10 , 1:3 ]
+# indexing V2: fully 0-based indexing with df.iloc[] and "slicing" with `:`
+# [ rows , cols ] specifically [ rowStart : rowEndPlus1 , colstart : rowEndPlus1 ]
+
+pokeaman.iloc[ :10 , : ]  # pokeaman[:10]
+pokeaman.iloc[ 0:10 , : ]  # pokeaman[0:10]
+pokeaman.iloc[ 10:20 , 1:3 ]  # pokeaman[10:20][['Name','Type 1']]
 ```
 
 
 ```python
-# more "rows" versus "index"
+# (and "index" versus "row")
+pokeaman.dropna().iloc[ :10 , 1:3 ] 
+```
+
+
+```python
+# (and "index" versus "row")
 pokeaman.sort_values(["Attack","Defense"], ascending=[False,True]).iloc[ :10, : ]
 ```
 
 
 ```python
-# (0-based) indexing 
-
-# indexing V2: [row_sequence_subset] or [column_name_list] or [row_sequence_subset][column_name_list]
-```
-
-
-```python
-pokeaman[:10] # pokeaman.iloc[ :10 , : ]
-pokeaman[0:10] # pokeaman.iloc[ 0:10 , : ] 
-pokeaman[:10][['Name','Type 1']] # pokeaman.iloc[ :10 , 1:3 ] 
-# or try
-pokeaman[['Name','Type 1']] # but notice that `pokeaman['Name','Type 1']` won't work(!)
-```
-
-
-```python
-# subsetting
-
-# indexing V3: .loc and [ logical_conditional , colname_list ] 
+# indexing V3: *boolean selection* with *logical conditionals*
+# indexing V3: df[] or df.loc[ logical_conditional , colname_list ] 
+#                   or df.loc[ row_based_indexing , colname_list ] 
 
 pokeaman.Legendary
 pokeaman[pokeaman.Legendary]
+```
+
+
+```python
+# (and "index" versus "row")
+pokeaman.dropna().loc[ :10 , ['Name','Type 1'] ]  # or just rows 
 ```
 
 
@@ -274,8 +291,7 @@ pokeaman.loc[~(pokeaman.HP > 120) | (pokeaman.Defense > 180)]
 # pokeaman.query("HP > 120 and Legendary == True")
 ```
 
-> There's probably not time, but if there is... we could review/demo the pokemon data set a little bit more
-    - with more complex *chaining* `df.dropna.groupby('col1')...`
+> There's probably not time, but if there is... we could review/demo the pokemon data set a little bit more, with more complex *chaining* like `df.dropna().groupby('col1').describe()`?
 
 
 ```python
