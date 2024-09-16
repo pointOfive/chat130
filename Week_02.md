@@ -389,19 +389,18 @@ df['city'] = ['New York', 'Los Angeles', 'Chicago', 'Houston']
 data['city'] = ['New York', 'Los Angeles', 'Chicago', 'Houston']
 ```
 
+
 ### _scipy.stats_
 
-Probability is the mathematical framework that allows us to model chance (or uncertainty). In many real-world situations, we deal with events or outcomes that are not certain, and probability helps us quantify the likelihood of these events. Python, with libraries like `numpy` and `scipy`, provides powerful tools for handling probability distributions, statistical methods, and random events. The `stats`  module within the `scipy` library (i.e., `scipy.stats`) provides a wide range of statistical functions and probability distributions (such as the normal distribution, binomial distribution, and many others, some of which we will introduce later). These tools allow us to model different types of random events and calculate related probabilities of interest. To get started, we’ll import the `stats` submodule from `scipy` as follows, but you may sometimes see this functionality imported with alternative aliasing, such as `import scipy.stats as ss`, etc.
+Probability is the mathematical framework that allows us to model chance (or uncertainty). In many real-world situations, we deal with events or outcomes that are not certain, and probability helps us quantify the likelihood of these events. Python, with libraries like `numpy` and `scipy`, provides powerful tools for handling probability distributions, statistical methods, and random events. The `stats`  module within the `scipy` library (i.e., `scipy.stats`) provides a wide range of statistical functions and probability distributions (such as the normal distribution, binomial distribution, and many others, some of which we will introduce later). These tools allow us to model different types of random events and calculate relevant probabilities of interest. To get started, we’ll import the `stats` submodule from `scipy` as follows, but you may sometimes see this functionality imported with alternative aliasing, such as `import scipy.stats as ss`, etc.
 
 ```python
 from scipy import stats
 ```
 
-Now that we have `stats`, let's consider our first **probability distributions**. We'll start with the **multinomial distribution**. This models the probabilities of selecting `N` things from `n` options (potentially choosing each option more than once if `N` is greater than `n`). The simplest version of this would be if `N=1`, then we'd just be choosing one of the `n` options. An example of a **multinomial distribution** would be rolling a six-sided die. If we just roll once, `N=1` and `n=6` and we'll see the face up side of the die (which will be one of the outcomes 1 through 6 if we're talking about a normal die).  If you roll the die multiple times, or roll multiple identical dice (like in Yahtzee where you start by rolling 5 dice), then `N` changes but `n` does not. So in Yahtzee where you roll five dice, `N=5` and `n=6`. 
+Now that we have `stats`, let's consider our first **probability distributions**. We'll start with the **multinomial distribution**. This models the probabilities of selecting `n` things from `k` options (potentially choosing each option more than once if `n` is greater than `k`). The simplest version of this would be if `n=1`, then we'd just be choosing one of the `k` options. An example of a **multinomial distribution** would be rolling a six-sided die. If we just roll once, `n=1` and `k=6` and we'll see the face up side of the die (which will be one of the outcomes 1 through 6 if we're talking about a normal die).  If you roll the die multiple times, or roll multiple identical dice (like in Yahtzee where you start by rolling 5 dice), then `n` changes but `k` does not. So in Yahtzee where you roll five dice, `n=5` and `k=6`. 
 
-> Since we're using very similar notation for the two key ideas here, `N` and `n`, you'll need to think carefully and clearly about what the different `N` and `n` are actually referring to. But that's why we're naming them so similarly. We want to make sure that you pause to think carefully about the distinction between the two ideas. Hopefully right now the difference is pretty clear. But later in more general circumstances stances, things might not be so obvious. 
-
-So far you've probably been imagining a "fair die" or "fair dice", meaning that the chance of each of the `k` outcomes (or sides of a die in our ongoing example) is equally likely. But the **multinomial distribution** allows for some flexibility here. It has another aspect that we've not yet considered which is the "chance" of each of the `k` outcomes, and we usually refer to this as `p`.  The `p` needs to be a "list" of `k` probabilities which sum to one (which makes intuitive sense if you think about it a bit). So, in our die example, `p` will be six fractions (or decimal numbers) between 0 and 1 which together sum to 1. Here's how you use `scipy.stats` to model the two examples we've considered so far, followed by one more examples where we're rolling a die that not "fair".
+So far you've probably been imagining a "fair die" or "fair dice", meaning that the chance of each of the `k` outcomes (or sides of a die in our ongoing example) is equally likely. But the **multinomial distribution** allows for some flexibility here. It has another aspect that we've not yet considered which is the "chance" of each of the `k` outcomes, and we usually refer to this as `p`.  The `p` needs to be a "list" of `k` probabilities which sum to one (which makes intuitive sense if you think about it a bit). So, in our die example, `p` will be six fractions (or decimal numbers) between 0 and 1 which together sum to 1. Here's how you use `scipy.stats` to model the two examples we've considered so far, followed by one more examples where we're rolling a die that is not "fair".
 
 ```python
 from scipy import stats
@@ -411,21 +410,30 @@ one_fair_die = stats.multinomial(n=1, p = [1/6] * 6)  # ready to roll
 # `[1/6] * 6` above is another interesting example of *operator overloading*
 # `[1/6] * 6` turns out to produce `[1/6,1/6,1/6,1/6,1/6,1/6]`... if you can't guess why, ask a ChatBot!
 
-N = 1
-one_fair_die.rvs(N)  # rvs stand for "random variable sample"
-# which here just means, "role one die" since `N=1`
+# notice that `k` is implied by the length of `p`
 
-N = 5
-one_fair_die.rvs(N)  # but here it means "role five dice"
+one_fair_die.rvs(size=1)  # rvs stands for "random variable sample"
+# `size` is the number of times to do a "random variable sample" of whatever the `one_fair_die` thing is 
+# so `size=1` here then means "role one die" just one time (since `n=1`)
 
-one_UNfair_die = stats.multinomial(n=1, p=[0.05, 0.1, 0.15, 0.2, 0.25, 0.25] )  # ready to roll
+one_fair_die.rvs(size=5)  # but here it means "role five dice"
+
+# Consider the difference in the output between the following
+# stats.multinomial(n=1, p = [1/6] * 6).rvs(size=5)
+# stats.multinomial(n=5, p = [1/6] * 6).rvs(size=1)
+# and see if you can articulate what exactly the similarity and difference is between these two things
+# and what then the following is
+# stats.multinomial(n=5, p = [1/6] * 6).rvs(size=5)
+
+one_UNfair_die = stats.multinomial(n=1, p=[0.05, 0.1, 0.15, 0.2, 0.25, 0.25])  # ready to roll
 # We'll have to make sure were know which die face outcome corresponds to each probability...
 
-one_UNfair_die.rvs(N)  # roll the unfair die five times
+one_UNfair_die.rvs(size=5)  # roll the unfair die five times
 # Or is it role five "identically unfair dice"? Well... it's the same thing!
 ```
 
-There's actually another, more clear way to do this with code that we should consider using for now. Consider the output of the code below and see if makes sense to you. Then compare the nature of the output below to the nature of the output of the code above.  Are you able to figure out how the random is output from the `stats.multinomial(...).rvs(N)` code is formatted? if you can't guess why, ask a ChatBot!
+If you've understood above the sort of strange interchangeable similarity between `n` and `size` above, well done!
+While they may seem redundant, they let us specify things like `stats.multinomial(n=5, p = [1/6] * 6).rvs(size=10)` which can be interpreted as "role 5 dice ten times" (as in a standard Yahtzee game).  This shows us that we can conceptualize the event of "picking `n` things from `k` choices" as something that can be hypothetically repeated over and over. That said, there's actually another, perhaps simpler and clearer way to create random samples from a **multinomial distribution** in Python. Consider the output of the code below and see if makes sense to you. Then compare the nature of the output below to the nature of the output of the code above.  Are you able to figure out how the output below is related to output from `stats.multinomial(n,p).rvs(size)` for different choices of `n` and `size`? if you can't quite tell, ask a ChatBot!
 
 ```python
 import numpy as np
@@ -440,11 +448,15 @@ The last things we want to consider here are the notions of **conditional probab
 
 $\Pr(\textrm{rolling a six}) = Pr(\textrm{rolling a six} | \textrm{the last three roll were a six})?$
 
-That is, does the next die roll depend on the previous die rolls, or is it **independent** of them? What we're asking here is if there a relevant **conditional probability** or if the events being considered **independent** so there really just a single **probability** and the idea of a **conditional probability** is not really necessary. This then gives the meaning of **independence**, and of course this is defined relatively (and sort of contrarily "opposite") to  **conditional probability**.
+That is, does the next die roll depend on the previous die rolls, or is it **independent** of them? What we're asking here is if there's a relevant **conditional probability** or if the events being considered **independent** (so there's really just a single **probability** and the idea of a **conditional probability** is not really necessary). So there is either an **independence** between two events, or (sort of contrarily "opposite") there will be a meaningful **conditional probability** that changes the probability of the events based on the outcomes of the other. 
 
-If you think there's no such thing as a "hot streak" and your next roll does not depend on your last roll then you're saying this equality is true, which means you're saying the next die roll is **independent** of the previous dice rolls and there's really no notion of a **conditional probability** because it's just a **probability**. This is true, so long as you're really rolling a "fair die" randomly. So when a **conditional probability** statement can simplify, like if $\Pr(A|B) = \Pr(A)$ meaning that knowing $B$ does not change the probability of $A$ occurring, then this is when we say that $A$ and $B$ are **independent**.  In the **multinomial distribution**, the `N` selections of the `n` different possible options is assumed to be **independent**. So, the chances that we'll choose the `n` different possible options could be different (depending on their relative probabilities given by `p`), but each time we choose an outcome (one of the `N` selections we make), this does depend on which options we've previously chosen (if we're imagining choosing our `N` selections sequentially). This doesn't mean that we couldn't sequentially change our value of `p` in some sort of sequentially dynamic process that uses different **multinomial distributions** over time. But, it does mean that for  `N` selections from `n` options drawn from a **multinomial distributions** with a fixed unchanging `p`, the `N` selections are **independent** and do not change in response to each other or affect each other in any way. 
+If you think there's no such thing as a "hot streak" and your next roll does not depend on your last roll then you're saying the equality above is true, which means you're saying the next die roll is **independent** of the previous dice rolls and there's really no notion of a **conditional probability** (because it's just a **probability**). This is true, so long as you're really rolling a "fair die" randomly. So when a **conditional probability** statement can simplify, like if $\Pr(A|B) = \Pr(A)$ meaning that knowing $B$ does not change the probability of $A$ occurring, then this is when we say that $A$ and $B$ are **independent**.  In the **multinomial distribution**, the `n` selections of the `k` different possible options is assumed to be **independent**. So, the chances that we'll choose each of the `k` different possible options could be different (depending on their relative probabilities given by `p`), but each time we choose an outcome (one of the `n` selections we make), this does depend on which options we've previously chosen (if we're imagining choosing our `n` selections sequentially). 
+
+This doesn't mean that we couldn't sequentially change our value of `p` in some sort of sequentially dynamic process that uses different **multinomial distributions** over time. But, it does mean that for  `n` selections from `k` options drawn from a **multinomial distributions** with a fixed unchanging `p`, the `n` selections are **independent** and do not change in response to each other or affect each other in any way. And it's actually also interesting to consider again here the `stats.multinomial(n,p).rvs(size)` specification.  The **independence** of the **multinomial distribution** means that the `n` choices for the `k` options related to `stats.multinomial(n,p)` do not depend on each other.  But, owing to the definition of "random variable sample", the `.rvs(size)` notion of repeating a the "`n` choices for the `k` options" game `size` times is itself also based on **independence**.  This means that the outcomes of different repetitions of the "`n` choices for the `k` options" games also do not affect each other.  
 
 But there might be other examples where this is not true? Can you think of any? How about an example of drawing cards from a deck? Does the probability of drawing an Ace change if you've previously drawn and removed cards from the deck?
+
+
 
 # Course Tutorial: Week 02 TUT
 
