@@ -26,9 +26,9 @@ This is the course [wiki-textbook](https://github.com/pointOfive/stat130chat130/
 
 > Topic numbers below correspond to extensions of topic items above.
 
-2\. [function/method arguments](week-01-Data-Summarization#functionmethod-arguments) (like `encoding`, `dropna`, `inplace`, and return vs side-effect)\
-3\. [boolean values and coercion](week-01-Data-Summarization#Boolean-Values-and-Coercion)\
-5\. _ i. [_.dtypes_ and _.astype()_](week-01-Data-Summarization#pandas-column-data-types)\
+1\. [function/method arguments](week-01-Data-Summarization#functionmethod-arguments) (like `encoding`, `dropna`, `inplace`, and return vs side-effect)\
+2\. [boolean values and coercion](week-01-Data-Summarization#Boolean-Values-and-Coercion)\
+3\. _ i. [_.dtypes_ and _.astype()_](week-01-Data-Summarization#pandas-column-data-types)\
 ___ ii. [statistic calculation functions](week-01-Data-Summarization#some-statistics-calculations) 
 
 **LEC New Topics**
@@ -44,7 +44,7 @@ ___ ii. [statistic calculation functions](week-01-Data-Summarization#some-statis
 4. ...further "data wrangling topics" such as "joining" and "merging"; "pivoting", "wide to long", and "tidy" data formats; etc.
 
 
-## Week 02 Coding
+## Week 02 Coding and Probability
 
 **TUT/HW Topics**
 
@@ -87,28 +87,28 @@ ___ ii. [statistic calculation functions](week-01-Data-Summarization#some-statis
 
 **TUT/HW Topics**
 
-1. ["types of data"](week-03-Data-Visualization#Types-III)... continuous, discrete, nominal and ordinal categorical, and binary
+1. [more precise data types (as opposed to object types)](week-03-Data-Visualization#continuous-discrete-nominal-and-ordinal-categorical-and-binary)... continuous, discrete, nominal and ordinal categorical, and binary
 2. [bar plots](week-03-Data-Visualization#Bar-plots-and-modes) and the [mode](week-03-Data-Visualization#Bar-plots-and-modes)
 3. [histograms](week-03-Data-Visualization#Histograms)
 4. [box plots](week-03-Data-Visualization#Box-plots-and-spread), [range](week-03-Data-Visualization#Box-plots-and-spread), [IQR](week-03-Data-Visualization#Box-plots-and-spread) and [outliers](week-03-Data-Visualization#Box-plots-and-spread)
-5. [skew](week-03-Data-Visualization#skew-and-multimodality) and [multimodality](week-03-Data-Visualization#skew-and-multimodality)
+5. [skew and multimodality](week-03-Data-Visualization#skew-and-multimodality)
     1. [mean versus median](week-03-Data-Visualization#skew-and-multimodality)
-    2. [normality and standard deviations](week-03-Data-Visualization#skew-and-multimodality)
+    2. [normality and standard deviations](week-03-Data-Visualization#normal-distributions)
     
 **LEC Extensions**
 
 > Topic numbers below correspond to extensions of topic items above.
 
-2\. plotting... plotly, seaborn, matplotlib, pandas\
-3\. kernel density estimation "violin plots"\
-4\. legends, annotations, figure panels\
-5\. log transformations
+2\. [plotting... plotly, VS seaborn, VS matplotlib, VS pandas vs. ... ?](week-03-Data-Visualization#modern-plotting)\
+___ i\. legends, annotations, figure panels, etc.\
+3\. [kernel density estimation "violin plots"](week-03-Data-Visualization#smoothed-histograms)\
+5\. [log transformations](week-03-Data-Visualization#log-transformations)
 
 **LEC New Topics**
 
-1. populations [_from scipy import stats_](week-03-Data-Visualization#Populations) (re: `stats.multinomial` and `np.random.choice()`) with `stats.norm`, `stats.gamma`, and `stats.poisson`
-2. [samples](week-03-Data-Visualization#Sampling) from populations (distributions)
-3. [statistics estimate parameters](week-03-Data-Visualization#Statistics-Estimate-Parameters)
+1. populations [_from scipy import stats_](week-03-Data-Visualization#Populations) (re: `stats.multinomial` and `np.random.choice()`) like `stats.norm`, `stats.gamma`, and `stats.poisson`
+2. [samples](week-03-Data-Visualization#Sampling) versus populations (distributions)
+3. [statistical inference](week-03-Data-Visualization#Statistics-Estimate-Parameters)
 
 **Out of scope**
 1. Material covered in future weeks
@@ -116,6 +116,7 @@ ___ ii. [statistic calculation functions](week-01-Data-Summarization#some-statis
 3. ...such as expectation, moments, integration, heavy tailed distributions...
 4. ...such as kernel functions for kernel density estimation
 5. ...bokeh, shiny, d3, ...
+
 
 ## Week 04 Bootstrapping
 
@@ -157,7 +158,7 @@ ___ ii. [statistic calculation functions](week-01-Data-Summarization#some-statis
 2. the sampling distribution under the null
     1. one sample "difference" hypothesis tests with a "no effect" null
 3. [p-values](https://github.com/pointOfive/STA130_ChatGPT/wiki/week-05-Hypothesis-Testing#p-values)
-4. [one- or two-sided hypothesis tests](https://github.com/pointOfive/STA130_ChatGPT/wiki/week-05-Hypothesis-Testing#One-or-Two-Sided Hypothesis-Tests)
+4. [one- or two-sided hypothesis tests](https://github.com/pointOfive/STA130_ChatGPT/wiki/week-05-Hypothesis-Testing#One-or-Two-Sided-Hypothesis-Tests)
     
 **LEC Extensions / New Topics**
 
