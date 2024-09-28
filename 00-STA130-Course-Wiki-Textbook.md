@@ -26,9 +26,9 @@ This is the course [wiki-textbook](https://github.com/pointOfive/stat130chat130/
 
 > Topic numbers below correspond to extensions of topic items above.
 
-1\. [function/method arguments](week-01-Data-Summarization#functionmethod-arguments) (like `encoding`, `dropna`, `inplace`, and return vs side-effect)\
-2\. [boolean values and coercion](week-01-Data-Summarization#Boolean-Values-and-Coercion)\
-3\. _ i. [_.dtypes_ and _.astype()_](week-01-Data-Summarization#pandas-column-data-types)\
+2\. [function/method arguments](week-01-Data-Summarization#functionmethod-arguments) (like `encoding`, `dropna`, `inplace`, and return vs side-effect)\
+3\. [boolean values and coercion](week-01-Data-Summarization#Boolean-Values-and-Coercion)\
+4\. _ i. [_.dtypes_ and _.astype()_](week-01-Data-Summarization#pandas-column-data-types)\
 ___ ii. [statistic calculation functions](week-01-Data-Summarization#some-statistics-calculations) 
 
 **LEC New Topics**
