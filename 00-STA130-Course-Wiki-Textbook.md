@@ -123,31 +123,30 @@ ___ i\. legends, annotations, figure panels, etc.\
 **TUT/HW Topics**
 
 1. [simulation](week-04-Bootstrapping#Simulation) (with `for` loops and `from scipy import stats`)
-2. [the sampling distribution of the mean](week-04-Bootstrapping#Variability/Uncertainty-of-the-Sample-Mean)
+2. [sampling distribution of the sample mean](week-04-Bootstrapping#VariabilityUncertainty-of-the-Sample-Mean)
 3. [standard deviation versus standard error](week-04-Bootstrapping#Standard-Deviation-versus-Standard-Error)
-4. [how standard error is driven by n](week-04-Bootstrapping#How-n-Drives-Standard-Error)
+4. [how n drives standard error](week-04-Bootstrapping#How-n-drives-Standard-Error)
 
 **LEC Extensions**
 
-> Topic numbers below correspond to extensions of topic items above.
-
-1. `df.sample(n=n_, frac=1, replace=False)`
-    1. skewed distributions
-    2. bootstrapping
-    3. not bootstrapping
+1. [Independent Sampling](week-04-Bootstrapping#Independent-Samples) functions like `df.sample([n=n/frac=1], replace=False)`
+    1. [Are Sampling Distributions Skewed?](week-04-Bootstrapping#Are-Sampling-Distributions-Skewed)
+    2. [Bootstrapping](week-04-Bootstrapping#bootstrapping)
+    3. [Not Bootstrapping](week-04-Bootstrapping#not-bootstrapping)
 
 **LEC New Topics**
 
-1. confidence (and confidence levels)
-    1. "double" `for` loops
-2. bootstrapped confidence intervals
+1. [Confidence Intervals](week-04-Bootstrapping#Confidence-Intervals)
+2. [Bootstrapped Confidence Intervals](week-04-Bootstrapping#Bootstrapped-Confidence-Intervals)
+3. ["Double" _for_ loops](week-04-Bootstrapping#double-for-loops)
+    1. [Proving Bootstrapped Confidence Intervals using Simulation](week-04-Bootstrapping#Proving-Bootstrapping)
 
 **Out of Scope**
 
 1. Material covered in future weeks
 2. Anything not substantively addressed above...
 3. ...such as the **Central Limit Theorem (CLT)**, **Law of Large Numbers (LLN)**, and theoretical "x-bar plus/minus about 2 standard errors" confidence intervals (based on the so-called "pivot" form)
-4. ... the alternative sampling function `np.random.choice(size, p, replace=True)` which will be introduced for different purposes later
+4. ... the alternative sampling function `np.random.choice(list_of_options, p, replace=True)` which will be introduced for different purposes later
 
 
 ## Week 05 Hypothesis Testing
