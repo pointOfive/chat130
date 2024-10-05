@@ -1,4 +1,4 @@
-# Week 04 Bootstrapping and Estimation
+# Course Textbook: Week 04 Bootstrapping and Estimation
 
 **TUT/HW Topics**
 
