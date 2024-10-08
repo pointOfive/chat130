@@ -1,26 +1,26 @@
-**TUT/HW Topics**
+**Tutorial/Homework: Topics**
 
-1. importing libraries... like [_pandas_](#import)
-2. loading data... with [_pd.read_csv()_](#read_csv)
-3. counting missing values... with [_df.isna().sum()_](#Missingness-I)
-4. observations (rows) and variables (columns)... [_df.shape_](#Variables-and-Observations) and [_df.columns_](#Variables-and-Observations)
-5. numeric versus non-numeric... [_df.describe()_](#Types-I) and [_df.value_counts()_](#Types-I)
-6. removing missing data... with [_df.dropna()_](#Missingness-II) and [_del df['col']_](n#Missingness-II)
-7. grouping and aggregation.... with [_df.groupby("col1")["col2"].describe()_](#Grouping-and-Aggregation)
+1. importing libraries... like [_pandas_](week-01-Data-Summarization#import)
+2. loading data... with [_pd.read_csv()_](week-01-Data-Summarization#read_csv)
+3. counting missing values... with [_df.isna().sum()_](week-01-Data-Summarization#Missingness-I)
+4. observations (rows) and variables (columns)... [_df.shape_](week-01-Data-Summarization#Variables-and-Observations) and [_df.columns_](week-01-Data-Summarization#Variables-and-Observations)
+5. numeric versus non-numeric... [_df.describe()_](week-01-Data-Summarization#Types-I) and [_df.value_counts()_](week-01-Data-Summarization#Types-I)
+6. removing missing data... with [_df.dropna()_](week-01-Data-Summarization#Missingness-II) and [_del df['col']_](week-01-Data-Summarization#Missingness-II)
+7. grouping and aggregation.... with [_df.groupby("col1")["col2"].describe()_](week-01-Data-Summarization#Grouping-and-Aggregation)
 
-**LEC Extensions**
+**Tutorial/Homework: Lecture Extensions**
 
 > Topic numbers below correspond to extensions of topic items above.
 
-2\. [function/method arguments](#functionmethod-arguments) (like `encoding`, `dropna`, `inplace`, and return vs side-effect)\
-3\. [boolean values and coercion](#Boolean-Values-and-Coercion)\
-5\. _ i. [_.dtypes_ and _.astype()_](#pandas-column-data-types)\
-___ ii. [statistic calculation functions](#some-statistics-calculations) 
+2\. [function/method arguments](week-01-Data-Summarization#functionmethod-arguments) (like `encoding`, `dropna`, `inplace`, and return vs side-effect)\
+3\. [boolean values and coercion](week-01-Data-Summarization#Boolean-Values-and-Coercion)\
+4\. _ i. [_.dtypes_ and _.astype()_](week-01-Data-Summarization#pandas-column-data-types)\
+___ ii. [statistic calculation functions](week-01-Data-Summarization#some-statistics-calculations) 
 
-**LEC New Topics**
+**Lecture: New Topics**
 
-1. [sorting and (0-based) indexing](#sorting-and-iloc-indexing)
-2. [subsetting via conditionals and boolean selection](#logical-conditionals-boolean-selectionsubsetting-and-loc-indexing-v2)
+1. [sorting and (0-based) indexing](week-01-Data-Summarization#sorting-and-iloc-indexing)
+2. [subsetting via conditionals and boolean selection](week-01-Data-Summarization#logical-conditionals-boolean-selectionsubsetting-and-loc-indexing-v2)
 
 **Out of Scope**
 
@@ -29,7 +29,8 @@ ___ ii. [statistic calculation functions](#some-statistics-calculations)
 3. ...such as how to handle missing values using more advanced techniques that don't just "ignore" or "remove" them (for example by filling or imputing the missing values and the assumptions required when doing so...)
 4. ...further "data wrangling topics" such as "joining" and "merging"; "pivoting", "wide to long", and "tidy" data formats; etc.
 
-## TUT/HW Topics
+
+## Tutorial/Homework: Topics
 
 ### import
 
@@ -215,7 +216,7 @@ Grouping and aggregation are powerful concepts in data analysis, particularly wi
 Missing values in the grouping column (`"col1"`) will result in a separate group if there are any, while the `.describe()` **method** automatically excludes missing values when calculating descriptive statistics for `"col2"`.
 
 
-## LEC Extensions
+## Tutorial/Homework: Lecture Extensions
 
 
 ### Function/Method Arguments
@@ -421,6 +422,10 @@ The `.describe()` method in `pandas` provides a quick statistical summary of num
   $$\max_{i} x_i = \max(x_1, x_2, \ldots, x_n)$$
 
 These are **statistics** for **numeric** data; whereas, the `df['x'].value_counts()` **method** returns the count of each unique value in the data and so is contrastingly appropriate when column `x` contains non-numeric (**categorical**) data. Using `df['x'].value_counts(dropna=False)` will additionally includes the number of missing values in the column in the returned counts; whereas, to determine this for **numeric** variables in the context of `df.describe()` would require a relative comparison to `df.shape` or `df['x'].size`.
+
+
+## Lecture: New Topics
+
 
 ### Sorting and _.iloc_ Indexing
 
