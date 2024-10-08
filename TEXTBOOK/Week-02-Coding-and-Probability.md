@@ -1,3 +1,8 @@
+
+# Course Textbook: Week 02 Probability and Coding
+
+# Chance is simple and Chat MAKES things simple
+
 **Tutorial/Homework: Topics**
 
 1. python object types... [_tuple_](week-02-Coding#Types), [_list_](week-02-Coding#types), [_dict_](week-02-Coding#Types)

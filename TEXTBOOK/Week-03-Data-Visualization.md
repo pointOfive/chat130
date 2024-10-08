@@ -1,4 +1,5 @@
-# Data Visualization and Populations and Sampling
+# Course Textbook: Week 03 Data Visualization
+# Populations and Sampling and making figures with chat
 
 **Tutorial/Homework: Topics**
 

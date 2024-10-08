@@ -1,3 +1,8 @@
+
+# Course Textbook: Week 01 Data Summarization
+
+# Simple numerical summaries and Chat is pretty great
+
 **Tutorial/Homework: Topics**
 
 1. importing libraries... like [_pandas_](week-01-Data-Summarization#import)

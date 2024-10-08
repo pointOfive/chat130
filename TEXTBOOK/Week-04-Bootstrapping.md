@@ -1,3 +1,4 @@
+# Course Textbook: Week 04 Bootstrapping
 # Confidence Intervals and Statistical Inference using Sampling Distributions
 
 **Tutorial/Homework: Topic**

@@ -1,3 +1,7 @@
+
+# Couse Textbook: Week 05 Hypothesis Testing
+# p-values and how to use AND NOT USE them
+
 **Tutorial/Homework: Topics**
 
 1. [Null and Alternative Hypotheses](https://github.com/pointOfive/stat130chat130/wiki/week-05-Hypothesis-Testing#Null-and-Alternative-Hypotheses)
