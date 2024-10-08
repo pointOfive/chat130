@@ -1,4 +1,4 @@
-## STA130 TUT 01 (Sep06)<br><br> 🏃🏻‍♀️ 🏃🏻 <u> Hitting the ground running... <u>
+# STA130 TUT 01 (Sep06)<br><br> 🏃🏻‍♀️ 🏃🏻 <u> Hitting the ground running... <u>
 
 
 ### 🚧 🏗️ (Using notebooks and ChatBots) Demo [45 minutes]  

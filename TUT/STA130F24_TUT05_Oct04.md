@@ -246,19 +246,19 @@ H_0: p=0.5 \quad &{} \text{instead of the equivalent} \\
 # "as or more extreme" relative to the hypothesized parameter of the statistic!
 population_parameter_value_under_H0 = 0.5
 
-observed_test_statistic = (patient_data.HealthScoreChange>0).mean()
-simulated_test_statistics = IncreaseProportionSimulations_underH0random
+observed_statistic = (patient_data.HealthScoreChange>0).mean()
+simulated_statistics = IncreaseProportionSimulations_underH0random
 
-SimTestStats_as_or_more_extreme_than_ObsTestStat = \
-    abs(simulated_test_statistics - population_parameter_value_under_H0) >= \
-    abs(observed_test_statistic - population_parameter_value_under_H0) 
+SimStats_as_or_more_extreme_than_ObsStat = \
+    abs(simulated_statistics - population_parameter_value_under_H0) >= \
+    abs(observed_statistic - population_parameter_value_under_H0) 
     
 print('''Which simulated statistics are "as or more extreme"
-than the observed statistic? (of ''', observed_test_statistic, ')', sep="")
+than the observed statistic? (of ''', observed_statistic, ')', sep="")
 
-pd.DataFrame({'(Simulated) Statistic': simulated_test_statistics,
-              '>= '+str(observed_test_statistic)+" ?": ['>= '+str(observed_test_statistic)+" ?"]*number_of_simulations, 
-              '"as or more extreme"?': SimTestStats_as_or_more_extreme_than_ObsTestStat})
+pd.DataFrame({'(Simulated) Statistic': simulated_statistics,
+              '>= '+str(observed_statistic)+" ?": ['>= '+str(observed_statistic)+" ?"]*number_of_simulations, 
+              '"as or more extreme"?': SimStats_as_or_more_extreme_than_ObsStat})
 ```
 
 **When the simulation (two code cells back) is based on `np.random.seed(1)` the output above includes examples of `True` for `0.8 >= 0.8` AND**
@@ -280,35 +280,35 @@ We've got your answer down below.
 # figure for demonstration only: code details not of primary concern
 
 hist_data = [IncreaseProportionSimulations_underH0random+np.random.uniform(-0.05,0.05,size=len(IncreaseProportionSimulations_underH0random))]
-group_labels = ['Bootstrap<br>Sampling<br>Distribution<br>of the<br>Sample<br>Mean<br><br>assuming<br>that the<br>H0 null<br>hypothesis<br>IS TRUE']
+group_labels = ['SYNTHETICALLY<br>SIMULATED<br>Sampling<br>Distribution<br>of the<br>Sample<br>Mean<br><br>assuming<br>that the<br>H0 null<br>hypothesis<br>IS TRUE']
 fig = ff.create_distplot(hist_data, group_labels, curve_type='normal',
                          show_hist=True, show_rug=False, bin_size=0.1)
 pv_y = 2.5
 pv_y_ = .25
-fig.add_shape(type="line", x0=observed_test_statistic, y0=0, 
-              x1=observed_test_statistic, y1=pv_y,
+fig.add_shape(type="line", x0=observed_statistic, y0=0, 
+              x1=observed_statistic, y1=pv_y,
               line=dict(color="Green", width=4), name="Observed Statistic")
-fig.add_trace(go.Scatter(x=[observed_test_statistic], y=[pv_y+pv_y_], 
+fig.add_trace(go.Scatter(x=[observed_statistic], y=[pv_y+pv_y_], 
                          text=["Observed<br>Statistic<br>^"], mode="text", showlegend=False))
 # "as or more extreme" also include the "symmetric" observed statistic...
-symmetric_test_statistic = population_parameter_value_under_H0 -\
-                           abs(observed_test_statistic-population_parameter_value_under_H0)
-fig.add_shape(type="line", x0=symmetric_test_statistic, y0=0, 
-              x1=symmetric_test_statistic, y1=pv_y,
+symmetric_statistic = population_parameter_value_under_H0 -\
+                           abs(observed_statistic-population_parameter_value_under_H0)
+fig.add_shape(type="line", x0=symmetric_statistic, y0=0, 
+              x1=symmetric_statistic, y1=pv_y,
               line=dict(color="Green", width=4), name="Observed Statistic")
-fig.add_trace(go.Scatter(x=[symmetric_test_statistic], y=[pv_y+pv_y_], 
+fig.add_trace(go.Scatter(x=[symmetric_statistic], y=[pv_y+pv_y_], 
                          text=['"Symmetric" Observed Statistic<br>addrdssing for "as or more extreme"<br>^'], mode="text", showlegend=False))
 
 # Add a transparent rectangle for the lower extreme region
-fig.add_shape(type="rect", x0=-0.25, y0=0, x1=symmetric_test_statistic, y1=pv_y,
+fig.add_shape(type="rect", x0=-0.25, y0=0, x1=symmetric_statistic, y1=pv_y,
               fillcolor="LightCoral", opacity=0.5, line_width=0)
 # Add a transparent rectangle for the upper extreme region
-fig.add_shape(type="rect", x0=observed_test_statistic, y0=0, x1=1.25, y1=pv_y,
+fig.add_shape(type="rect", x0=observed_statistic, y0=0, x1=1.25, y1=pv_y,
               fillcolor="LightCoral", opacity=0.5, line_width=0)
 
 # Update layout
 fig.update_layout(
-    title="Bootstrapped Sampling Distribution<br>under H0 with p-value regions",
+    title="SYNTHETICALLY SIMULATED Sampling Distribution<br>under H0 with p-value regions",
     xaxis_title="Mean Health Score Change", yaxis_title="Density", yaxis=dict(range=[0, pv_y+2*pv_y_]))
 fig.show() # USE `fig.show(renderer="png")` FOR ALL GitHub and MarkUs SUBMISSIONS
 ```
@@ -332,19 +332,19 @@ fig.show() # USE `fig.show(renderer="png")` FOR ALL GitHub and MarkUs SUBMISSION
 # are "as or more extreme" than the observed statistic 
 # (relative to the hypothesized population parameter)? 
 
-observed_test_statistic = (patient_data.HealthScoreChange>0).mean()
-simulated_test_statistics = IncreaseProportionSimulations_underH0random
+observed_statistic = (patient_data.HealthScoreChange>0).mean()
+simulated_statistics = IncreaseProportionSimulations_underH0random
 
 # Be careful with "as or more extreme" as it's symmetric!
-SimTestStats_as_or_more_extreme_than_ObsTestStat = \
-    abs(simulated_test_statistics - population_parameter_value_under_H0) >= \
-    abs(observed_test_statistic - population_parameter_value_under_H0)
+SimStats_as_or_more_extreme_than_ObsStat = \
+    abs(simulated_statistics - population_parameter_value_under_H0) >= \
+    abs(observed_statistic - population_parameter_value_under_H0)
     
-p_value = (SimTestStats_as_or_more_extreme_than_ObsTestStat).sum() / number_of_simulations
+p_value = (SimStats_as_or_more_extreme_than_ObsStat).sum() / number_of_simulations
 print("Number of Simulations: ", number_of_simulations, "\n\n",
       "Number of simulated statistics (under HO)\n",
       'that are "as or more extreme" than the observed statistic: ',
-      SimTestStats_as_or_more_extreme_than_ObsTestStat.sum(), "\n\n",
+      SimStats_as_or_more_extreme_than_ObsStat.sum(), "\n\n",
       'p-value\n(= simulations "as or more extreme" / total simulations): ', p_value, sep="")
 ```
 
@@ -419,3 +419,8 @@ Everything phystical and mechanical that Stella can examine about the wheel seem
 |$$0.05 \ge p > 0.01$$|Moderate evidence against the null hypothesis|
 |$$0.01 \ge p > 0.001$$|Strong evidence against the null hypothesis|
 |$$0.001 \ge p$$|Very strong evidence against the null hypothesis|    
+
+
+```python
+
+```

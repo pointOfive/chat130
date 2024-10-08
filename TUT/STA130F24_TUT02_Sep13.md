@@ -1,8 +1,9 @@
-## STA130 TUT 02 (Sep13)<br><br> 👨‍💻 👩🏻‍💻 <u>Coding with data types, for loops, and logical control<u>
-
+# STA130 TUT 02 (Sep13)<br><br> 👨‍💻 👩🏻‍💻 <u>Coding with data types, for loops, and logical control<u>
+    
 
 
 ### ♻️ 📚 Review / Questions [10 minutes]
+
 1. Follow up questions and clarifications regarding regarding **notebooks, markdown, ChatBots, or `Python` code** previously introduced in the Sep06 TUT and Sep09 LEC 
 
 > 1. We're continuing to dive into using **notebooks, markdown**, and `Python` as a tool: building comfort and capability working with **ChatBots** to leverage `Python` code is the objective of the current phase of the course...<br><br>
