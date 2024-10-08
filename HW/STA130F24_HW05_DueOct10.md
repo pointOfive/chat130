@@ -263,7 +263,7 @@ While you can choose how to approach the project, we are interested in evaluatin
 
 _**Don't forget to ask for summaries of your ChatBot session(s) and paste these into your homework notebook (including link(s) to chat log histories if you're using ChatGPT)!**_ **But if you're using the STA130 custom NBLM ChatBot, you'll only be able to ask for summaries, of course!**
 
-# Recommended Additional Useful Activities [Optional]
+## Recommended Additional Useful Activities [Optional]
 
 The "Ethical Profesionalism Considerations" and "Current Course Project Capability Level" sections below **are not a part of the required homework assignment**; rather, they are regular weekly guides covering (a) relevant considerations regarding professional and ethical conduct, and (b) the analysis steps for the STA130 course project that are feasible at the current stage of the course 
 

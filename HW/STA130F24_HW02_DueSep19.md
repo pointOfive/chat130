@@ -1,4 +1,4 @@
-## STA130 Homework 02
+# STA130 Homework 02
 
 Please see the course [wiki-textbook](https://github.com/pointOfive/stat130chat130/wiki) for the list of topics covered in this homework assignment, and a list of topics that might appear during ChatBot conversations which are "out of scope" for the purposes of this homework assignment (and hence can be safely ignored if encountered)
 
@@ -54,9 +54,9 @@ In the case of the former (1), adding constraints specifying the limits of consi
 - [0.3 points]: Evaluation of engagement and evaluation of written communication in "7"
         
 
-### "Pre-lecture" HW [*completion prior to next LEC is suggested but not mandatory*]
+## "Pre-lecture" HW [*completion prior to next LEC is suggested but not mandatory*]
 
-#### 1. Begin (or restart) part "3(a)" of the **TUT Demo** and interact with a ChatBot to make sure you understand how each part the Monte Hall problem code above works<br>
+### 1. Begin (or restart) part "3(a)" of the **TUT Demo** and interact with a ChatBot to make sure you understand how each part the Monte Hall problem code above works<br>
 
 <details class="details-example"><summary style="color:blue"><u>Further Guidance</u></summary>
     
@@ -67,7 +67,7 @@ In the case of the former (1), adding constraints specifying the limits of consi
 </details>
 
 
-#### 2. Extend your ChatBot sessions to now address part "3(b)" of the **TUT Demo** and interact with your ChatBot to see if it can suggest a simpler, more streamlined way to code up this *for* loop simulation so the process is more clear and easier to understand; then, describe any preferences you have in terms of readibility or explainability  between the original code and the code improvements suggested by the ChatBot<br>
+### 2. Extend your ChatBot sessions to now address part "3(b)" of the **TUT Demo** and interact with your ChatBot to see if it can suggest a simpler, more streamlined way to code up this *for* loop simulation so the process is more clear and easier to understand; then, describe any preferences you have in terms of readibility or explainability  between the original code and the code improvements suggested by the ChatBot<br>
 
 <details class="details-example"><summary style="color:blue"><u>Further Guidance</u></summary>
     
@@ -76,7 +76,7 @@ In the case of the former (1), adding constraints specifying the limits of consi
 </details>
         
 
-#### 3. Submit your preferred version of the Monty Hall problem that is verified to be running and working with a final printed output of the code; then, add code comments explaining the purpose of each line of the code<br>
+### 3. Submit your preferred version of the Monty Hall problem that is verified to be running and working with a final printed output of the code; then, add code comments explaining the purpose of each line of the code<br>
 
 <details class="details-example"><summary style="color:blue"><u>Further Guidance</u></summary>
     
@@ -87,7 +87,7 @@ In the case of the former (1), adding constraints specifying the limits of consi
 </details>
  
 
-#### 4. Watch the embedded video tutorial on Markov chains in the next Jupyter cell below to understand their application and relevance for ChatBots; then, after watching the video, start a new ChatBot session by prompting that you have code that creates a "Markovian ChatBot"; show it the first version of the "Markovian ChatBot code" below; and interact with the ChatBot session to make sure you understand how the original first version of the "Markovian ChatBot code" works<br>
+### 4. Watch the embedded video tutorial on Markov chains in the next Jupyter cell below to understand their application and relevance for ChatBots; then, after watching the video, start a new ChatBot session by prompting that you have code that creates a "Markovian ChatBot"; show it the first version of the "Markovian ChatBot code" below; and interact with the ChatBot session to make sure you understand how the original first version of the "Markovian ChatBot code" works<br>
 
 <details class="details-example"><summary style="color:blue"><u>Further Guidance</u></summary>
 
@@ -115,9 +115,9 @@ Feel free to work on the "Post-lecture" HW below if you're making good progress 
     
 </details>    
 
-### "Post-lecture" HW [*submission along with "Pre-lecture" HW is due prior to next TUT*]
+## "Post-lecture" HW [*submission along with "Pre-lecture" HW is due prior to next TUT*]
 
-#### 5. Recreate (or resume) the previous ChatBot session from question "4" above, and now  prompt the ChatBot session that you have a couple extensions of the code to show it, and then show it each of the extentions of the "Markovian ChatBot code" below in turn
+### 5. Recreate (or resume) the previous ChatBot session from question "4" above, and now  prompt the ChatBot session that you have a couple extensions of the code to show it, and then show it each of the extentions of the "Markovian ChatBot code" below in turn
 
 
 
@@ -148,7 +148,7 @@ Feel free to work on the "Post-lecture" HW below if you're making good progress 
 </details>
      
 
-#### 6. Report on your experience interacting with ChatBots to understand the Monte Hall problem and "Markovian ChatBot" code
+### 6. Report on your experience interacting with ChatBots to understand the Monte Hall problem and "Markovian ChatBot" code
 
 1. Discuss how quickly the ChatBot was able to be helpful for each of the above questions, and if so, how?<br><br>
     
@@ -156,7 +156,7 @@ Feel free to work on the "Post-lecture" HW below if you're making good progress 
     
 3. Based on your experiences to date (e.g., including using ChatBots to troubleshoot coding errors in the previous homework), provide an overall assessment evaluating the usefulness of ChatBots as tools to help you understand code<br>
 
-#### 7. Reflect on your experience interacting with ChatBot and describe how your perception of AI-driven assistance tools in the context of learning coding, statistics, and data science has been evolving (or not) since joining the course<br><br>
+### 7. Reflect on your experience interacting with ChatBot and describe how your perception of AI-driven assistance tools in the context of learning coding, statistics, and data science has been evolving (or not) since joining the course<br><br>
 
 <details class="details-example"><summary style="color:blue"><u>Further Guidance</u></summary>
     
@@ -164,7 +164,7 @@ Feel free to work on the "Post-lecture" HW below if you're making good progress 
    
 </details>
 
-#### 8. ChatBots consume text data available on the web or platforms, and thus represents a new way to "search consensensus" that condenses and summarizes mainstream human thought<br><br>
+### 8. ChatBots consume text data available on the web or platforms, and thus represents a new way to "search consensensus" that condenses and summarizes mainstream human thought<br><br>
 
 1. Start a new ChatBot session and discuss the relevance of learning and adaptability, communication, coding, and statistics and data analysis as skills in the modern world, especially with respect to career opportunities (particularly in the context of the data science industry)<br><br>
     
@@ -184,13 +184,17 @@ Feel free to work on the "Post-lecture" HW below if you're making good progress 
 </details>
 
 
-#### 9. Have you reviewed the course [wiki-textbook](https://github.com/pointOfive/stat130chat130/wiki) and interacted with a ChatBot (or, if that wasn't sufficient, real people in the course piazza discussion board or TA office hours) to help you understand all the material in the tutorial and lecture that you didn't quite follow when you first saw it?<br><br>
+### 9. Have you reviewed the course wiki-textbook and interacted with a ChatBot (or, if that wasn't sufficient, real people in the course piazza discussion board or TA office hours) to help you understand all the material in the tutorial and lecture that you didn't quite follow when you first saw it?<br><br>
   
 <details class="details-example"><summary style="color:blue"><u>Further Guidance</u></summary>
-    
+
+>  Here is the link of [wiki-textbook](https://github.com/pointOfive/stat130chat130/wiki) in case it gets lost among all the information you need to keep track of  : )
+>     
 > _Just answering "Yes" or "No" or "Somewhat" or "Mostly" or whatever here is fine as this question isn't a part of the rubric; but, the midterm and final exams may ask questions that are based on the tutorial and lecture materials; and, your own skills will be limited by your familiarity with these materials (which will determine your ability to actually do actual things effectively with these skills... like the course project...)_
     
 </details>
+
+_**Don't forget to ask for summaries of your ChatBot session(s) and paste these into your homework notebook (including link(s) to chat log histories if you're using ChatGPT)!**_
 
 
 ```python

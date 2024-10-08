@@ -1,4 +1,4 @@
-## STA130 Week 01 Homework 
+# STA130 Week 01 Homework 
 
 Please see the course [wiki-textbook](https://github.com/pointOfive/stat130chat130/wiki) for the list of topics covered in this homework assignment, and a list of topics that might appear during ChatBot conversations which are "out of scope" for the purposes of this homework assignment (and hence can be safely ignored if encountered)
 
@@ -56,9 +56,9 @@ In the case of the former (1), adding constraints specifying the limits of consi
 - [0.4 points]: Requested assessment of ChatBot versus google performance in Question "8.3"
 
 
-### "Pre-lecture" HW [*completion prior to next LEC is suggested but not mandatory*]
+## "Pre-lecture" HW [*completion prior to next LEC is suggested but not mandatory*]
 
-#### 1. Pick one of the datasets from the ChatBot session(s) of the **TUT demo** (or from your own ChatBot session if you wish) and use the code produced through the ChatBot interactions to import the data and confirm that the dataset has missing values<br>
+### 1. Pick one of the datasets from the ChatBot session(s) of the **TUT demo** (or from your own ChatBot session if you wish) and use the code produced through the ChatBot interactions to import the data and confirm that the dataset has missing values<br>
 
 <details class="details-example"><summary style="color:blue"><u>Further Guidance</u></summary>
 
@@ -74,7 +74,7 @@ In the case of the former (1), adding constraints specifying the limits of consi
     
 </details>
 
-#### 2. Start a new ChatBot session with an initial prompt introducing the dataset you're using and request help to determine how many columns and rows of data a `pandas` DataFrame has, and then
+### 2. Start a new ChatBot session with an initial prompt introducing the dataset you're using and request help to determine how many columns and rows of data a `pandas` DataFrame has, and then
 
 1. use code provided in your ChatBot session to print out the number of rows and columns of the dataset; and,  
 2. write your own general definitions of the meaning of "observations" and "variables" based on asking the ChatBot to explain these terms in the context of your dataset<br>
@@ -92,7 +92,7 @@ In the case of the former (1), adding constraints specifying the limits of consi
     
 </details>
 
-#### 3. Ask the ChatBot how you can provide simple summaries of the columns in the dataset and use the suggested code to provide these summaries for your dataset<br>
+### 3. Ask the ChatBot how you can provide simple summaries of the columns in the dataset and use the suggested code to provide these summaries for your dataset<br>
 
 <details class="details-example"><summary style="color:blue"><u>Further Guidance</u></summary>
 
@@ -112,7 +112,7 @@ In the case of the former (1), adding constraints specifying the limits of consi
     
 </details>
 
-#### 4. If the dataset you're using has (a) non-numeric variables and (b) missing values in numeric variables, explain (perhaps using help from a ChatBot if needed) the discrepancies between size of the dataset given by `df.shape` and what is reported by `df.describe()` with respect to (a) the number of columns it analyzes and (b) the values it reports in the "count" column<br>
+### 4. If the dataset you're using has (a) non-numeric variables and (b) missing values in numeric variables, explain (perhaps using help from a ChatBot if needed) the discrepancies between size of the dataset given by `df.shape` and what is reported by `df.describe()` with respect to (a) the number of columns it analyzes and (b) the values it reports in the "count" column<br>
 
 <details class="details-example"><summary style="color:blue"><u>Further Guidance</u></summary>
 
@@ -124,7 +124,7 @@ In the case of the former (1), adding constraints specifying the limits of consi
     
 </details>
 
-#### 5. Use your ChatBot session to help understand the difference between the following and then provide your own paraphrasing summarization of that difference
+### 5. Use your ChatBot session to help understand the difference between the following and then provide your own paraphrasing summarization of that difference
 
 - an "attribute", such as `df.shape` which does not end with `()`
 - and a "method", such as `df.describe()` which does end with `()` 
@@ -149,9 +149,9 @@ Feel free to work on the "Postlecture" HW below if you're making good progress a
 </details>    
 
 
-### "Post-lecture" HW [*submission along with "Pre-lecture" HW is due prior to next TUT*]
+## "Post-lecture" HW [*submission along with "Pre-lecture" HW is due prior to next TUT*]
 
-#### 6. The `df.describe()` method provides the 'count', 'mean', 'std', 'min', '25%', '50%', '75%', and 'max' summary statistics for each variable it analyzes. Give the definitions (perhaps using help from the ChatBot if needed) of each of these summary statistics<br>
+### 6. The `df.describe()` method provides the 'count', 'mean', 'std', 'min', '25%', '50%', '75%', and 'max' summary statistics for each variable it analyzes. Give the definitions (perhaps using help from the ChatBot if needed) of each of these summary statistics<br>
 
 <details class="details-example"><summary style="color:blue"><u>Further Guidance</u></summary>
 
@@ -163,7 +163,7 @@ Feel free to work on the "Postlecture" HW below if you're making good progress a
     
 </details>
 
-#### 7. Missing data can be considered "across rows" or "down columns".  Consider how `df.dropna()` or `del df['col']` should be applied to most efficiently use the available non-missing data in your dataset and briefly answer the following questions in your own words
+### 7. Missing data can be considered "across rows" or "down columns".  Consider how `df.dropna()` or `del df['col']` should be applied to most efficiently use the available non-missing data in your dataset and briefly answer the following questions in your own words
 
 1. Provide an example of a "use case" in which using `df.dropna()` might be peferred over using `del df['col']`<br><br>
     
@@ -196,12 +196,7 @@ Feel free to work on the "Postlecture" HW below if you're making good progress a
 
 </details><br>
 
-
-
-
-
-    
-#### 8. Give brief explanations in your own words for any requested answers to the questions below
+### 8. Give brief explanations in your own words for any requested answers to the questions below
 
 > This problem will guide you through exploring how to use a ChatBot to troubleshoot code using the "https://raw.githubusercontent.com/mwaskom/seaborn-data/master/titanic.csv" data set 
 > 
@@ -254,15 +249,17 @@ Feel free to work on the "Postlecture" HW below if you're making good progress a
         
 
 
-#### 9. Have you reviewed the course [wiki-textbook](https://github.com/pointOfive/stat130chat130/wiki) and interacted with a ChatBot (or, if that wasn't sufficient, real people in the course piazza discussion board or TA office hours) to help you understand all the material in the tutorial and lecture that you didn't quite follow when you first saw it?<br>
+### 9. Have you reviewed the course wiki-textbook and interacted with a ChatBot (or, if that wasn't sufficient, real people in the course piazza discussion board or TA office hours) to help you understand all the material in the tutorial and lecture that you didn't quite follow when you first saw it?<br>
     
 <details class="details-example"><summary style="color:blue"><u>Further Guidance</u></summary>
 
+>  Here is the link of [wiki-textbook](https://github.com/pointOfive/stat130chat130/wiki) in case it gets lost among all the information you need to keep track of  : )
+>     
 > Just answering "Yes" or "No" or "Somewhat" or "Mostly" or whatever here is fine as this question isn't a part of the rubric; but, the midterm and final exams may ask questions that are based on the tutorial and lecture materials; and, your own skills will be limited by your familiarity with these materials (which will determine your ability to actually do actual things effectively with these skills... like the course project...)
     
 </details>
     
-***Don't forget to ask for summaries of your ChatBot session(s) and paste these into your homework notebook (including link(s) to chat log histories if you're using ChatGPT)!***
+_**Don't forget to ask for summaries of your ChatBot session(s) and paste these into your homework notebook (including link(s) to chat log histories if you're using ChatGPT)!**_
 
 ## Recommended Additional Useful Activities [Optional]
 
