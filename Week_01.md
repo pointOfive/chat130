@@ -1,29 +1,31 @@
 
 # Course Textbook: Week 01 Data Summarization
 
-**TUT/HW Topics**
+# Simple numerical summaries and Chat is pretty great
 
-1. importing libraries... like [_pandas_](#import)
-2. loading data... with [_pd.read_csv()_](#read_csv)
-3. counting missing values... with [_df.isna().sum()_](#Missingness-I)
-4. observations (rows) and variables (columns)... [_df.shape_](#Variables-and-Observations) and [_df.columns_](#Variables-and-Observations)
-5. numeric versus non-numeric... [_df.describe()_](#Types-I) and [_df.value_counts()_](#Types-I)
-6. removing missing data... with [_df.dropna()_](#Missingness-II) and [_del df['col']_](n#Missingness-II)
-7. grouping and aggregation.... with [_df.groupby("col1")["col2"].describe()_](#Grouping-and-Aggregation)
+**Tutorial/Homework: Topics**
 
-**LEC Extensions**
+1. importing libraries... like [_pandas_](week-01-Data-Summarization#import)
+2. loading data... with [_pd.read_csv()_](week-01-Data-Summarization#read_csv)
+3. counting missing values... with [_df.isna().sum()_](week-01-Data-Summarization#Missingness-I)
+4. observations (rows) and variables (columns)... [_df.shape_](week-01-Data-Summarization#Variables-and-Observations) and [_df.columns_](week-01-Data-Summarization#Variables-and-Observations)
+5. numeric versus non-numeric... [_df.describe()_](week-01-Data-Summarization#Types-I) and [_df.value_counts()_](week-01-Data-Summarization#Types-I)
+6. removing missing data... with [_df.dropna()_](week-01-Data-Summarization#Missingness-II) and [_del df['col']_](week-01-Data-Summarization#Missingness-II)
+7. grouping and aggregation.... with [_df.groupby("col1")["col2"].describe()_](week-01-Data-Summarization#Grouping-and-Aggregation)
+
+**Tutorial/Homework: Lecture Extensions**
 
 > Topic numbers below correspond to extensions of topic items above.
 
-2\. [function/method arguments](#functionmethod-arguments) (like `encoding`, `dropna`, `inplace`, and return vs side-effect)\
-3\. [boolean values and coercion](#Boolean-Values-and-Coercion)\
-5\. _ i. [_.dtypes_ and _.astype()_](#pandas-column-data-types)\
-___ ii. [statistic calculation functions](#some-statistics-calculations) 
+2\. [function/method arguments](week-01-Data-Summarization#functionmethod-arguments) (like `encoding`, `dropna`, `inplace`, and return vs side-effect)\
+3\. [boolean values and coercion](week-01-Data-Summarization#Boolean-Values-and-Coercion)\
+4\. _ i. [_.dtypes_ and _.astype()_](week-01-Data-Summarization#pandas-column-data-types)\
+___ ii. [statistic calculation functions](week-01-Data-Summarization#some-statistics-calculations) 
 
-**LEC New Topics**
+**Lecture: New Topics**
 
-1. [sorting and (0-based) indexing](#sorting-and-iloc-indexing)
-2. [subsetting via conditionals and boolean selection](#logical-conditionals-boolean-selectionsubsetting-and-loc-indexing-v2)
+1. [sorting and (0-based) indexing](week-01-Data-Summarization#sorting-and-iloc-indexing)
+2. [subsetting via conditionals and boolean selection](week-01-Data-Summarization#logical-conditionals-boolean-selectionsubsetting-and-loc-indexing-v2)
 
 **Out of Scope**
 
@@ -32,7 +34,8 @@ ___ ii. [statistic calculation functions](#some-statistics-calculations)
 3. ...such as how to handle missing values using more advanced techniques that don't just "ignore" or "remove" them (for example by filling or imputing the missing values and the assumptions required when doing so...)
 4. ...further "data wrangling topics" such as "joining" and "merging"; "pivoting", "wide to long", and "tidy" data formats; etc.
 
-## TUT/HW Topics
+
+## Tutorial/Homework: Topics
 
 ### import
 
@@ -218,7 +221,7 @@ Grouping and aggregation are powerful concepts in data analysis, particularly wi
 Missing values in the grouping column (`"col1"`) will result in a separate group if there are any, while the `.describe()` **method** automatically excludes missing values when calculating descriptive statistics for `"col2"`.
 
 
-## LEC Extensions
+## Tutorial/Homework: Lecture Extensions
 
 
 ### Function/Method Arguments
@@ -425,6 +428,10 @@ The `.describe()` method in `pandas` provides a quick statistical summary of num
 
 These are **statistics** for **numeric** data; whereas, the `df['x'].value_counts()` **method** returns the count of each unique value in the data and so is contrastingly appropriate when column `x` contains non-numeric (**categorical**) data. Using `df['x'].value_counts(dropna=False)` will additionally includes the number of missing values in the column in the returned counts; whereas, to determine this for **numeric** variables in the context of `df.describe()` would require a relative comparison to `df.shape` or `df['x'].size`.
 
+
+## Lecture: New Topics
+
+
 ### Sorting and _.iloc_ Indexing
 
 We can look into `pandas DataFrame object` datasets, such as the one introduced in LEC
@@ -502,9 +509,8 @@ df.loc[ (df['Type 1'] == 'Fire') & ((df.HP >= 100) | df.Legendary) , ["Name", "A
 df.loc[ ~(df['Type 1'] == 'Fire') & ((df.HP >= 100) & df.Legendary) , ["Name", "Type 1", "Attack", "Defense", "Legendary"] ]
 ```
 
-# Course Tutorial: Week 01 TUT
 
-## STA130 TUT 01 (Sep06)<br><br> 🏃🏻‍♀️ 🏃🏻 <u> Hitting the ground running... <u>
+# STA130 TUT 01 (Sep06)<br><br> 🏃🏻‍♀️ 🏃🏻 <u> Hitting the ground running... <u>
 
 
 ### 🚧 🏗️ (Using notebooks and ChatBots) Demo [45 minutes]  
@@ -590,8 +596,10 @@ df.loc[ ~(df['Type 1'] == 'Fire') & ((df.HP >= 100) & df.Legendary) , ["Name", "
 </details>
 
 
-# Course Lecture: Week 01 LEC
+```python
 
+```
+# STA130 LEC 01 (Sep 09)
 
 ## Data Summarization
 
@@ -644,6 +652,77 @@ ab = pd.read_csv(url, encoding='UTF-8') # fails
 # ab = pd.read_csv(url, encoding="ISO-8859-1")# works!
 ab
 ```
+
+
+    ---------------------------------------------------------------------------
+
+    UnicodeDecodeError                        Traceback (most recent call last)
+
+    /var/folders/sd/hnfh4zsn34d7xpbz9226pz200000gn/T/ipykernel_67733/1680464235.py in <module>
+          8 
+          9 # a *function* with required and default *arguments*
+    ---> 10 ab = pd.read_csv(url, encoding='UTF-8') # fails
+         11 # ab = pd.read_csv(url) # fails, because it defaults to UTF-8
+         12 # ab = pd.read_csv(url, encoding="ISO-8859-1")# works!
+
+
+    ~/miniconda3/envs/STA410/lib/python3.11/site-packages/pandas/io/parsers/readers.py in read_csv(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)
+       1024     kwds.update(kwds_defaults)
+       1025 
+    -> 1026     return _read(filepath_or_buffer, kwds)
+       1027 
+       1028 
+
+
+    ~/miniconda3/envs/STA410/lib/python3.11/site-packages/pandas/io/parsers/readers.py in _read(filepath_or_buffer, kwds)
+        618 
+        619     # Create the parser.
+    --> 620     parser = TextFileReader(filepath_or_buffer, **kwds)
+        621 
+        622     if chunksize or iterator:
+
+
+    ~/miniconda3/envs/STA410/lib/python3.11/site-packages/pandas/io/parsers/readers.py in __init__(self, f, engine, **kwds)
+       1618 
+       1619         self.handles: IOHandles | None = None
+    -> 1620         self._engine = self._make_engine(f, self.engine)
+       1621 
+       1622     def close(self) -> None:
+
+
+    ~/miniconda3/envs/STA410/lib/python3.11/site-packages/pandas/io/parsers/readers.py in _make_engine(self, f, engine)
+       1896 
+       1897         try:
+    -> 1898             return mapping[engine](f, **self.options)
+       1899         except Exception:
+       1900             if self.handles is not None:
+
+
+    ~/miniconda3/envs/STA410/lib/python3.11/site-packages/pandas/io/parsers/c_parser_wrapper.py in __init__(self, src, **kwds)
+         91             # Fail here loudly instead of in cython after reading
+         92             import_optional_dependency("pyarrow")
+    ---> 93         self._reader = parsers.TextReader(src, **kwds)
+         94 
+         95         self.unnamed_cols = self._reader.unnamed_cols
+
+
+    parsers.pyx in pandas._libs.parsers.TextReader.__cinit__()
+
+
+    parsers.pyx in pandas._libs.parsers.TextReader._get_header()
+
+
+    parsers.pyx in pandas._libs.parsers.TextReader._tokenize_rows()
+
+
+    parsers.pyx in pandas._libs.parsers.TextReader._check_tokenize_status()
+
+
+    parsers.pyx in pandas._libs.parsers.raise_parser_error()
+
+
+    UnicodeDecodeError: 'utf-8' codec can't decode byte 0x8e in position 10673: invalid start byte
+
 
 
 ```python
@@ -750,6 +829,214 @@ pokeaman
 ```
 
 
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th># (int64)</th>
+      <th>Name (object)</th>
+      <th>Type 1 (object)</th>
+      <th>Type 2 (object)</th>
+      <th>HP (int64)</th>
+      <th>Attack (int64)</th>
+      <th>Defense (int64)</th>
+      <th>Sp. Atk (int64)</th>
+      <th>Sp. Def (int64)</th>
+      <th>Speed (int64)</th>
+      <th>Generation (int64)</th>
+      <th>Legendary (bool)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Bulbasaur</td>
+      <td>Grass</td>
+      <td>Poison</td>
+      <td>45</td>
+      <td>49</td>
+      <td>49</td>
+      <td>65</td>
+      <td>65</td>
+      <td>45</td>
+      <td>1</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Ivysaur</td>
+      <td>Grass</td>
+      <td>Poison</td>
+      <td>60</td>
+      <td>62</td>
+      <td>63</td>
+      <td>80</td>
+      <td>80</td>
+      <td>60</td>
+      <td>1</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Venusaur</td>
+      <td>Grass</td>
+      <td>Poison</td>
+      <td>80</td>
+      <td>82</td>
+      <td>83</td>
+      <td>100</td>
+      <td>100</td>
+      <td>80</td>
+      <td>1</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>VenusaurMega Venusaur</td>
+      <td>Grass</td>
+      <td>Poison</td>
+      <td>80</td>
+      <td>100</td>
+      <td>123</td>
+      <td>122</td>
+      <td>120</td>
+      <td>80</td>
+      <td>1</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>Charmander</td>
+      <td>Fire</td>
+      <td>NaN</td>
+      <td>39</td>
+      <td>52</td>
+      <td>43</td>
+      <td>60</td>
+      <td>50</td>
+      <td>65</td>
+      <td>1</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>795</th>
+      <td>719</td>
+      <td>Diancie</td>
+      <td>Rock</td>
+      <td>Fairy</td>
+      <td>50</td>
+      <td>100</td>
+      <td>150</td>
+      <td>100</td>
+      <td>150</td>
+      <td>50</td>
+      <td>6</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>796</th>
+      <td>719</td>
+      <td>DiancieMega Diancie</td>
+      <td>Rock</td>
+      <td>Fairy</td>
+      <td>50</td>
+      <td>160</td>
+      <td>110</td>
+      <td>160</td>
+      <td>110</td>
+      <td>110</td>
+      <td>6</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>797</th>
+      <td>720</td>
+      <td>HoopaHoopa Confined</td>
+      <td>Psychic</td>
+      <td>Ghost</td>
+      <td>80</td>
+      <td>110</td>
+      <td>60</td>
+      <td>150</td>
+      <td>130</td>
+      <td>70</td>
+      <td>6</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>798</th>
+      <td>720</td>
+      <td>HoopaHoopa Unbound</td>
+      <td>Psychic</td>
+      <td>Dark</td>
+      <td>80</td>
+      <td>160</td>
+      <td>60</td>
+      <td>170</td>
+      <td>130</td>
+      <td>80</td>
+      <td>6</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>799</th>
+      <td>721</td>
+      <td>Volcanion</td>
+      <td>Fire</td>
+      <td>Water</td>
+      <td>80</td>
+      <td>110</td>
+      <td>120</td>
+      <td>130</td>
+      <td>90</td>
+      <td>70</td>
+      <td>6</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+<p>800 rows × 12 columns</p>
+</div>
+
+
+
+
 ```python
 # Why does this not have all the columns?
 pokeaman.describe()  # more coercion... if you see it?
@@ -806,6 +1093,214 @@ pokeaman.rename(columns=colnames_wotype, inplace=True)
 # sorting
 pokeaman.sort_values("Attack", ascending=False) 
 ```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>#</th>
+      <th>Name</th>
+      <th>Type 1</th>
+      <th>Type 2</th>
+      <th>HP</th>
+      <th>Attack</th>
+      <th>Defense</th>
+      <th>Sp. Atk</th>
+      <th>Sp. Def</th>
+      <th>Speed</th>
+      <th>Generation</th>
+      <th>Legendary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>163</th>
+      <td>150</td>
+      <td>MewtwoMega Mewtwo X</td>
+      <td>Psychic</td>
+      <td>Fighting</td>
+      <td>106</td>
+      <td>190</td>
+      <td>100</td>
+      <td>154</td>
+      <td>100</td>
+      <td>130</td>
+      <td>1</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>232</th>
+      <td>214</td>
+      <td>HeracrossMega Heracross</td>
+      <td>Bug</td>
+      <td>Fighting</td>
+      <td>80</td>
+      <td>185</td>
+      <td>115</td>
+      <td>40</td>
+      <td>105</td>
+      <td>75</td>
+      <td>2</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>424</th>
+      <td>383</td>
+      <td>GroudonPrimal Groudon</td>
+      <td>Ground</td>
+      <td>Fire</td>
+      <td>100</td>
+      <td>180</td>
+      <td>160</td>
+      <td>150</td>
+      <td>90</td>
+      <td>90</td>
+      <td>3</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>426</th>
+      <td>384</td>
+      <td>RayquazaMega Rayquaza</td>
+      <td>Dragon</td>
+      <td>Flying</td>
+      <td>105</td>
+      <td>180</td>
+      <td>100</td>
+      <td>180</td>
+      <td>100</td>
+      <td>115</td>
+      <td>3</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>429</th>
+      <td>386</td>
+      <td>DeoxysAttack Forme</td>
+      <td>Psychic</td>
+      <td>NaN</td>
+      <td>50</td>
+      <td>180</td>
+      <td>20</td>
+      <td>180</td>
+      <td>20</td>
+      <td>150</td>
+      <td>3</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>139</th>
+      <td>129</td>
+      <td>Magikarp</td>
+      <td>Water</td>
+      <td>NaN</td>
+      <td>20</td>
+      <td>10</td>
+      <td>55</td>
+      <td>15</td>
+      <td>20</td>
+      <td>80</td>
+      <td>1</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>261</th>
+      <td>242</td>
+      <td>Blissey</td>
+      <td>Normal</td>
+      <td>NaN</td>
+      <td>255</td>
+      <td>10</td>
+      <td>10</td>
+      <td>75</td>
+      <td>135</td>
+      <td>55</td>
+      <td>2</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>230</th>
+      <td>213</td>
+      <td>Shuckle</td>
+      <td>Bug</td>
+      <td>Rock</td>
+      <td>20</td>
+      <td>10</td>
+      <td>230</td>
+      <td>10</td>
+      <td>230</td>
+      <td>5</td>
+      <td>2</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>121</th>
+      <td>113</td>
+      <td>Chansey</td>
+      <td>Normal</td>
+      <td>NaN</td>
+      <td>250</td>
+      <td>5</td>
+      <td>5</td>
+      <td>35</td>
+      <td>105</td>
+      <td>50</td>
+      <td>1</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>488</th>
+      <td>440</td>
+      <td>Happiny</td>
+      <td>Normal</td>
+      <td>NaN</td>
+      <td>100</td>
+      <td>5</td>
+      <td>5</td>
+      <td>15</td>
+      <td>65</td>
+      <td>30</td>
+      <td>4</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+<p>800 rows × 12 columns</p>
+</div>
+
+
 
 
 ```python
@@ -917,12 +1412,7 @@ pokemon.groupby('Type 1').describe().sort_values(('HP','mean'), ascending=False)
 ```python
 pokemon.groupby('Type 1').mean(numeric_only=True).round(3)
 ```
-
-
-# Course HW: Week 01 HW
-
-
-## STA130 Week 01 Homework 
+# STA130 Week 01 Homework 
 
 Please see the course [wiki-textbook](https://github.com/pointOfive/stat130chat130/wiki) for the list of topics covered in this homework assignment, and a list of topics that might appear during ChatBot conversations which are "out of scope" for the purposes of this homework assignment (and hence can be safely ignored if encountered)
 
@@ -980,9 +1470,9 @@ In the case of the former (1), adding constraints specifying the limits of consi
 - [0.4 points]: Requested assessment of ChatBot versus google performance in Question "8.3"
 
 
-### "Pre-lecture" HW [*completion prior to next LEC is suggested but not mandatory*]
+## "Pre-lecture" HW [*completion prior to next LEC is suggested but not mandatory*]
 
-#### 1. Pick one of the datasets from the ChatBot session(s) of the **TUT demo** (or from your own ChatBot session if you wish) and use the code produced through the ChatBot interactions to import the data and confirm that the dataset has missing values<br>
+### 1. Pick one of the datasets from the ChatBot session(s) of the **TUT demo** (or from your own ChatBot session if you wish) and use the code produced through the ChatBot interactions to import the data and confirm that the dataset has missing values<br>
 
 <details class="details-example"><summary style="color:blue"><u>Further Guidance</u></summary>
 
@@ -998,7 +1488,7 @@ In the case of the former (1), adding constraints specifying the limits of consi
     
 </details>
 
-#### 2. Start a new ChatBot session with an initial prompt introducing the dataset you're using and request help to determine how many columns and rows of data a `pandas` DataFrame has, and then
+### 2. Start a new ChatBot session with an initial prompt introducing the dataset you're using and request help to determine how many columns and rows of data a `pandas` DataFrame has, and then
 
 1. use code provided in your ChatBot session to print out the number of rows and columns of the dataset; and,  
 2. write your own general definitions of the meaning of "observations" and "variables" based on asking the ChatBot to explain these terms in the context of your dataset<br>
@@ -1016,7 +1506,7 @@ In the case of the former (1), adding constraints specifying the limits of consi
     
 </details>
 
-#### 3. Ask the ChatBot how you can provide simple summaries of the columns in the dataset and use the suggested code to provide these summaries for your dataset<br>
+### 3. Ask the ChatBot how you can provide simple summaries of the columns in the dataset and use the suggested code to provide these summaries for your dataset<br>
 
 <details class="details-example"><summary style="color:blue"><u>Further Guidance</u></summary>
 
@@ -1036,7 +1526,7 @@ In the case of the former (1), adding constraints specifying the limits of consi
     
 </details>
 
-#### 4. If the dataset you're using has (a) non-numeric variables and (b) missing values in numeric variables, explain (perhaps using help from a ChatBot if needed) the discrepancies between size of the dataset given by `df.shape` and what is reported by `df.describe()` with respect to (a) the number of columns it analyzes and (b) the values it reports in the "count" column<br>
+### 4. If the dataset you're using has (a) non-numeric variables and (b) missing values in numeric variables, explain (perhaps using help from a ChatBot if needed) the discrepancies between size of the dataset given by `df.shape` and what is reported by `df.describe()` with respect to (a) the number of columns it analyzes and (b) the values it reports in the "count" column<br>
 
 <details class="details-example"><summary style="color:blue"><u>Further Guidance</u></summary>
 
@@ -1048,7 +1538,7 @@ In the case of the former (1), adding constraints specifying the limits of consi
     
 </details>
 
-#### 5. Use your ChatBot session to help understand the difference between the following and then provide your own paraphrasing summarization of that difference
+### 5. Use your ChatBot session to help understand the difference between the following and then provide your own paraphrasing summarization of that difference
 
 - an "attribute", such as `df.shape` which does not end with `()`
 - and a "method", such as `df.describe()` which does end with `()` 
@@ -1073,9 +1563,9 @@ Feel free to work on the "Postlecture" HW below if you're making good progress a
 </details>    
 
 
-### "Post-lecture" HW [*submission along with "Pre-lecture" HW is due prior to next TUT*]
+## "Post-lecture" HW [*submission along with "Pre-lecture" HW is due prior to next TUT*]
 
-#### 6. The `df.describe()` method provides the 'count', 'mean', 'std', 'min', '25%', '50%', '75%', and 'max' summary statistics for each variable it analyzes. Give the definitions (perhaps using help from the ChatBot if needed) of each of these summary statistics<br>
+### 6. The `df.describe()` method provides the 'count', 'mean', 'std', 'min', '25%', '50%', '75%', and 'max' summary statistics for each variable it analyzes. Give the definitions (perhaps using help from the ChatBot if needed) of each of these summary statistics<br>
 
 <details class="details-example"><summary style="color:blue"><u>Further Guidance</u></summary>
 
@@ -1087,7 +1577,7 @@ Feel free to work on the "Postlecture" HW below if you're making good progress a
     
 </details>
 
-#### 7. Missing data can be considered "across rows" or "down columns".  Consider how `df.dropna()` or `del df['col']` should be applied to most efficiently use the available non-missing data in your dataset and briefly answer the following questions in your own words
+### 7. Missing data can be considered "across rows" or "down columns".  Consider how `df.dropna()` or `del df['col']` should be applied to most efficiently use the available non-missing data in your dataset and briefly answer the following questions in your own words
 
 1. Provide an example of a "use case" in which using `df.dropna()` might be peferred over using `del df['col']`<br><br>
     
@@ -1120,12 +1610,7 @@ Feel free to work on the "Postlecture" HW below if you're making good progress a
 
 </details><br>
 
-
-
-
-
-    
-#### 8. Give brief explanations in your own words for any requested answers to the questions below
+### 8. Give brief explanations in your own words for any requested answers to the questions below
 
 > This problem will guide you through exploring how to use a ChatBot to troubleshoot code using the "https://raw.githubusercontent.com/mwaskom/seaborn-data/master/titanic.csv" data set 
 > 
@@ -1178,15 +1663,17 @@ Feel free to work on the "Postlecture" HW below if you're making good progress a
         
 
 
-#### 9. Have you reviewed the course [wiki-textbook](https://github.com/pointOfive/stat130chat130/wiki) and interacted with a ChatBot (or, if that wasn't sufficient, real people in the course piazza discussion board or TA office hours) to help you understand all the material in the tutorial and lecture that you didn't quite follow when you first saw it?<br>
+### 9. Have you reviewed the course wiki-textbook and interacted with a ChatBot (or, if that wasn't sufficient, real people in the course piazza discussion board or TA office hours) to help you understand all the material in the tutorial and lecture that you didn't quite follow when you first saw it?<br>
     
 <details class="details-example"><summary style="color:blue"><u>Further Guidance</u></summary>
 
+>  Here is the link of [wiki-textbook](https://github.com/pointOfive/stat130chat130/wiki) in case it gets lost among all the information you need to keep track of  : )
+>     
 > Just answering "Yes" or "No" or "Somewhat" or "Mostly" or whatever here is fine as this question isn't a part of the rubric; but, the midterm and final exams may ask questions that are based on the tutorial and lecture materials; and, your own skills will be limited by your familiarity with these materials (which will determine your ability to actually do actual things effectively with these skills... like the course project...)
     
 </details>
     
-***Don't forget to ask for summaries of your ChatBot session(s) and paste these into your homework notebook (including link(s) to chat log histories if you're using ChatGPT)!***
+_**Don't forget to ask for summaries of your ChatBot session(s) and paste these into your homework notebook (including link(s) to chat log histories if you're using ChatGPT)!**_
 
 ## Recommended Additional Useful Activities [Optional]
 

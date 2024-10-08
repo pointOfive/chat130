@@ -1,7 +1,9 @@
 
 # Course Textbook: Week 02 Probability and Coding
- 
-**TUT/HW Topics**
+
+# Chance is simple and Chat MAKES things simple
+
+**Tutorial/Homework: Topics**
 
 1. python object types... [_tuple_](week-02-Coding#Types), [_list_](week-02-Coding#types), [_dict_](week-02-Coding#Types)
 2. another key data type... [_np.array_](week-02-Coding#np-array) (and `np.random.choice`)
@@ -13,7 +15,7 @@
 4. logical flow control... [_if_](week-02-Coding#Logical-Flow-Control), [_elif_](week-02-Coding#Logical-Flow-Control), [_else_](week-02-Coding#Logical-Flow-Control)
     1. ~[_try-except_ blocks](week-02-Coding#Logical-Flow-Control)~
 
-**LEC Extensions**
+**Tutorial/Homework: Lecture Extensions**
 
 1. more object types... [_type()_](week-02-Coding#more-types) 
     1. [more indexing for "lists"](week-02-Coding#more-indexing)
@@ -24,13 +26,13 @@
 2. [What are _pandas DataFrame objects_?](week-02-Coding#what-are-pddataframe-objects)
 3. [_for word_](https://github.com/pointOfive/stat130chat130/wiki/Week-02-Coding/week-02-Coding#More-for-Loops) _in_ [_sentence.split():_](week-02-Coding#more-list-behavior-with-str-and-split)
 
-**LEC New Topics**
+**Lecture: New Topics**
 
 1. [_from scipy import stats_, _stats.multinomial_, and probability](week-02-Coding#scipystats) (and `np.random.choice`)
     1. [conditional probability Pr(A|B) and independence Pr(A|B)=Pr(A)](week-02-Coding#conditional-probability-and-independence)
 
 
-## TUT/HW Topics
+## Tutorial/Homework: Topics
 
 ### Types
 
@@ -208,7 +210,7 @@ except Exception as e:
 ```
 
 
-## LEC Extensions / New Topics
+## Tutorial/Homework: Lecture Extensions
 
 ### More types
 
@@ -390,6 +392,9 @@ data['city'] = ['New York', 'Los Angeles', 'Chicago', 'Houston']
 ```
 
 
+## Lecture: New Topics
+
+
 ### _scipy.stats_
 
 Probability is the mathematical framework that allows us to model chance (or uncertainty). In many real-world situations, we deal with events or outcomes that are not certain, and probability helps us quantify the likelihood of these events. Python, with libraries like `numpy` and `scipy`, provides powerful tools for handling probability distributions, statistical methods, and random events. The `stats`  module within the `scipy` library (i.e., `scipy.stats`) provides a wide range of statistical functions and probability distributions (such as the normal distribution, binomial distribution, and many others, some of which we will introduce later). These tools allow us to model different types of random events and calculate relevant probabilities of interest. To get started, we’ll import the `stats` submodule from `scipy` as follows, but you may sometimes see this functionality imported with alternative aliasing, such as `import scipy.stats as ss`, etc.
@@ -454,16 +459,13 @@ If you think there's no such thing as a "hot streak" and your next roll does not
 
 This doesn't mean that we couldn't sequentially change our value of `p` in some sort of sequentially dynamic process that uses different **multinomial distributions** over time. But, it does mean that for  `n` selections from `k` options drawn from a **multinomial distributions** with a fixed unchanging `p`, the `n` selections are **independent** and do not change in response to each other or affect each other in any way. And it's actually also interesting to consider again here the `stats.multinomial(n,p).rvs(size)` specification.  The **independence** of the **multinomial distribution** means that the `n` choices for the `k` options related to `stats.multinomial(n,p)` do not depend on each other.  But, owing to the definition of "random variable sample", the `.rvs(size)` notion of repeating a the "`n` choices for the `k` options" game `size` times is itself also based on **independence**.  This means that the outcomes of different repetitions of the "`n` choices for the `k` options" games also do not affect each other.  
 
-But there might be other examples where this is not true? Can you think of any? How about an example of drawing cards from a deck? Does the probability of drawing an Ace change if you've previously drawn and removed cards from the deck?
+But there might be other examples where this is not true? Can you think of any? How about an example of drawing cards from a deck? Does the probability of drawing an Ace change if you've previously drawn and removed cards from the deck? 
+# STA130 TUT 02 (Sep13)<br><br> 👨‍💻 👩🏻‍💻 <u>Coding with data types, for loops, and logical control<u>
+    
 
-
-
-# Course Tutorial: Week 02 TUT
-
-
-## STA130 TUT 02 (Sep13)<br><br> 👨‍💻 👩🏻‍💻 <u>Coding with data types, for loops, and logical control<u>
 
 ### ♻️ 📚 Review / Questions [10 minutes]
+
 1. Follow up questions and clarifications regarding regarding **notebooks, markdown, ChatBots, or `Python` code** previously introduced in the Sep06 TUT and Sep09 LEC 
 
 > 1. We're continuing to dive into using **notebooks, markdown**, and `Python` as a tool: building comfort and capability working with **ChatBots** to leverage `Python` code is the objective of the current phase of the course...<br><br>
@@ -608,9 +610,7 @@ i_won/reps
 #### 3. **[15 to 20 of the 40 minutes]** Each group gives their (approximately 3 minute) planned presentation. If time permits, engaging in some (students or TA) Q&A seeking clarification or challenging group decisions would be ideal.
 
 Groups who manage to plan a presentation where multiple group members actively part of the presentation should be awarded "gold stars", figuratively, of course, since actualy gold, or stars, of gold star stickers are unfortunately momentarily in short supply
-
-
-# Course Lecture: Week 02 LEC
+# STA130 LEC 02 (Sep 16)
 
 ## Probability and Coding
 
@@ -850,11 +850,7 @@ for i in range(100):
 ```python
 
 ```
-
-# Course Homework: Week 02 HW
-
-
-## STA130 Homework 02
+# STA130 Homework 02
 
 Please see the course [wiki-textbook](https://github.com/pointOfive/stat130chat130/wiki) for the list of topics covered in this homework assignment, and a list of topics that might appear during ChatBot conversations which are "out of scope" for the purposes of this homework assignment (and hence can be safely ignored if encountered)
 
@@ -910,9 +906,9 @@ In the case of the former (1), adding constraints specifying the limits of consi
 - [0.3 points]: Evaluation of engagement and evaluation of written communication in "7"
         
 
-### "Pre-lecture" HW [*completion prior to next LEC is suggested but not mandatory*]
+## "Pre-lecture" HW [*completion prior to next LEC is suggested but not mandatory*]
 
-#### 1. Begin (or restart) part "3(a)" of the **TUT Demo** and interact with a ChatBot to make sure you understand how each part the Monte Hall problem code above works<br>
+### 1. Begin (or restart) part "3(a)" of the **TUT Demo** and interact with a ChatBot to make sure you understand how each part the Monte Hall problem code above works<br>
 
 <details class="details-example"><summary style="color:blue"><u>Further Guidance</u></summary>
     
@@ -923,7 +919,7 @@ In the case of the former (1), adding constraints specifying the limits of consi
 </details>
 
 
-#### 2. Extend your ChatBot sessions to now address part "3(b)" of the **TUT Demo** and interact with your ChatBot to see if it can suggest a simpler, more streamlined way to code up this *for* loop simulation so the process is more clear and easier to understand; then, describe any preferences you have in terms of readibility or explainability  between the original code and the code improvements suggested by the ChatBot<br>
+### 2. Extend your ChatBot sessions to now address part "3(b)" of the **TUT Demo** and interact with your ChatBot to see if it can suggest a simpler, more streamlined way to code up this *for* loop simulation so the process is more clear and easier to understand; then, describe any preferences you have in terms of readibility or explainability  between the original code and the code improvements suggested by the ChatBot<br>
 
 <details class="details-example"><summary style="color:blue"><u>Further Guidance</u></summary>
     
@@ -932,7 +928,7 @@ In the case of the former (1), adding constraints specifying the limits of consi
 </details>
         
 
-#### 3. Submit your preferred version of the Monty Hall problem that is verified to be running and working with a final printed output of the code; then, add code comments explaining the purpose of each line of the code<br>
+### 3. Submit your preferred version of the Monty Hall problem that is verified to be running and working with a final printed output of the code; then, add code comments explaining the purpose of each line of the code<br>
 
 <details class="details-example"><summary style="color:blue"><u>Further Guidance</u></summary>
     
@@ -943,7 +939,7 @@ In the case of the former (1), adding constraints specifying the limits of consi
 </details>
  
 
-#### 4. Watch the embedded video tutorial on Markov chains in the next Jupyter cell below to understand their application and relevance for ChatBots; then, after watching the video, start a new ChatBot session by prompting that you have code that creates a "Markovian ChatBot"; show it the first version of the "Markovian ChatBot code" below; and interact with the ChatBot session to make sure you understand how the original first version of the "Markovian ChatBot code" works<br>
+### 4. Watch the embedded video tutorial on Markov chains in the next Jupyter cell below to understand their application and relevance for ChatBots; then, after watching the video, start a new ChatBot session by prompting that you have code that creates a "Markovian ChatBot"; show it the first version of the "Markovian ChatBot code" below; and interact with the ChatBot session to make sure you understand how the original first version of the "Markovian ChatBot code" works<br>
 
 <details class="details-example"><summary style="color:blue"><u>Further Guidance</u></summary>
 
@@ -971,9 +967,9 @@ Feel free to work on the "Post-lecture" HW below if you're making good progress 
     
 </details>    
 
-### "Post-lecture" HW [*submission along with "Pre-lecture" HW is due prior to next TUT*]
+## "Post-lecture" HW [*submission along with "Pre-lecture" HW is due prior to next TUT*]
 
-#### 5. Recreate (or resume) the previous ChatBot session from question "4" above, and now  prompt the ChatBot session that you have a couple extensions of the code to show it, and then show it each of the extentions of the "Markovian ChatBot code" below in turn
+### 5. Recreate (or resume) the previous ChatBot session from question "4" above, and now  prompt the ChatBot session that you have a couple extensions of the code to show it, and then show it each of the extentions of the "Markovian ChatBot code" below in turn
 
 
 
@@ -1004,7 +1000,7 @@ Feel free to work on the "Post-lecture" HW below if you're making good progress 
 </details>
      
 
-#### 6. Report on your experience interacting with ChatBots to understand the Monte Hall problem and "Markovian ChatBot" code
+### 6. Report on your experience interacting with ChatBots to understand the Monte Hall problem and "Markovian ChatBot" code
 
 1. Discuss how quickly the ChatBot was able to be helpful for each of the above questions, and if so, how?<br><br>
     
@@ -1012,7 +1008,7 @@ Feel free to work on the "Post-lecture" HW below if you're making good progress 
     
 3. Based on your experiences to date (e.g., including using ChatBots to troubleshoot coding errors in the previous homework), provide an overall assessment evaluating the usefulness of ChatBots as tools to help you understand code<br>
 
-#### 7. Reflect on your experience interacting with ChatBot and describe how your perception of AI-driven assistance tools in the context of learning coding, statistics, and data science has been evolving (or not) since joining the course<br><br>
+### 7. Reflect on your experience interacting with ChatBot and describe how your perception of AI-driven assistance tools in the context of learning coding, statistics, and data science has been evolving (or not) since joining the course<br><br>
 
 <details class="details-example"><summary style="color:blue"><u>Further Guidance</u></summary>
     
@@ -1020,7 +1016,7 @@ Feel free to work on the "Post-lecture" HW below if you're making good progress 
    
 </details>
 
-#### 8. ChatBots consume text data available on the web or platforms, and thus represents a new way to "search consensensus" that condenses and summarizes mainstream human thought<br><br>
+### 8. ChatBots consume text data available on the web or platforms, and thus represents a new way to "search consensensus" that condenses and summarizes mainstream human thought<br><br>
 
 1. Start a new ChatBot session and discuss the relevance of learning and adaptability, communication, coding, and statistics and data analysis as skills in the modern world, especially with respect to career opportunities (particularly in the context of the data science industry)<br><br>
     
@@ -1040,13 +1036,17 @@ Feel free to work on the "Post-lecture" HW below if you're making good progress 
 </details>
 
 
-#### 9. Have you reviewed the course [wiki-textbook](https://github.com/pointOfive/stat130chat130/wiki) and interacted with a ChatBot (or, if that wasn't sufficient, real people in the course piazza discussion board or TA office hours) to help you understand all the material in the tutorial and lecture that you didn't quite follow when you first saw it?<br><br>
+### 9. Have you reviewed the course wiki-textbook and interacted with a ChatBot (or, if that wasn't sufficient, real people in the course piazza discussion board or TA office hours) to help you understand all the material in the tutorial and lecture that you didn't quite follow when you first saw it?<br><br>
   
 <details class="details-example"><summary style="color:blue"><u>Further Guidance</u></summary>
-    
+
+>  Here is the link of [wiki-textbook](https://github.com/pointOfive/stat130chat130/wiki) in case it gets lost among all the information you need to keep track of  : )
+>     
 > _Just answering "Yes" or "No" or "Somewhat" or "Mostly" or whatever here is fine as this question isn't a part of the rubric; but, the midterm and final exams may ask questions that are based on the tutorial and lecture materials; and, your own skills will be limited by your familiarity with these materials (which will determine your ability to actually do actual things effectively with these skills... like the course project...)_
     
 </details>
+
+_**Don't forget to ask for summaries of your ChatBot session(s) and paste these into your homework notebook (including link(s) to chat log histories if you're using ChatGPT)!**_
 
 
 ```python
