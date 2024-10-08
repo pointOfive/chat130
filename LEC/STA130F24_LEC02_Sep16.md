@@ -1,3 +1,5 @@
+# STA130 LEC 02 (Sep 16)
+
 ## Probability and Coding
 
 #### 1. Conditional Probability and Indepdenence

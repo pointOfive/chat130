@@ -1,4 +1,5 @@
-# (Statistical) Hypothesis Testing
+# STA130 LEC 07 (Oct 07)
+## (Statistical) Hypothesis Testing
 
 - **Inference** VS **Estimation** VS **Null Hypotheses**
 - "Proving" **bootstrapped confidence intervals** (from last class)

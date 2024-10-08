@@ -1,3 +1,5 @@
+# STA130 LEC 01 (Sep 09)
+
 ## Data Summarization
 
 - **Functions**, **arguments**, and **attributes** via `pd.read_csv()`<br><br>
@@ -49,6 +51,77 @@ ab = pd.read_csv(url, encoding='UTF-8') # fails
 # ab = pd.read_csv(url, encoding="ISO-8859-1")# works!
 ab
 ```
+
+
+    ---------------------------------------------------------------------------
+
+    UnicodeDecodeError                        Traceback (most recent call last)
+
+    /var/folders/sd/hnfh4zsn34d7xpbz9226pz200000gn/T/ipykernel_67733/1680464235.py in <module>
+          8 
+          9 # a *function* with required and default *arguments*
+    ---> 10 ab = pd.read_csv(url, encoding='UTF-8') # fails
+         11 # ab = pd.read_csv(url) # fails, because it defaults to UTF-8
+         12 # ab = pd.read_csv(url, encoding="ISO-8859-1")# works!
+
+
+    ~/miniconda3/envs/STA410/lib/python3.11/site-packages/pandas/io/parsers/readers.py in read_csv(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)
+       1024     kwds.update(kwds_defaults)
+       1025 
+    -> 1026     return _read(filepath_or_buffer, kwds)
+       1027 
+       1028 
+
+
+    ~/miniconda3/envs/STA410/lib/python3.11/site-packages/pandas/io/parsers/readers.py in _read(filepath_or_buffer, kwds)
+        618 
+        619     # Create the parser.
+    --> 620     parser = TextFileReader(filepath_or_buffer, **kwds)
+        621 
+        622     if chunksize or iterator:
+
+
+    ~/miniconda3/envs/STA410/lib/python3.11/site-packages/pandas/io/parsers/readers.py in __init__(self, f, engine, **kwds)
+       1618 
+       1619         self.handles: IOHandles | None = None
+    -> 1620         self._engine = self._make_engine(f, self.engine)
+       1621 
+       1622     def close(self) -> None:
+
+
+    ~/miniconda3/envs/STA410/lib/python3.11/site-packages/pandas/io/parsers/readers.py in _make_engine(self, f, engine)
+       1896 
+       1897         try:
+    -> 1898             return mapping[engine](f, **self.options)
+       1899         except Exception:
+       1900             if self.handles is not None:
+
+
+    ~/miniconda3/envs/STA410/lib/python3.11/site-packages/pandas/io/parsers/c_parser_wrapper.py in __init__(self, src, **kwds)
+         91             # Fail here loudly instead of in cython after reading
+         92             import_optional_dependency("pyarrow")
+    ---> 93         self._reader = parsers.TextReader(src, **kwds)
+         94 
+         95         self.unnamed_cols = self._reader.unnamed_cols
+
+
+    parsers.pyx in pandas._libs.parsers.TextReader.__cinit__()
+
+
+    parsers.pyx in pandas._libs.parsers.TextReader._get_header()
+
+
+    parsers.pyx in pandas._libs.parsers.TextReader._tokenize_rows()
+
+
+    parsers.pyx in pandas._libs.parsers.TextReader._check_tokenize_status()
+
+
+    parsers.pyx in pandas._libs.parsers.raise_parser_error()
+
+
+    UnicodeDecodeError: 'utf-8' codec can't decode byte 0x8e in position 10673: invalid start byte
+
 
 
 ```python
@@ -155,6 +228,214 @@ pokeaman
 ```
 
 
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th># (int64)</th>
+      <th>Name (object)</th>
+      <th>Type 1 (object)</th>
+      <th>Type 2 (object)</th>
+      <th>HP (int64)</th>
+      <th>Attack (int64)</th>
+      <th>Defense (int64)</th>
+      <th>Sp. Atk (int64)</th>
+      <th>Sp. Def (int64)</th>
+      <th>Speed (int64)</th>
+      <th>Generation (int64)</th>
+      <th>Legendary (bool)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Bulbasaur</td>
+      <td>Grass</td>
+      <td>Poison</td>
+      <td>45</td>
+      <td>49</td>
+      <td>49</td>
+      <td>65</td>
+      <td>65</td>
+      <td>45</td>
+      <td>1</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Ivysaur</td>
+      <td>Grass</td>
+      <td>Poison</td>
+      <td>60</td>
+      <td>62</td>
+      <td>63</td>
+      <td>80</td>
+      <td>80</td>
+      <td>60</td>
+      <td>1</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Venusaur</td>
+      <td>Grass</td>
+      <td>Poison</td>
+      <td>80</td>
+      <td>82</td>
+      <td>83</td>
+      <td>100</td>
+      <td>100</td>
+      <td>80</td>
+      <td>1</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>VenusaurMega Venusaur</td>
+      <td>Grass</td>
+      <td>Poison</td>
+      <td>80</td>
+      <td>100</td>
+      <td>123</td>
+      <td>122</td>
+      <td>120</td>
+      <td>80</td>
+      <td>1</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>Charmander</td>
+      <td>Fire</td>
+      <td>NaN</td>
+      <td>39</td>
+      <td>52</td>
+      <td>43</td>
+      <td>60</td>
+      <td>50</td>
+      <td>65</td>
+      <td>1</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>795</th>
+      <td>719</td>
+      <td>Diancie</td>
+      <td>Rock</td>
+      <td>Fairy</td>
+      <td>50</td>
+      <td>100</td>
+      <td>150</td>
+      <td>100</td>
+      <td>150</td>
+      <td>50</td>
+      <td>6</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>796</th>
+      <td>719</td>
+      <td>DiancieMega Diancie</td>
+      <td>Rock</td>
+      <td>Fairy</td>
+      <td>50</td>
+      <td>160</td>
+      <td>110</td>
+      <td>160</td>
+      <td>110</td>
+      <td>110</td>
+      <td>6</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>797</th>
+      <td>720</td>
+      <td>HoopaHoopa Confined</td>
+      <td>Psychic</td>
+      <td>Ghost</td>
+      <td>80</td>
+      <td>110</td>
+      <td>60</td>
+      <td>150</td>
+      <td>130</td>
+      <td>70</td>
+      <td>6</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>798</th>
+      <td>720</td>
+      <td>HoopaHoopa Unbound</td>
+      <td>Psychic</td>
+      <td>Dark</td>
+      <td>80</td>
+      <td>160</td>
+      <td>60</td>
+      <td>170</td>
+      <td>130</td>
+      <td>80</td>
+      <td>6</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>799</th>
+      <td>721</td>
+      <td>Volcanion</td>
+      <td>Fire</td>
+      <td>Water</td>
+      <td>80</td>
+      <td>110</td>
+      <td>120</td>
+      <td>130</td>
+      <td>90</td>
+      <td>70</td>
+      <td>6</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+<p>800 rows × 12 columns</p>
+</div>
+
+
+
+
 ```python
 # Why does this not have all the columns?
 pokeaman.describe()  # more coercion... if you see it?
@@ -211,6 +492,214 @@ pokeaman.rename(columns=colnames_wotype, inplace=True)
 # sorting
 pokeaman.sort_values("Attack", ascending=False) 
 ```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>#</th>
+      <th>Name</th>
+      <th>Type 1</th>
+      <th>Type 2</th>
+      <th>HP</th>
+      <th>Attack</th>
+      <th>Defense</th>
+      <th>Sp. Atk</th>
+      <th>Sp. Def</th>
+      <th>Speed</th>
+      <th>Generation</th>
+      <th>Legendary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>163</th>
+      <td>150</td>
+      <td>MewtwoMega Mewtwo X</td>
+      <td>Psychic</td>
+      <td>Fighting</td>
+      <td>106</td>
+      <td>190</td>
+      <td>100</td>
+      <td>154</td>
+      <td>100</td>
+      <td>130</td>
+      <td>1</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>232</th>
+      <td>214</td>
+      <td>HeracrossMega Heracross</td>
+      <td>Bug</td>
+      <td>Fighting</td>
+      <td>80</td>
+      <td>185</td>
+      <td>115</td>
+      <td>40</td>
+      <td>105</td>
+      <td>75</td>
+      <td>2</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>424</th>
+      <td>383</td>
+      <td>GroudonPrimal Groudon</td>
+      <td>Ground</td>
+      <td>Fire</td>
+      <td>100</td>
+      <td>180</td>
+      <td>160</td>
+      <td>150</td>
+      <td>90</td>
+      <td>90</td>
+      <td>3</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>426</th>
+      <td>384</td>
+      <td>RayquazaMega Rayquaza</td>
+      <td>Dragon</td>
+      <td>Flying</td>
+      <td>105</td>
+      <td>180</td>
+      <td>100</td>
+      <td>180</td>
+      <td>100</td>
+      <td>115</td>
+      <td>3</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>429</th>
+      <td>386</td>
+      <td>DeoxysAttack Forme</td>
+      <td>Psychic</td>
+      <td>NaN</td>
+      <td>50</td>
+      <td>180</td>
+      <td>20</td>
+      <td>180</td>
+      <td>20</td>
+      <td>150</td>
+      <td>3</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>139</th>
+      <td>129</td>
+      <td>Magikarp</td>
+      <td>Water</td>
+      <td>NaN</td>
+      <td>20</td>
+      <td>10</td>
+      <td>55</td>
+      <td>15</td>
+      <td>20</td>
+      <td>80</td>
+      <td>1</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>261</th>
+      <td>242</td>
+      <td>Blissey</td>
+      <td>Normal</td>
+      <td>NaN</td>
+      <td>255</td>
+      <td>10</td>
+      <td>10</td>
+      <td>75</td>
+      <td>135</td>
+      <td>55</td>
+      <td>2</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>230</th>
+      <td>213</td>
+      <td>Shuckle</td>
+      <td>Bug</td>
+      <td>Rock</td>
+      <td>20</td>
+      <td>10</td>
+      <td>230</td>
+      <td>10</td>
+      <td>230</td>
+      <td>5</td>
+      <td>2</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>121</th>
+      <td>113</td>
+      <td>Chansey</td>
+      <td>Normal</td>
+      <td>NaN</td>
+      <td>250</td>
+      <td>5</td>
+      <td>5</td>
+      <td>35</td>
+      <td>105</td>
+      <td>50</td>
+      <td>1</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>488</th>
+      <td>440</td>
+      <td>Happiny</td>
+      <td>Normal</td>
+      <td>NaN</td>
+      <td>100</td>
+      <td>5</td>
+      <td>5</td>
+      <td>15</td>
+      <td>65</td>
+      <td>30</td>
+      <td>4</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+<p>800 rows × 12 columns</p>
+</div>
+
+
 
 
 ```python

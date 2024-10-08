@@ -1,3 +1,5 @@
+# STA130 LEC 03 (Sep 23)
+
 ## Data Visualization and Populations and Sampling
 
 - Histograms versus box plots 
