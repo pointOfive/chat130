@@ -74,7 +74,7 @@ ___ ii. [statistic calculation functions](week-01-Data-Summarization#some-statis
 1. [_from scipy import stats_, _stats.multinomial_, and probability](week-02-Coding#scipystats) (and `np.random.choice`)
     1. [conditional probability Pr(A|B) and independence Pr(A|B)=Pr(A)](week-02-Coding#conditional-probability-and-independence)
 
-**Out of scope**
+**Out of Scope**
 
 1. Material covered in future weeks
 2. Anything not substantively addressed above...
@@ -183,23 +183,34 @@ ___ i\. Type I and Type II errors
 3. Simulation versus theoretical hypothesis testing frameworks, z-tests and t-tests, parametric versus nonparametric hypothesis testing frameworks, other tests such as Chi-squared or F-tests, etc...
 
 
-## Week 06 Simple Linear Regression
+## Week 7ate9 Simple Linear Regression
 
 **LEC 1 New Topics**
 
-1. correlation association (is not causation)
-2. y = ax + b
-3. predictor, outcome, intercept and slope coefficients, and error terms
-4. simple linear regression is a normal distribution
+1. [Correlation Association (IS NOT Causation)](week-7ate9-Simple-Linear-Regression#Correlation-Association-IS-NOT-Causation)
+    1. [DO NOT USE Correlation to Measure ANYTHING EXCEPT "Straight Line" Linear Association](week-7ate9-Simple-Linear-Regression#DO-NOT-USE-Correlation-to-Measure-ANYTHING-EXCEPT-Straight-Line-Linear-Association)
+    2. [Correlation is just for Y = mx + b](week-7ate9-Simple-Linear-Regression#Correlation-is-just-for-y--mx--b)
+2. [Simple Linear Regression is Just a Normal Distribution](week-7ate9-Simple-Linear-Regression#Simple-Linear-Regression-is-Just-a-Normal-Distribution)
+    1. [Terminology: predictor, outcome, intercept and slope coefficients, and error terms](week-7ate9-Simple-Linear-Regression#Terminology-predictor-outcome-intercept-and-slope-coefficients-and-error-terms)
 
 **TUT/HW Topics**
 
-1. `import statsmodels.formula.api as smf`
-2. "R-style" formulas and `smf.ols(y~x, data=df)`
-3. using `smf.ols(y~x, data=df).fit().summary()`
-    1. `.tables[1]`, `.params`, `.fittedvalues`, `.rsquared`
-    2. $\hat \beta_k$ versus $\beta_k$
-    3. hypothesis testing no linear association "on average"
+1. [_import statsmodels.formula.api as smf_](week-7ate9-Simple-Linear-Regression#statsmodel)
+2. [_smf.ols_](week-7ate9-Simple-Linear-Regression#smf-ols])
+    1. ["R-style" formulas I](week-7ate9-Simple-Linear-Regression#r-style-formulas-i])
+    2. ["quoting" non-standard columns](week-7ate9-Simple-Linear-Regression#quoting])
+3. [_smf.ols("y~x", data=df).fit()_ and _.params_](week-7ate9-Simple-Linear-Regression#fitting-models) $\hat \beta_k$ versus $\beta_k$
+    1. [_.fittedvalues_](week-7ate9-Simple-Linear-Regression#fittedvalues)
+    2. [_.rsquared_ "variation proportion explained"](week-7ate9-Simple-Linear-Regression#rsquared-variation-proportion-explained)
+    3. [_.resid_ residuals and assumption diagnostics](week-7ate9-Simple-Linear-Regression#resid-residuals-and-assumption-diagnostics)
+4. [_smf.ols("y~x", data=df).fit().summary()_ and _.tables[1]_ for Testing "On Average" Linear Association](week-7ate9-Simple-Linear-Regression#testing-on-average-linear-association)
+
+**Out of scope:**
+
+1. Material covered in future weeks
+2. Anything not substantively addressed above...
+3. ...such as all the stuff around multi/bivariate normal distribution and their covariance matrices, ellipses and their math and visual weirdness outside of a 1:1 aspect ratio, and eigenvectors and eigenvalues and major axis lines, etc...
+4. ...such as the mathematical formulas correlation, but just noting that they sort of just look like formulas for variance...
 
 **LEC 2 New Topics / Extensions**
 
