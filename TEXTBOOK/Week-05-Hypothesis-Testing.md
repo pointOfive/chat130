@@ -350,3 +350,5 @@ While the issues here are relatively advanced and subtle (as introduced [here](h
 |$$0.001 \ge p$$|Very strong evidence against the null hypothesis|
     
 2\. Only do **hypothesis testing** on the basis of confidence intervals, not **p-values** (which might be the best solution wherever doing so is a realistic, convenient possibility).
+
+

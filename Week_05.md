@@ -349,7 +349,9 @@ While the issues here are relatively advanced and subtle (as introduced [here](h
 |$$0.01 \ge p > 0.001$$|Strong evidence against the null hypothesis|
 |$$0.001 \ge p$$|Very strong evidence against the null hypothesis|
     
-2\. Only do **hypothesis testing** on the basis of confidence intervals, not **p-values** (which might be the best solution wherever doing so is a realistic, convenient possibility).# STA130 TUT 05 (Oct04)<br><br>🤔❓ <u>"Single Sample" Hypothesis Testing<u>
+2\. Only do **hypothesis testing** on the basis of confidence intervals, not **p-values** (which might be the best solution wherever doing so is a realistic, convenient possibility).
+
+# STA130 TUT 05 (Oct04)<br><br>🤔❓ <u>"Single Sample" Hypothesis Testing<u>
 
 
 ## ♻️ 📚 Review  / Questions [15 minutes]
@@ -368,6 +370,8 @@ While the issues here are relatively advanced and subtle (as introduced [here](h
 > Sep27 TUT and Sep30 LEC of the previous week addressed **sampling distributions** and **bootsrapped confidence intervals** and the **HW** breifly introduced the notion of using the **variability/uncertainty** of the **samping distribution** of a **sample statistic** (driven by the **sample size** $n$) to evaluate a **null hypothesis** about a corresponding **population parameter**
 >
 > This week builds on this concept and formally introduces **hypothesis testing** with **null** and **alternative hypotheses**, which will be much easier to understand if the concept and purpose of a **samping distribution** and **confidence intervals** is well understood...
+
+</details>
 
 
 ## 🚧 🏗️ Demo I (introducing formal Hypothesis Testing) [15 minutes]

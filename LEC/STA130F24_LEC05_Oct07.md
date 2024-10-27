@@ -647,3 +647,6 @@ You MUST choose $\alpha$ before you observe the data and calculate a statistic, 
 |![](https://cdn.dribbble.com/users/1064236/screenshots/5753511/redbull_fly_800x600.gif)|![](https://media1.giphy.com/media/VeGYtq4kReVJmt5XVM/giphy.gif)|
 |-|-|
 | | |
+
+
+
