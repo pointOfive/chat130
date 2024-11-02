@@ -544,7 +544,7 @@ fig.show() # USE `fig.show(renderer="png")` FOR ALL GitHub and MarkUs SUBMISSION
 ### (A) Do a permuation test $\;H_0: \mu_{\text{short}}=\mu_{\text{long}} \; \text{ no difference in duration between short and long groups}$ by "shuffling" the labels
 ### (B) Create a 95% bootstrap confidence interval  by repeatedly bootstrapping within each group and applying *np.quantile(bootstrapped_mean_differences, [0.025, 0.975])* to the collection of differences between the sample means.    
 ### (a) Explain how the sampling approaches work for the two simulations.
-### (b) Compare and contrast these two methods with the *indicator variable* based model approach used in Question 10, explaining how they're similar and different.<br>
+### (b) Compare and contrast these two methods with the *indicator variable* based model approach used in Question 11, explaining how they're similar and different.<br>
     
 <details class="details-example"><summary style="color:blue"><u>Further Guidance</u></summary>
 

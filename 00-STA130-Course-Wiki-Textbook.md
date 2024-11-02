@@ -205,6 +205,13 @@ ___ i\. Type I and Type II errors
     3. [_.resid_ residuals and assumption diagnostics](week-7ate9-Simple-Linear-Regression#resid-residuals-and-assumption-diagnostics)
 4. [_smf.ols("y~x", data=df).fit().summary()_ and _.tables[1]_ for Testing "On Average" Linear Association](week-7ate9-Simple-Linear-Regression#testing-on-average-linear-association)
 
+**LEC 2 New Topics / Extensions**
+
+1. [Two(2) unpaired samples group comparisons](week-7ate9-Simple-Linear-Regression#two2-unpaired-samples-group-comparisons)
+2. [Two(2) unpaired sample permutation tests](week-7ate9-Simple-Linear-Regression#two2-unpaired-sample-permutation-tests)
+3. [Two(2) unpaired sample bootstrapping](week-7ate9-Simple-Linear-Regression#two2-unpaired-sample-bootstrapping)
+4. [Indicator variables and contrasts linear regression](week-7ate9-Simple-Linear-Regression#indicator-variables-and-contrasts-linear-regression)
+
 **Out of scope:**
 
 1. Material covered in future weeks
@@ -212,11 +219,3 @@ ___ i\. Type I and Type II errors
 3. ...such as all the stuff around multi/bivariate normal distribution and their covariance matrices, ellipses and their math and visual weirdness outside of a 1:1 aspect ratio, and eigenvectors and eigenvalues and major axis lines, etc...
 4. ...such as the mathematical formulas correlation, but just noting that they sort of just look like formulas for variance...
 
-**LEC 2 New Topics / Extensions**
-
-1. indicator variables
-2. two sample group comparisons
-3. normality assumption diagnostic
-4. one, paired, and two sample tests
-5. two sample permutation tests
-6. two sample bootstrapping

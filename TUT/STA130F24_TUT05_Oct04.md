@@ -18,6 +18,8 @@
 >
 > This week builds on this concept and formally introduces **hypothesis testing** with **null** and **alternative hypotheses**, which will be much easier to understand if the concept and purpose of a **samping distribution** and **confidence intervals** is well understood...
 
+</details>
+
 
 ## 🚧 🏗️ Demo I (introducing formal Hypothesis Testing) [15 minutes]
 

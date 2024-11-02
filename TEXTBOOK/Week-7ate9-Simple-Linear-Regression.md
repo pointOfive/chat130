@@ -22,13 +22,10 @@
 
 **LEC 2 New Topics / Extensions**
 
-1. indicator variables
-2. two sample group comparisons
-3. normality assumption diagnostic
-4. one, paired, and two sample tests
-4. two sample permutation tests
-5. two sample bootstrapping
-
+1. [Two(2) unpaired samples group comparisons](week-7ate9-Simple-Linear-Regression#two2-unpaired-samples-group-comparisons)
+2. [Two(2) unpaired sample permutation tests](week-7ate9-Simple-Linear-Regression#two2-unpaired-sample-permutation-tests)
+3. [Two(2) unpaired sample bootstrapping](week-7ate9-Simple-Linear-Regression#two2-unpaired-sample-bootstrapping)
+4. [Indicator variables and contrasts linear regression](week-7ate9-Simple-Linear-Regression#indicator-variables-and-contrasts-linear-regression)
 
 **Out of scope:**
 
@@ -275,7 +272,7 @@ beta1 = 2
 Y = beta0 + beta1*x + stats.norm(loc=0, scale=3).rvs(size=n)
 ```
 
-Did you figure out how you can control **correlation** with the **simple linear model**? Does it depend on the line $Y=mx+b$? Or what about $Y_i = \beta_0 + \beta_1 x_i + \epsilon_i$ and $\sigma$ is that matters for **correlation**? 
+Did you figure out how you can control **correlation** with the **simple linear model**? Does it depend on the line $Y=mx+b$? Or what about $Y_i = \beta_0 + \beta_1 x_i + \epsilon_i$ and $\sigma$? Is that what matters for **correlation**? 
 
 #### Terminology: predictor, outcome, intercept and slope coefficients, and error terms
 
@@ -512,3 +509,224 @@ The `coef` column of `data_fitted_model.summary().tables[1]` corresponds to `dat
 A small **p-value** for the **slope coefficient** $\hat \beta_1$ therefore suggests the implausibility of the **null hypothesis** and hence suggests that there actually likely is "a **linear association** 'on average' between the outcome and predictor variables" with $\hat \beta_1$ capturing the "on average" change of this **linear association**. 
 
 > The `std err` and `t` columns relate to the **sampling distribution** "under the null", and the `[0.025 0.975]` columns provide **inference** for **estimated coefficients** in the form of **confidence intervals**, but all of this is beyond the scope of STA130 so we'll just concern ourselves with appropriately using the **p-values** from the `P>|t|` column. 
+
+## LEC Two(2) New Topics
+
+### Two(2) unpaired samples group comparisons
+
+4. one, paired, and two sample tests
+
+So far in the course we've seen **paired samples** turned into **paired sample differences**, and we've seen the **one sample** "coin flipping" null hypothesis. Both of these are really just treated as **single sample analyses**. The following table breaks this down in order to demonstrate the natural generalization of this situation where we ACTUALLY *really have* **two independent samples**.
+
+|                 | Paired Samples  | Unpaired Samples | 
+|-----------------|-----------------|------------------|
+| One Sample      | Paired Difference (continuous)<br>Paired Comparisons (binary)|Coin Flipping or $\underset{\textrm{another chosen distribution}}{H_0: f{\theta=\theta_0}(X=x)}$ |  
+| Two Sample      | Treated as One Sample | NEW CATEGORY TO CONSIDER!!! | 
+
+By **two independent samples** we mean we have **two unpaired samples** representing **two different groups**.
+In this context it is natural for interest to focus on potential differences between the two **populations** from which the two **samples** are drawn from. Interestingly, this is not so different from the internet in **paired sample** context. The difference is that there the two groups may be the same individuals before and after some intervention, or some other natural pairing such as twins, husbands and wives, a parent and a child, etc. But again interest in these contexts lies in examining differences or changes between two "populations" in some abstract sense. The real difference then between paired and unpaired samples is that continuous paired difference or binary paired comparisons allow a paired sample context to be treated as in the manner of a single sample analysis.
+
+But this then shows that the real difference in consideration is the difference between **one sample** and **two sample** analysis contexts. But interestingly, there is again a similarity across these two different modes of analysis that is worth emphasizing. Namely, characterizing evidence using **hypothesis testing** and performing statistical inference using **bootstrapped confidence intervals** are (perhaps as should be expected) available for both **one sample** *and* **two sample** data analysis contexts. The next two sections will discuss these new methods, which are respectively (obviously) referred to as **Permutation Testing** (based on label shuffling) and what we'll call just **"Double" Bootstrapping** for the purposes of our course (even though that's not an "official" name). 
+
+|                                       | One Sample                                   | Two Sample                          |
+|---------------------------------------|----------------------------------------------|-------------------------------------|
+| Hypothesis Testing<br>using p-values  | $H_0$ Coin Flipping<br>Sampling Distribution | Permutation Test<br>label shuffling |
+| Confidence Intervals<br>for Inference | Bootstrapping | "Double" Bootstrapping |
+
+
+### Two(2) unpaired sample permutation tests
+
+The idea of a **permutation test** starts with the **null hypothesis**.
+
+$$H_0: \textrm{There is not difference between these two populations}$$
+
+If this **null hypothesis** *is true*, then "label shuffling" would not actually have any meaning. 
+So with respect to $H_0$ each of the follow **permutations** of the actual group label are equally reasonable (since group label *does not matter* if the there's no difference between the two populations). 
+
+| Observation value | Actual group label | Shuffled group label 1 | ... 2 | ... 3 |
+|-------------------|--------------------|------------------------|-------|-------|
+| 7 | A | A | B | B |
+| 4 | A | A | A | B |
+| 7 | B | A | A | A |
+| 9 | B | B | A | B |
+| 1 | A | B | B | A |
+| 1 | B | B | B | A |
+
+However, this **label shuffling** then provides a mechanism to **simulate** samples under the assumption that the null hypothesis is true. And of course these can be used to **simulate** the **sampling distributions** of our statistic of interest *under the assumption that the null hypothesis is true*. And then from there estimate the **p-value** of the **actually observed statistic** *relative to this sampling distribution*.
+
+To illustrate this, suppose we're VERY interested in understanding the Pokémon universe, and in particular we REALLY care to learn if "Water" and "Fire" Pokémon represent an apartheid-esque patriarchal tyranny. As we all no doubt are.
+
+```python
+import pandas as pd
+import plotly.express as px
+
+url = "https://raw.githubusercontent.com/KeithGalli/pandas/master/pokemon_data.csv"
+# fail https://github.com/KeithGalli/pandas/blob/master/pokemon_data.csv
+pokeaman = pd.read_csv(url)
+
+fire = pokeaman['Type 1'] == 'Fire'
+water = pokeaman['Type 1'] == 'Water'
+pokeaman[ fire | water ]
+```
+
+In this case then, what we're interested in asking is whether or not the difference observed in the box plot below could be just be due to the random chance of the sample of Pokémon that from the Pokémon universe that we happen to know about here on earth thanks to "[t]he Pokémon Company (株式会社ポケモン, [Kabushiki Gaisha](https://en.wikipedia.org/wiki/Kabushiki_Gaisha) Pokemon, TPC)"
+
+> which according to [https://en.wikipedia.org/wiki/The_Pokémon_Company](https://en.wikipedia.org/wiki/The_Pokémon_Company) is 
+"a Japanese company responsible for" letting humans here on earth learn about the Pokémon universe thanks to their efforts regarding "[brand management](https://en.wikipedia.org/wiki/Brand_management), production, [publishing](https://en.wikipedia.org/wiki/Publishing), [marketing](https://en.wikipedia.org/wiki/Marketing), and [licensing](https://en.wikipedia.org/wiki/License) of the [Pokémon](https://en.wikipedia.org/wiki/Pok%C3%A9mon) [franchise](https://en.wikipedia.org/wiki/Media_franchise), which consists of [video games](https://en.wikipedia.org/wiki/Pok%C3%A9mon_(video_game_series)), a [trading card game](https://en.wikipedia.org/wiki/Pok%C3%A9mon_Trading_Card_Game), [anime television series](https://en.wikipedia.org/wiki/Pok%C3%A9mon_(TV_series)), [films](https://en.wikipedia.org/wiki/List_of_Pok%C3%A9mon_films), [manga](https://en.wikipedia.org/wiki/List_of_Pok%C3%A9mon_manga), [home entertainment](https://en.wikipedia.org/wiki/Home_video) products, merchandise, and other ventures."
+
+```python
+display(pd.DataFrame(pokeaman[ fire | water ].groupby('Type 1')['Sp. Atk'].mean()))
+display(pd.DataFrame(pokeaman[ fire | water ].groupby('Type 1')['Sp. Atk'].mean().diff()))
+print(pokeaman[ fire | water ].groupby('Type 1')['Sp. Atk'].mean().diff().values[1])
+
+fig = px.box(pokeaman[ fire | water ], x="Type 1", y="Sp. Atk", 
+    title="Distribution of 'Sp. Atk' between Water and Fire Type Pokémon: Are These Different??")
+fig.show()  # USE `fig.show(renderer="png")` FOR ALL GitHub and MarkUs SUBMISSIONS
+
+# #https://stackoverflow.com/questions/52771328/plotly-chart-not-showing-in-jupyter-notebook
+# import plotly.offline as pyo
+# # Set notebook mode to work in offline
+# pyo.init_notebook_mode()
+```
+
+So, indeed, how *DO* we determine if the averages difference observed in the above box plots is likely to reflect ACTUAL 
+Pokémon racism? Or if it might just reflect the random of chance of the adventures of Ash Ketchum, Pikachu, Serena, Misty, Togepi, and Brock? 
+
+> That group DOES *drink a lot* (it is known) and don't really seem to actually ever walk very straight towards any sensible objective of tryin' to get somewhere (or anywhere for that matter) in the show, just sayin'. And I mean, getting "random battles" in the game is, indeed, as one would say, *pretty random*.
+
+Well, we do a bunch of **label shuffling** to **simulate** samples under the assumption that the null hypothesis is true. Ah, like-a-so,
+where from here we're **simulate** the sampling distribution of our sample statistic of interest under the assumption that the null hypothesis (that there is not difference between groups so labels don't actually matter) is true. 
+
+```python
+import numpy as np 
+
+groups4racism = pokeaman[ fire | water ].copy()
+
+# Set parameters for bootstrap
+n_bootstraps = 1000  # Number of bootstrap samples
+sample_size = len(groups4racism)  # Sample size matches the original dataset
+label_permutation_mean_differences = np.zeros(n_bootstraps)
+
+for i in range(n_bootstraps):
+    groups4racism['Shuffled Pokeaman Race'] = groups4racism['Type 1'].sample(n=sample_size, replace=True).values
+    label_permutation_mean_differences[i] = \
+        groups4racism.groupby('Shuffled Pokeaman Race')['Sp. Atk'].mean().diff().values[1] 
+```
+
+So the above code assumes there's *no racism* the Pokémon universe, and based on this and the label shuffling we can therefore do under this assumption, we can then compute the **p-value** of our **observed sample statistic** (relative to the assumption of this null hypothesis under consideration) in order to complete the **permutation test**.
+
+```python
+fig = px.histogram(pd.DataFrame({"label_permutation_mean_differences": label_permutation_mean_differences}), nbins=30,
+                                title="Mean Difference Sampling under SHUFFLED Pokeaman Race")
+
+mean_differene_statistic = groups4racism.groupby('Type 1')['Sp. Atk'].mean().diff().values[1]
+
+fig.add_vline(x=mean_differene_statistic, line_dash="dash", line_color="red",
+              annotation_text=f".<br><br>Shuffled Statistic >= Observed Statistic: {mean_differene_statistic:.2f}",
+              annotation_position="top right")
+fig.add_vline(x=-mean_differene_statistic, line_dash="dash", line_color="red",
+              annotation_text=f"Shuffled Statistic <= Observed Statistic: {-mean_differene_statistic:.2f}<br><br>.",
+              annotation_position="top left")
+fig.show()  # USE `fig.show(renderer="png")` FOR ALL GitHub and MarkUs SUBMISSIONS
+
+print("p-value",
+      (abs(label_permutation_mean_differences) >= abs(mean_differene_statistic)).sum()/n_bootstraps)
+```
+
+Hmm... **p-value** is **STRONG** evidence against the null hypothesis according to the table below. 
+I'd therefore REJECT the null hypothesis assumption that the (Fire or Water) type of Pokémon doesn't matter when it comes to the "Sp. Atk" power that you're gonna have.  Pokémon def probably racist, y'all. Sorry to burst your bubble.
+
+| p-value                | Evidence                                         |
+| ---------------------- | ------------------------------------------------ |
+| $$p > 0.1$$            | No evidence against the null hypothesis          |
+| $$0.1 \ge p > 0.05$$   | Weak evidence against the null hypothesis        |
+| $$0.05 \ge p > 0.01$$  | Moderate evidence against the null hypothesis    |
+| $$0.01 \ge p > 0.001$$ | Strong evidence against the null hypothesis      |
+| $$0.001 \ge p$$        | Very strong evidence against the null hypothesis |
+
+|![](https://media1.tenor.com/m/IYTiSjV9028AAAAd/squirtle-pokemon-squirtle.gif)|![](https://i.kym-cdn.com/entries/icons/original/000/029/740/detpikachu.jpg)|
+|:-:|:-:|
+|![](https://static0.gamerantimages.com/wordpress/wp-content/uploads/2020/10/Charmander-meme-pokemon.jpg?q=150&fit=crop&w=300&dpr=1.0) ![](https://imgix.ranker.com/user_node_img/50039/1000767304/original/you-can-t-not-sing-it-photo-u1?auto=format&amp;q=60&amp;fit=crop&amp;fm=pjpg&amp;dpr=1&amp;w=350) |![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuVq8sz6FeiHpsgtbuE7XTuLmREbEPhkt2B9QCT1wXKuVqGCl32ACsW0sETLuhs2VmZKE&usqp=CAU)![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF4Nfz0ZE-1P6c7BQg4aoDOmSpPoSfsfkdUzFoIVaeQAv5d6BPdKlSX0VCH7KvsZWtQxE)![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwVlYHUe6hgL2fml88yWzNk39N84G2nGFr6A)![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv0hd0FGzE3rpCD--YBg9nRJv8W932asQHIZJcaRJHRUSxRvwOixg4jnsMvtqxQOg6W7U&usqp=CAU) |
+
+
+### Two(2) unpaired sample bootstrapping
+
+As always, making a decision regarding a null hypothesis based on the strength of evidence executes the scientific process that hypothesis testing is. But it doesn't tell us the full story. We get that by considering **statistical inference**.  And as you will hopefully recall, the way we can provide **statistical inference** is through **confidence intervals**.  And of course the way we create **confidence intervals** in our class is through **bootstrapping**. The trick to **confidence intervals** in the **two sample** context is to simply perform so-called **"double" bootstrapping**. Now don't get confused, **"double" bootstrapping** IS NOT "double `for` loops. Actually, **"double" bootstrapping** is just a name that got *made up* (literally yesterday) because it describes how **bootstrapping** works in the **two independent sample** context. Namely, **EACH SAMPLE** is **bootstrapped** separately side-by-side. So, **bootstrapping** for the **two independent sample** context is thus **"double" bootstrapping**.  The code below illustrates exactly what is meant by this. 
+
+```python
+within_group_bootstrapped_mean_differences = np.zeros(n_bootstraps)
+for i in range(n_bootstraps):
+    double_bootstrap = \
+        groups4racism.groupby("Type 1")[["Type 1","Sp. Atk"]].sample(frac=1, replace=True)
+    within_group_bootstrapped_mean_differences[i] = \
+        double_bootstrap.groupby('Type 1')["Sp. Atk"].mean().diff().values[1]
+    
+np.quantile(within_group_bootstrapped_mean_differences, [0.05,0.95])    
+```
+
+Are you able to tell what's happening here? First, the original data is separated into its groups by the `groupby`. Then the labels and the data is selected (so all other columns in the data frame are removed). Then, **within each group** each **subgroup sample** is **bootstrapped** in the usual manner. The two sample means and their differences are then computed. This of course is the **mean difference statistic** of interest. And finally, a 90% **"double" bootstrapped confidence interval** is created. If you don't like this **confidence level** screw you. Sue me. Ah but you can't. 'Cuz it's Canada not the US. Too bad so sad sorry I'm not sorry (but VERY Canadian since I'm saying sorry when I don't really mean it). 
+
+
+### Indicator variables and contrasts linear regression
+
+So, with **permutation testing** and the **"double" bootstrap** methods above we can provide **evidence** *against a null hypothesis* and **inference** *for a population parameter*. And these two methods are quite great. But is there another way, you ask? Why yes, there is. How did you know? Maybe because there's probably actually about a million other ways. But they're all based exactly on the idea of a **sampling distribution of a statistic**. That is, ALL STATISTICAL METHODS ARE BASED ON either (A) the **sampling distribution of a statistic under a null hypothesis** (in order to compute **p-values** and perform **hypothesis** testing) or (B) a **sampling distribution of the sample statistic** (in order to provide **inference** about the corresponding **population parameter**). For the latter task (of **inference**), we'll often rely on the **bootstrapped sampling distribution of the sample statistic** which we've (hopefully) become increasingly familiar and comfortable with through the methods of our course. But, in later statistics courses you'll additionally learn how to create other kinds of **confidence intervals** based on approximations derived from theoretical derivations (based on some assumptions about the data). In fact, the "statistic plus and minus two standard errors" is exactly such a theoretically derived confidence interval approximation (based on some assumptions about the data). This style of "statistic plus and minus two standard errors" confidence interval *is in fact provided in the output of fitted simple linear regression models*. So we'll note that later. But first, to start with, let's begin by considering how to use simple linear regression models for hypothesis testing in the **two independent samples** context. 
+
+The idea that we need to do this is called an **indicator variable**. The **simple linear regression model** we've considered so far is
+
+$$Y_i = \beta_0 + \beta_1 \times x_i + \epsilon_i \quad \textrm{where there is a distributional assumption on the error term } \epsilon_i \textrm{ and } x_i \textrm{ is a continuous valued numeric variable.}$$  
+
+But here's what amounts to being essentially the same model, except a **qualitative categorical** variable $k_i$ is now substituted for $x_i$
+
+$$Y_i = \beta_0 + \beta_1 \times 1_{[\text{group}]}(k_i) + \epsilon_i  \quad \textrm{where $1_{[\text{group}]}(k_i)$ will become the value of $1$ if ``$k_i=\textrm{group}$'' is }\texttt{True}\textrm{, and will otherwise become the value of $0$.}$$
+
+So under this specification, $1_{[\text{group}]}(k_i)$ is a **binary variable**, and it's called an **indicator variable**. It's called an **indicator variable** because it *indicates* whether or not $k_i=\textrm{group}$ is `True`. If $k_i=\textrm{group}$ is `True` then the **binary variable** is $1$, and otherwise it's $0$. Interestingly, this means that the **qualitative categorical** variable $k_i$ might not itself be a **binary variable**!  No matter. The **indicator variable** $1_{[\text{group}]}(k_i)$ *is* a **binary variable**. 
+
+Since $1_{[\text{group}]}(k_i)$ is a binary variable, $\beta_0 + \beta_1 \times 1_{[\text{group}]}(k_i)$ behaves slightly differently than $\beta_0 + \beta_1 \times x_i$. The **continuous variable** $x_i$ can take on values that are not limited to just $1$ or $0$; so, therefore $\beta_1$ in the canonical simple linear regression model specification capture the "rise over run" association observed between $Y_i$ and $x_i$. But this is not the way to think about interpreting things for the **binary variable** version of this specification $\beta_0 + \beta_1 \times 1_{[\text{group}]}(k_i)$. In this **binary variable** version, $\beta_1$ captures the so-called **contrast** relative to $\beta_0$ which occurs whenever the $1_{[\text{group}]}(k_i)$ binary variable is *"turned on"*. But what then does this **contrast** mean? Well, *it defines the* **_difference_** between the two groups defined by $1_{[\text{group}]}(k_i)$. Namely, the group where $k_i=\textrm{group}$ is `True`, and "everybody else" is the "other group" where $k_i=\textrm{group}$ is `False` (or $k_i\neq\textrm{group}$ is `True`). So if $1_{[\text{group}]}(k_i)$ is *"off"* because $k_i\neq\textrm{group}$, then the value of the model is $\beta_0$ (because in this case $1_{[\text{group}]}(k_i)$ is $0$). And if $1_{[\text{group}]}(k_i)$ is *"on"* because $k_i=\textrm{group}$, then the value of the model is $\beta_0+\beta_1$ (because in this case $1_{[\text{group}]}(k_i)$ is $1$). So there are two cases.
+
+0\. If $k_i\neq\textrm{group}$ then $\beta_0 + \beta_1 \times 1_{[\text{group}]}(k_i) = \beta_0 + \beta_1 \times 0 = \beta_0$ 
+
+1\. If $k_i=\textrm{group}$ then $\beta_0 + \beta_1 \times 1_{[\text{group}]}(k_i) = \beta_0 + \beta_1 \times 1 = \beta_0 + \beta_1$ 
+
+So, the **contrast** $\beta_1$ captures *the difference* between the two groups. But now recall what **simple linear regression** provides in terms of **hypothesis testing**.  Namely, it provides **hypothesis testing** for $H_0: \beta_1 = 0$. But now in the context of the **indicator variable** version of simple linear regression, this **null hypothesis** has the interpret ion of meaning "no difference between groups". So let's now examine the output of a **fitted indicator variable version of the simple linear regression model**.
+
+```python
+import statsmodels.formula.api as smf
+
+# Model (a): Predict Attack based on Defense
+model_fit = smf.ols(formula="Q('Sp. Atk') ~ Q('Type 1')", data=groups4racism).fit()
+print(model_fit.rsquared)
+model_fit.summary().tables[1]
+```
+
+|beta0-hat / beta1-hat  |  coef	        |std err|t	|P>\|t\||[0.025| 0.975]|
+|-----------------------|---------------|-------|-------|-------|------|-------|
+|Intercept	        |88.9808	|4.070	|21.860	|0.000	|80.943	|97.019|
+|Q('Type 1')[T.Water]	|-14.1683	|4.926	|-2.876	|0.005	|-23.895|-4.442|
+
+From this output we see that the "group" when $1_{[\text{group}]}(k_i)$ is `Water`.
+So the other group is `Fire` (just because that's the only other kind of pokeamans in this data. 
+So what is $\hat \beta_0$ then? Well that's the `Intercept` so $\hat \beta_0 \approx 89$.
+And so that's then the average of the out come (`Sp. Atk`) in the `Fire` group.
+So then $\hat \beta_1 \approx -14.16$ which is the **contrast** (difference) from the average of the `Fire` group to the average of the `Water` group (which is $\hat \beta_0 + \hat \beta_1 \approx 89 -14.16 = 74.84$.
+
+And what else can we say here? We have a **p-value** relative to $H_0: \beta_1 = 0$ of `0.005`.
+Again this indicates **strong** evidence against the null hypothesis.  
+
+This should by now feel very reminiscent of what **permutation testing** we previously considered. Indeed, what we have here is a **theoretical p-value** *based on an approximation derived on the basis of* **the assumptions of the regression model** (which are encoded in the the distributional assumption that **error terms** $\epsilon_i \sim \mathcal{N}(0, \sigma)$ and the statement of the **linear form**, here 
+$Y_i = \beta_0 + \beta_1 \times 1_{[\text{group}]}(k_i) + \epsilon_i$ but perhaps more generally simply stated as $Y_i = \beta_0 + \beta_1 \times x_i + \epsilon_i$. The previously considered **permutation test** in contrast is a **nonparametric hypothesis test** which does not rely on the so-called **parametric** *normality assumption*. 
+
+*But now remember* that ALL STATISTICAL METHODS ARE BASED ON either (A) the **sampling distribution of a statistic under a null hypothesis** (in order to compute **p-values** and perform **hypothesis** testing) or (B) a **sampling distribution of the sample statistic** (in order to provide **inference** about the corresponding **population parameter**). 
+Regarding (A) the definition of the **p-value** used to give evidence against $H_0: \beta_1 = 0$ through the **indicator variable formulation** of the simple linear regression specification is the same as ever. And this is clearly reflected in the labeling of the **p-value** `P>|t|` as given in the output table of the fitted model. 
+
+- A **p-value** is `P>|t|` *the probability of seeing a statistic as or more extreme that what was observed if the null hypothesis was true.*
+
+The difference is that the **permutation test** uses "label shuffling" to **simulate** the **sampling distribution** of *the sample statistic under the assumption of the null hypothesis (of not difference between the groups)*, and computes a **p-value** from there; whereas, the **indicator variable formulation** of the simple linear regression specification instead *assumes the assumption regarding* the **_normality of the error terms_**, etc. is correct, which allows for *a theoretical approximation* of the **sampling distribution** of $\hat \beta_1$ *under the null hypothesis assumption* $H_0: \beta_1 = 0$. 
+
+- The assumption regarding the **_normality of the error terms_**, etc. can diagnostically assessed by examining the **distribution of the residuals** $\hat \epsilon_i = Y_i - \hat y_i$; specifically, the appropriateness  of the claim that **this distribution appears to reasonably be characterized as being _approximately_ normally distribute.**
+- Would you be able to assess this assumption in the context of the current analysis? If so, what is your opinion of this assumption in the context of the current analysis? Does it appear to be a reasonable assumption? Or does it appear to be egregiously unlikely and misguided? 
+
+To conclude on a high note here, we've seen that we can do hypothesis testing examining group difference using **simple linear regression** on the basis of **indicator variables**.  But **inference** using **confidence intervals** WILL ALWAY BE PREFERABLE TO HYPOTHESIS TESTING FRAMEWORKS since it can itself be used to make decisions with associated **confidence levels** just as **classical hypothesis testing** does, AND IT ALSO additionally provides a plausible range of values (where plausible is defined in terms the **confidence level** corresponding to the **confidence interval**) for what the actual true value of the parameter of interest might be according to the evidence available in the data. This allows us to meaningful understand and interpret what it exactly is that we understand about the population on the basis of the sample data at hand. This kind of **inference** is so, so much more usefully actionable than simply characterizing the evidence against the null (but which of course **confidence intervals** CAN STILL EVEN DO). So now you're asking, "okay, so what's this have to do with indicator version of simple linear regression that we're considering here?".  Well let me tell you. What do you think the columns `[0.025` and `0.975]` mean in the output table of a fitted linear regression model? 
+
+I rest my case. 
+
+So, bottom line: pokeaman Pokémon is probably maybe racist no doubt. **Strong** evidence to believe that. Trust. 
