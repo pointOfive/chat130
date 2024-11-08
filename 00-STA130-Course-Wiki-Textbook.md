@@ -159,28 +159,36 @@ This section introduces new concepts that are not covered in the tutorial/homewo
 
 ## Week 05 Hypothesis Testing
 
-**Tutorial/Homework: Topic**
+**Tutorial/Homework: Topics**
 
-1. [null and alternative hypotheses](https://github.com/pointOfive/STA130_ChatGPT/wiki/week-05-Hypothesis-Testing#Null-and-Alternative-Hypotheses)
-2. the sampling distribution under the null
-    1. one sample "difference" hypothesis tests with a "no effect" null
-3. [p-values](https://github.com/pointOfive/STA130_ChatGPT/wiki/week-05-Hypothesis-Testing#p-values)
-4. [one- or two-sided hypothesis tests](https://github.com/pointOfive/STA130_ChatGPT/wiki/week-05-Hypothesis-Testing#One-or-Two-Sided-Hypothesis-Tests)
+1. [Null and Alternative Hypotheses](https://github.com/pointOfive/stat130chat130/wiki/week-05-Hypothesis-Testing#Null-and-Alternative-Hypotheses)
+2. [The Sampling Distribution of the Null Hypothesis](https://github.com/pointOfive/stat130chat130/wiki/week-05-Hypothesis-Testing#The-Sampling-Distribution-of-the-Null-Hypothesis)
+    1. [The role Sample Size n](https://github.com/pointOfive/stat130chat130/wiki/week-05-Hypothesis-Testing#The-Role-of-Sample-Size-n) (re: [How n Drives Standard Error](https://github.com/pointOfive/stat130chat130/wiki/week-04-Bootstrapping#How-n-Drives-Standard-Error))
+    2. ["One sample" paired difference hypothesis tests with a "no effect" null](https://github.com/pointOfive/stat130chat130/wiki/week-04-Bootstrapping#one-sample-paired-difference-hypothesis-tests-with-a-no-effect-null)
+3. [p-values](https://github.com/pointOfive/stat130chat130/wiki/week-05-Hypothesis-Testing#p-values)
     
-**LEC Extensions / New Topics**
 
-> Topic numbers below correspond to related extensions and developments building from the topic items above.
+**Tutorial/Homework: Lecture Extensions**
 
-2\. independent "random" samples\
-___ i\. one sample hypothesized parameter value tests\
-3\. using p-values\
-___ i\. Type I and Type II errors
+These are topics introduced in the lecture that build upon the tutorial/homework topics discussed above
+
+3. [Using p-values](https://github.com/pointOfive/stat130chat130/wiki/week-05-Hypothesis-Testing#using-p-values)
+	1. [Using confidence intervals](https://github.com/pointOfive/stat130chat130/wiki/week-05-Hypothesis-Testing#The-relationship-between-p-values-and-confidence-intervals)
+	2. [Misusing p-values](https://github.com/pointOfive/stat130chat130/wiki/week-05-Hypothesis-Testing#misusing-p-values)
+	3. [One- versus two-sided hypothesis tests](https://github.com/pointOfive/stat130chat130/wiki/Week-05-Hypothesis-Testing#one--versus-two-sided-hypothesis-tests)
+
+
+**Lecture: New Topics**
+
+1. [Type I and Type II Errors](https://github.com/pointOfive/stat130chat130/wiki/week-05-Hypothesis-Testing#Type-I-and-Type-II-errors)
+2. [The Reproducibility Crisis](https://github.com/pointOfive/stat130chat130/wiki/week-05-Hypothesis-Testing#The-Reproducibility-Crisis)
 
 **Out of Scope**
 
 1. Material covered in future weeks
 2. Anything not substantively addressed above...
-3. Simulation versus theoretical hypothesis testing frameworks, z-tests and t-tests, parametric versus nonparametric hypothesis testing frameworks, other tests such as Chi-squared or F-tests, etc...
+3. Simulation versus theoretical hypothesis testing frameworks, z-tests and t-tests, parametric versus nonparametric hypothesis testing frameworks, other tests such as Fisher Exam or Chi-squared or F-tests, etc...
+4. Well, these above are indeed **out of scope** for the the STA130 **final exam** but it looks like they're going to be DEFINITELY *NOT out of scope* for the *course project**...
 
 
 ## Week 7ate9 Simple Linear Regression
@@ -218,4 +226,36 @@ ___ i\. Type I and Type II errors
 2. Anything not substantively addressed above...
 3. ...such as all the stuff around multi/bivariate normal distribution and their covariance matrices, ellipses and their math and visual weirdness outside of a 1:1 aspect ratio, and eigenvectors and eigenvalues and major axis lines, etc...
 4. ...such as the mathematical formulas correlation, but just noting that they sort of just look like formulas for variance...
+
+
+## Week 10 Multiple Linear Regression
+
+**Tutorial/Homework: Topics**
+
+1. [Multiple Linear Regression](Weekz-10-Multiple-Linear-Regression#Multiple-Linear-Regression)
+    1. [Interactions](Weekz-10-Multiple-Linear-Regression#Interactions)
+    2. [Categoricals](Weekz-10-Multiple-Linear-Regression#Categoricals)
+2. [Model Fitting](Weekz-10-Multiple-Linear-Regression#Interactions)
+    1. [Evidence-based Model Building](Weekz-10-Multiple-Linear-Regression#evidence-based-model-building)
+    2. [Performance-based Model Building](Weekz-10-Multiple-Linear-Regression#performance-based-model-building)
+    3. [Complexity, Multicollinearity, and Generalizability](Weekz-10-Multiple-Linear-Regression#complexity-multicollinearity-and-generalizability)
+
+**Tutorial/Homework/Lecture Extensions**
+
+These are topics introduced in the lecture that build upon the tutorial/homework topics discussed above
+
+1. [Logistic Regression](Weekz-10-Multiple-Linear-Regression#logistic-regression)
+    1. [Categorical to Binary Cat2Bin Variables](Weekz-10-Multiple-Linear-Regression#Categorical-to-Binary-Cat2Bin-Variables)
+1. [And Beyond](Weekz-10-Multiple-Linear-Regression#and-beyond)
+
+**Lecture: New Topics**
+
+1. I'm planning to just show you how I work on this kind of data with a pretty interesting example...
+
+**Out of scope:**
+
+1. Material covered in future weeks
+2. Anything not substantively addressed above...
+3. ...the deep mathematical details condition numbers, variance inflation factors, K-Folds Cross-Validation...
+4. ...the actual deep details of log odds, link functions, generalized linear models...
 
