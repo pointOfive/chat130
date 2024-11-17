@@ -12,29 +12,32 @@ This is the course [wiki-textbook](https://github.com/pointOfive/stat130chat130/
 
 ## Week 01 Data Summarization
 
+> Simple exploratory data analysis (EDA)  
+> and AI ChatBots are Very Good (at some things)
+
 **Tutorial/Homework: Topics**
 
-1. importing libraries... like [_pandas_](week-01-Data-Summarization#import)
-2. loading data... with [_pd.read_csv()_](week-01-Data-Summarization#read_csv)
-3. counting missing values... with [_df.isna().sum()_](week-01-Data-Summarization#Missingness-I)
-4. observations (rows) and variables (columns)... [_df.shape_](week-01-Data-Summarization#Variables-and-Observations) and [_df.columns_](week-01-Data-Summarization#Variables-and-Observations)
-5. numeric versus non-numeric... [_df.describe()_](week-01-Data-Summarization#Types-I) and [_df.value_counts()_](week-01-Data-Summarization#Types-I)
-6. removing missing data... with [_df.dropna()_](week-01-Data-Summarization#Missingness-II) and [_del df['col']_](week-01-Data-Summarization#Missingness-II)
-7. grouping and aggregation.... with [_df.groupby("col1")["col2"].describe()_](week-01-Data-Summarization#Grouping-and-Aggregation)
+1. importing libraries... like [_pandas_](https://github.com/pointOfive/stat130chat130/wiki/week-01-Data-Summarization#import)
+2. loading data... with [_pd.read_csv()_](https://github.com/pointOfive/stat130chat130/wiki/week-01-Data-Summarization#read_csv)
+3. counting missing values... with [_df.isna().sum()_](https://github.com/pointOfive/stat130chat130/wiki/week-01-Data-Summarization#Missingness-I)
+4. observations (rows) and variables (columns)... [_df.shape_](https://github.com/pointOfive/stat130chat130/wiki/week-01-Data-Summarization#Variables-and-Observations) and [_df.columns_](https://github.com/pointOfive/stat130chat130/wiki/week-01-Data-Summarization#Variables-and-Observations)
+5. numeric versus non-numeric... [_df.describe()_](https://github.com/pointOfive/stat130chat130/wiki/week-01-Data-Summarization#Types-I) and [_df.value_counts()_](https://github.com/pointOfive/stat130chat130/wiki/week-01-Data-Summarization#Types-I)
+6. removing missing data... with [_df.dropna()_](https://github.com/pointOfive/stat130chat130/wiki/week-01-Data-Summarization#Missingness-II) and [_del df['col']_](https://github.com/pointOfive/stat130chat130/wiki/week-01-Data-Summarization#Missingness-II)
+7. grouping and aggregation.... with [_df.groupby("col1")["col2"].describe()_](https://github.com/pointOfive/stat130chat130/wiki/week-01-Data-Summarization#Grouping-and-Aggregation)
 
 **Tutorial/Homework: Lecture Extensions**
 
 > Topic numbers below correspond to extensions of topic items above.
 
-2\. [function/method arguments](week-01-Data-Summarization#functionmethod-arguments) (like `encoding`, `dropna`, `inplace`, and return vs side-effect)\
-3\. [boolean values and coercion](week-01-Data-Summarization#Boolean-Values-and-Coercion)\
-4\. _ i. [_.dtypes_ and _.astype()_](week-01-Data-Summarization#pandas-column-data-types)\
-___ ii. [statistic calculation functions](week-01-Data-Summarization#some-statistics-calculations) 
+2\. [function/method arguments](https://github.com/pointOfive/stat130chat130/wiki/week-01-Data-Summarization#functionmethod-arguments) (like `encoding`, `dropna`, `inplace`, and return vs side-effect)\
+3\. [boolean values and coercion](https://github.com/pointOfive/stat130chat130/wiki/week-01-Data-Summarization#Boolean-Values-and-Coercion)\
+4\. _ i. [_.dtypes_ and _.astype()_](https://github.com/pointOfive/stat130chat130/wiki/week-01-Data-Summarization#pandas-column-data-types)\
+___ ii. [statistic calculation functions](https://github.com/pointOfive/stat130chat130/wiki/week-01-Data-Summarization#some-statistics-calculations) 
 
 **Lecture: New Topics**
 
-1. [sorting and (0-based) indexing](week-01-Data-Summarization#sorting-and-iloc-indexing)
-2. [subsetting via conditionals and boolean selection](week-01-Data-Summarization#logical-conditionals-boolean-selectionsubsetting-and-loc-indexing-v2)
+1. [sorting and (0-based) indexing](https://github.com/pointOfive/stat130chat130/wiki/week-01-Data-Summarization#sorting-and-iloc-indexing)
+2. [subsetting via conditionals and boolean selection](https://github.com/pointOfive/stat130chat130/wiki/week-01-Data-Summarization#logical-conditionals-boolean-selectionsubsetting-and-loc-indexing-v2)
 
 **Out of Scope**
 
@@ -46,33 +49,35 @@ ___ ii. [statistic calculation functions](week-01-Data-Summarization#some-statis
 
 ## Week 02 Coding and Probability
 
+> Chance is intuitive and use AI ChatBots<br> to make coding and understanding code easier
+
 **Tutorial/Homework: Topic**
 
-1. python object types... [_tuple_](week-02-Coding#Types), [_list_](week-02-Coding#types), [_dict_](week-02-Coding#Types)
-2. another key data type... [_np.array_](week-02-Coding#np-array) (and `np.random.choice`)
-3. for loops... [_for i in range(n):_](week-02-Coding#for-loops)
-    1. [_print()_](week-02-Coding#for-loops)
-    2. [_for x in some_list:_](week-02-Coding#More-for-Loops)
-    3. [_for i,x in enumerate(some_list):_](week-02-Coding#More-for-Loops)
+1. python object types... [_tuple_](https://github.com/pointOfive/stat130chat130/wiki/Week-02-Coding-and-Probability#types), [_list_](https://github.com/pointOfive/stat130chat130/wiki/Week-02-Coding-and-Probability#types), [_dict_](https://github.com/pointOfive/stat130chat130/wiki/Week-02-Coding-and-Probability#types)
+2. another key data type... [_np.array_](https://github.com/pointOfive/stat130chat130/wiki/Week-02-Coding-and-Probability#nparary) (and `np.random.choice`)
+3. for loops... [_for i in range(n):_](https://github.com/pointOfive/stat130chat130/wiki/Week-02-Coding-and-Probability#for-loops)
+    1. [_print()_](https://github.com/pointOfive/stat130chat130/wiki/Week-02-Coding-and-Probability#for-loops)
+    2. [_for x in some_list:_](https://github.com/pointOfive/stat130chat130/wiki/Week-02-Coding-and-Probability#more-for-loops)
+    3. [_for i,x in enumerate(some_list):_](https://github.com/pointOfive/stat130chat130/wiki/Week-02-Coding-and-Probability#more-for-loops)
     4. ~`for key,val in dictionary.items()` and `dictionary.keys()` and `dictionary.values()`~
-4. logical flow control... [_if_](week-02-Coding#Logical-Flow-Control), [_elif_](week-02-Coding#Logical-Flow-Control), [_else_](week-02-Coding#Logical-Flow-Control)
-    1. ~[_try-except_ blocks](week-02-Coding#Logical-Flow-Control)~
+4. logical flow control... [_if_](https://github.com/pointOfive/stat130chat130/wiki/Week-02-Coding-and-Probability#logical-flow-control), [_elif_](https://github.com/pointOfive/stat130chat130/wiki/Week-02-Coding-and-Probability#logical-flow-control), [_else_](https://github.com/pointOfive/stat130chat130/wiki/Week-02-Coding-and-Probability#logical-flow-control)
+    1. ~[_try-except_ blocks](https://github.com/pointOfive/stat130chat130/wiki/Week-02-Coding-and-Probability#logical-flow-control)~
 
 **Tutorial/Homework: Lecture Extensions**
 
-1. more object types... [_type()_](week-02-Coding#more-types) 
-    1. [more indexing for "lists"](week-02-Coding#more-indexing)
-    2. [more _np.array_ with _.dtype_](week-02-Coding#more-nparray) 
-    3. [more "list" behavior with _str_ and _.split()_](week-02-Coding#more-list-behavior-with-str-and-split)
+1. more object types... [_type()_](https://github.com/pointOfive/stat130chat130/wiki/Week-02-Coding-and-Probability#more-types) 
+    1. [more indexing for "lists"](https://github.com/pointOfive/stat130chat130/wiki/Week-02-Coding-and-Probability#more-indexing)
+    2. [more _np.array_ with _.dtype_](https://github.com/pointOfive/stat130chat130/wiki/Week-02-Coding-and-Probability#more-nparray) 
+    3. [more "list" behavior with _str_ and _.split()_](https://github.com/pointOfive/stat130chat130/wiki/Week-02-Coding-and-Probability#more-list-behavior-with-str-and-split)
         1. ~text manipulation with `.apply(lambda x: ...)`, `.replace()`, and `re`~
-    4. [operator overloading](week-02-Coding#operator-overloading)
-2. [What are _pandas DataFrame objects_?](week-02-Coding#what-are-pandas-dataframe-objects)
-3. [_for word_](https://github.com/pointOfive/stat130chat130/wiki/Week-02-Coding/week-02-Coding#More-for-Loops) _in_ [_sentence.split():_](week-02-Coding#more-list-behavior-with-str-and-split)
+    4. [operator overloading](https://github.com/pointOfive/stat130chat130/wiki/Week-02-Coding-and-Probability#operator-overloading)
+2. [What are _pandas DataFrame objects_?](https://github.com/pointOfive/stat130chat130/wiki/Week-02-Coding-and-Probability#what-are-pddataframe-objects)
+3. [_for word_](https://github.com/pointOfive/stat130chat130/wiki/Week-02-Coding/week-02-Coding#More-for-Loops) _in_ [_sentence.split():_](https://github.com/pointOfive/stat130chat130/wiki/Week-02-Coding-and-Probability#more-list-behavior-with-str-and-split)
 
 **Lecture: New Topics**
 
-1. [_from scipy import stats_, _stats.multinomial_, and probability](week-02-Coding#scipystats) (and `np.random.choice`)
-    1. [conditional probability Pr(A|B) and independence Pr(A|B)=Pr(A)](week-02-Coding#conditional-probability-and-independence)
+1. [_from scipy import stats_, _stats.multinomial_, and probability](https://github.com/pointOfive/stat130chat130/wiki/Week-02-Coding-and-Probability#scipystats) (and `np.random.choice`)
+    1. [conditional probability Pr(A|B) and independence Pr(A|B)=Pr(A)](https://github.com/pointOfive/stat130chat130/wiki/Week-02-Coding-and-Probability#conditional-probability-and-independence)
 
 **Out of Scope**
 
@@ -85,16 +90,19 @@ ___ ii. [statistic calculation functions](week-01-Data-Summarization#some-statis
 
 ## Week 03 Data Visualization
 
+> Populations and Sampling and more interesting EDA  
+> by making figures with AI ChatBots 
+
 **Tutorial/Homework: Topics**
 
-1. [More Precise Data Types (As Opposed to Object Types)](week-03-Data-Visualization#continuous-discrete-nominal-and-ordinal-categorical-and-binary): continuous, discrete, nominal and ordinal categorical, and binary
-2. [Bar Plots and Modes](week-03-Data-Visualization#Bar-plots-and-modes)
-3. [Histograms](week-03-Data-Visualization#Histograms)
-4. [Box Plots, Range, IQR, and Outliers](week-03-Data-Visualization#Box-plots-and-spread)
-5. [Skew and Multimodality](week-03-Data-Visualization#skew-and-multimodality)
-    1. [Mean versus Median](week-03-Data-Visualization#skew-and-multimodality)
-    2. [Normality and Standard Deviations](week-03-Data-Visualization#normal-distributions)
-    3. [Characteristics of a Normal Distribution](week-03-Data-Visualization#characteristics-of-a-Normal-Distribution)
+1. [More Precise Data Types (As Opposed to Object Types)](https://github.com/pointOfive/stat130chat130/wiki/week-03-Data-Visualization#continuous-discrete-nominal-and-ordinal-categorical-and-binary): continuous, discrete, nominal and ordinal categorical, and binary
+2. [Bar Plots and Modes](https://github.com/pointOfive/stat130chat130/wiki/week-03-Data-Visualization#Bar-plots-and-modes)
+3. [Histograms](https://github.com/pointOfive/stat130chat130/wiki/week-03-Data-Visualization#Histograms)
+4. [Box Plots, Range, IQR, and Outliers](https://github.com/pointOfive/stat130chat130/wiki/week-03-Data-Visualization#Box-plots-and-spread)
+5. [Skew and Multimodality](https://github.com/pointOfive/stat130chat130/wiki/week-03-Data-Visualization#skew-and-multimodality)
+    1. [Mean versus Median](https://github.com/pointOfive/stat130chat130/wiki/week-03-Data-Visualization#skew-and-multimodality)
+    2. [Normality and Standard Deviations](https://github.com/pointOfive/stat130chat130/wiki/week-03-Data-Visualization#normal-distributions)
+    3. [Characteristics of a Normal Distribution](https://github.com/pointOfive/stat130chat130/wiki/week-03-Data-Visualization#characteristics-of-a-Normal-Distribution)
 
 **Tutorial/Homework: Lecture Extensions**
 
@@ -102,20 +110,20 @@ These are topics introduced in the lecture that build upon the tutorial/homework
 
 > Topic numbers below correspond to extensions of topic items above.
 
-2\. [Plotting: Plotly, Seaborn, Matplotlib, Pandas, and other visualization tools.](week-03-Data-Visualization#modern-plotting)\
-___ i. [Legends, annotations, figure panels, etc.](week-03-Data-Visualization#legends-annotations-figure-panels-etc)\
-3\. [Kernel Density Estimation using Violin Plots](week-03-Data-Visualization#smoothed-histograms)\
-5\. [Log Transformations](week-03-Data-Visualization#log-transformations)
+2\. [Plotting: Plotly, Seaborn, Matplotlib, Pandas, and other visualization tools.](https://github.com/pointOfive/stat130chat130/wiki/week-03-Data-Visualization#modern-plotting)\
+___ i. [Legends, annotations, figure panels, etc.](https://github.com/pointOfive/stat130chat130/wiki/week-03-Data-Visualization#legends-annotations-figure-panels-etc)\
+3\. [Kernel Density Estimation using Violin Plots](https://github.com/pointOfive/stat130chat130/wiki/week-03-Data-Visualization#smoothed-histograms)\
+5\. [Log Transformations](https://github.com/pointOfive/stat130chat130/wiki/week-03-Data-Visualization#log-transformations)
 
 **Lecture: New Topics**
 
 This section introduces new concepts that are not covered in the tutorial/homework topics.
 
-1. [Populations](week-03-Data-Visualization#Populations) _from scipy import stats_ 
+1. [Populations](https://github.com/pointOfive/stat130chat130/wiki/week-03-Data-Visualization#populations-and-distributions) _from scipy import stats_ 
 	1. `stats.multinomial` and `np.random.choice()` 
 	2. `stats.norm`, `stats.gamma`, and `stats.poisson`
-2. [Samples](week-03-Data-Visualization#Sampling) versus populations (distributions)
-3. [Statistical Inference](week-03-Data-Visualization#Statistics-Estimate-Parameters)
+2. [Samples](https://github.com/pointOfive/stat130chat130/wiki/week-03-Data-Visualization#Sampling) versus populations (distributions)
+3. [Statistical Inference](https://github.com/pointOfive/stat130chat130/wiki/week-03-Data-Visualization#Statistics-Estimate-Parameters)
 
 **Out of Scope**
 
@@ -128,26 +136,29 @@ This section introduces new concepts that are not covered in the tutorial/homewo
 
 ## Week 04 Bootstrapping
 
+> Confidence Intervals and Statistical Inference  
+> (as opposed to just Estimation) using Sampling Distributions
+
 **Tutorial/Homework: Topic**
 
-1. [Simulation](week-04-Bootstrapping#Simulation) (with `for` loops and `from scipy import stats`)
-2. [Sampling Distribution of the Sample Mean](week-04-Bootstrapping#VariabilityUncertainty-of-the-Sample-Mean)
-3. [Standard Deviation versus Standard Error](week-04-Bootstrapping#Standard-Deviation-versus-Standard-Error)
-4. [How n Drives Standard Error](week-04-Bootstrapping#How-n-drives-Standard-Error)
+1. [Simulation](https://github.com/pointOfive/stat130chat130/wiki/week-04-Bootstrapping#Simulation) (with `for` loops and `from scipy import stats`)
+2. [Sampling Distribution of the Sample Mean](https://github.com/pointOfive/stat130chat130/wiki/week-04-Bootstrapping#VariabilityUncertainty-of-the-Sample-Mean)
+3. [Standard Deviation versus Standard Error](https://github.com/pointOfive/stat130chat130/wiki/week-04-Bootstrapping#Standard-Deviation-versus-Standard-Error)
+4. [How n Drives Standard Error](https://github.com/pointOfive/stat130chat130/wiki/week-04-Bootstrapping#how-n-drives-standard-error)
 
 **Tutorial/Homework: Lecture Extensions**
 
-1. [Independent Sampling](week-04-Bootstrapping#Independent-Samples) functions like `df.sample([n=n/frac=1], replace=False)`
-    1. [Are Sampling Distributions Skewed?](week-04-Bootstrapping#Are-Sampling-Distributions-Skewed)
-    2. [Bootstrapping](week-04-Bootstrapping#bootstrapping)
-    3. [Not Bootstrapping](week-04-Bootstrapping#not-bootstrapping)
+1. [Independent Sampling](https://github.com/pointOfive/stat130chat130/wiki/week-04-Bootstrapping#Independent-Samples) functions like `df.sample([n=n/frac=1], replace=False)`
+    1. [Are Sampling Distributions Skewed?](https://github.com/pointOfive/stat130chat130/wiki/week-04-Bootstrapping#Are-Sampling-Distributions-Skewed)
+    2. [Bootstrapping](https://github.com/pointOfive/stat130chat130/wiki/week-04-Bootstrapping#bootstrapping)
+    3. [Not Bootstrapping](https://github.com/pointOfive/stat130chat130/wiki/week-04-Bootstrapping#not-bootstrapping)
 
 **Lecture: New Topics**
 
-1. [Confidence Intervals](week-04-Bootstrapping#Confidence-Intervals)
-2. [Bootstrapped Confidence Intervals](week-04-Bootstrapping#Bootstrapped-Confidence-Intervals)
-3. ["Double" _for_ loops](week-04-Bootstrapping#double-for-loops)
-    1. [Proving Bootstrapped Confidence Intervals using Simulation](week-04-Bootstrapping#Proving-Bootstrapping)
+1. [Confidence Intervals](https://github.com/pointOfive/stat130chat130/wiki/week-04-Bootstrapping#Confidence-Intervals)
+2. [Bootstrapped Confidence Intervals](https://github.com/pointOfive/stat130chat130/wiki/week-04-Bootstrapping#Bootstrapped-Confidence-Intervals)
+3. ["Double" _for_ loops](https://github.com/pointOfive/stat130chat130/wiki/week-04-Bootstrapping#double-for-loops)
+    1. [Proving Bootstrapped Confidence Intervals using Simulation](https://github.com/pointOfive/stat130chat130/wiki/week-04-Bootstrapping#Proving-Bootstrapping)
 
 **Out of Scope**
 
@@ -158,6 +169,8 @@ This section introduces new concepts that are not covered in the tutorial/homewo
 
 
 ## Week 05 Hypothesis Testing
+
+> P-values And How To Use And Not Use Them
 
 **Tutorial/Homework: Topics**
 
@@ -193,32 +206,34 @@ These are topics introduced in the lecture that build upon the tutorial/homework
 
 ## Week 7ate9 Simple Linear Regression
 
+> Normal Distributions gettin' jiggy wit it
+
 **LEC 1 New Topics**
 
-1. [Correlation Association (IS NOT Causation)](week-7ate9-Simple-Linear-Regression#Correlation-Association-IS-NOT-Causation)
-    1. [DO NOT USE Correlation to Measure ANYTHING EXCEPT "Straight Line" Linear Association](week-7ate9-Simple-Linear-Regression#DO-NOT-USE-Correlation-to-Measure-ANYTHING-EXCEPT-Straight-Line-Linear-Association)
-    2. [Correlation is just for Y = mx + b](week-7ate9-Simple-Linear-Regression#Correlation-is-just-for-y--mx--b)
-2. [Simple Linear Regression is Just a Normal Distribution](week-7ate9-Simple-Linear-Regression#Simple-Linear-Regression-is-Just-a-Normal-Distribution)
-    1. [Terminology: predictor, outcome, intercept and slope coefficients, and error terms](week-7ate9-Simple-Linear-Regression#Terminology-predictor-outcome-intercept-and-slope-coefficients-and-error-terms)
+1. [Correlation Association (IS NOT Causation)](https://github.com/pointOfive/stat130chat130/wiki/week-7ate9-Simple-Linear-Regression#Correlation-Association-IS-NOT-Causation)
+    1. [DO NOT USE Correlation to Measure ANYTHING EXCEPT "Straight Line" Linear Association](https://github.com/pointOfive/stat130chat130/wiki/week-7ate9-Simple-Linear-Regression#DO-NOT-USE-Correlation-to-Measure-ANYTHING-EXCEPT-Straight-Line-Linear-Association)
+    2. [Correlation is just for Y = mx + b](https://github.com/pointOfive/stat130chat130/wiki/week-7ate9-Simple-Linear-Regression#Correlation-is-just-for-y--mx--b)
+2. [Simple Linear Regression is Just a Normal Distribution](https://github.com/pointOfive/stat130chat130/wiki/week-7ate9-Simple-Linear-Regression#simple-linear-regression-is-just-a-normal-distribution)
+    1. [Terminology: predictor, outcome, intercept and slope coefficients, and error terms](https://github.com/pointOfive/stat130chat130/wiki/week-7ate9-Simple-Linear-Regression#Terminology-predictor-outcome-intercept-and-slope-coefficients-and-error-terms)
 
 **TUT/HW Topics**
 
-1. [_import statsmodels.formula.api as smf_](week-7ate9-Simple-Linear-Regression#statsmodel)
-2. [_smf.ols_](week-7ate9-Simple-Linear-Regression#smf-ols])
-    1. ["R-style" formulas I](week-7ate9-Simple-Linear-Regression#r-style-formulas-i])
-    2. ["quoting" non-standard columns](week-7ate9-Simple-Linear-Regression#quoting])
-3. [_smf.ols("y~x", data=df).fit()_ and _.params_](week-7ate9-Simple-Linear-Regression#fitting-models) $\hat \beta_k$ versus $\beta_k$
-    1. [_.fittedvalues_](week-7ate9-Simple-Linear-Regression#fittedvalues)
-    2. [_.rsquared_ "variation proportion explained"](week-7ate9-Simple-Linear-Regression#rsquared-variation-proportion-explained)
-    3. [_.resid_ residuals and assumption diagnostics](week-7ate9-Simple-Linear-Regression#resid-residuals-and-assumption-diagnostics)
-4. [_smf.ols("y~x", data=df).fit().summary()_ and _.tables[1]_ for Testing "On Average" Linear Association](week-7ate9-Simple-Linear-Regression#testing-on-average-linear-association)
+1. [_import statsmodels.formula.api as smf_](https://github.com/pointOfive/stat130chat130/wiki/week-7ate9-Simple-Linear-Regression#statsmodels)
+2. [_smf.ols_](https://github.com/pointOfive/stat130chat130/wiki/week-7ate9-Simple-Linear-Regression#smfols)
+    1. ["R-style" formulas I](https://github.com/pointOfive/stat130chat130/wiki/week-7ate9-Simple-Linear-Regression#r-style-formulas-i)
+    2. ["quoting" non-standard columns](https://github.com/pointOfive/stat130chat130/wiki/week-7ate9-Simple-Linear-Regression#quoting)
+3. [_smf.ols("y~x", data=df).fit()_ and _.params_](https://github.com/pointOfive/stat130chat130/wiki/week-7ate9-Simple-Linear-Regression#fitting-models) $\hat \beta_k$ versus $\beta_k$
+    1. [_.fittedvalues_](https://github.com/pointOfive/stat130chat130/wiki/week-7ate9-Simple-Linear-Regression#fittedvalues)
+    2. [_.rsquared_ "variation proportion explained"](https://github.com/pointOfive/stat130chat130/wiki/week-7ate9-Simple-Linear-Regression#rsquared-variation-proportion-explained)
+    3. [_.resid_ residuals and assumption diagnostics](https://github.com/pointOfive/stat130chat130/wiki/week-7ate9-Simple-Linear-Regression#resid-residuals-and-assumption-diagnostics)
+4. [_smf.ols("y~x", data=df).fit().summary()_ and _.tables[1]_ for Testing "On Average" Linear Association](https://github.com/pointOfive/stat130chat130/wiki/week-7ate9-Simple-Linear-Regression#testing-on-average-linear-association)
 
 **LEC 2 New Topics / Extensions**
 
-1. [Two(2) unpaired samples group comparisons](week-7ate9-Simple-Linear-Regression#two2-unpaired-samples-group-comparisons)
-2. [Two(2) unpaired sample permutation tests](week-7ate9-Simple-Linear-Regression#two2-unpaired-sample-permutation-tests)
-3. [Two(2) unpaired sample bootstrapping](week-7ate9-Simple-Linear-Regression#two2-unpaired-sample-bootstrapping)
-4. [Indicator variables and contrasts linear regression](week-7ate9-Simple-Linear-Regression#indicator-variables-and-contrasts-linear-regression)
+1. [Two(2) unpaired samples group comparisons](https://github.com/pointOfive/stat130chat130/wiki/week-7ate9-Simple-Linear-Regression#two2-unpaired-samples-group-comparisons)
+2. [Two(2) unpaired sample permutation tests](https://github.com/pointOfive/stat130chat130/wiki/week-7ate9-Simple-Linear-Regression#two2-unpaired-sample-permutation-tests)
+3. [Two(2) unpaired sample bootstrapping](https://github.com/pointOfive/stat130chat130/wiki/week-7ate9-Simple-Linear-Regression#two2-unpaired-sample-bootstrapping)
+4. [Indicator variables and contrasts linear regression](https://github.com/pointOfive/stat130chat130/wiki/week-7ate9-Simple-Linear-Regression#indicator-variables-and-contrasts-linear-regression)
 
 **Out of scope:**
 
@@ -228,25 +243,27 @@ These are topics introduced in the lecture that build upon the tutorial/homework
 4. ...such as the mathematical formulas correlation, but just noting that they sort of just look like formulas for variance...
 
 
-## Week 10 Multiple Linear Regression
+## Weeks 10 Multiple Linear Regression
+
+> ~~Normal Distributions~~ Now REGRESSION'S gettin' jiggy wit it
 
 **Tutorial/Homework: Topics**
 
-1. [Multiple Linear Regression](Weekz-10-Multiple-Linear-Regression#Multiple-Linear-Regression)
-    1. [Interactions](Weekz-10-Multiple-Linear-Regression#Interactions)
-    2. [Categoricals](Weekz-10-Multiple-Linear-Regression#Categoricals)
-2. [Model Fitting](Weekz-10-Multiple-Linear-Regression#Interactions)
-    1. [Evidence-based Model Building](Weekz-10-Multiple-Linear-Regression#evidence-based-model-building)
-    2. [Performance-based Model Building](Weekz-10-Multiple-Linear-Regression#performance-based-model-building)
-    3. [Complexity, Multicollinearity, and Generalizability](Weekz-10-Multiple-Linear-Regression#complexity-multicollinearity-and-generalizability)
+1. [Multiple Linear Regression](https://github.com/pointOfive/stat130chat130/wiki/Weekz-10-Multiple-Linear-Regression#multiple-linear-regression)
+    1. [Interactions](https://github.com/pointOfive/stat130chat130/wiki/Weekz-10-Multiple-Linear-Regression#interactions)
+    2. [Categoricals](https://github.com/pointOfive/stat130chat130/wiki/Weekz-10-Multiple-Linear-Regression#categoricals)
+2. [Model Fitting](https://github.com/pointOfive/stat130chat130/wiki/Weekz-10-Multiple-Linear-Regression#model-fitting)
+    1. [Evidence-based Model Building](https://github.com/pointOfive/stat130chat130/wiki/Weekz-10-Multiple-Linear-Regression#evidence-based-model-building)
+    2. [Performance-based Model Building](https://github.com/pointOfive/stat130chat130/wiki/Weekz-10-Multiple-Linear-Regression#performance-based-model-building)
+    3. [Complexity, Multicollinearity, and Generalizability](https://github.com/pointOfive/stat130chat130/wiki/Weekz-10-Multiple-Linear-Regression#complexity-multicollinearity-and-generalizability)
 
 **Tutorial/Homework/Lecture Extensions**
 
 These are topics introduced in the lecture that build upon the tutorial/homework topics discussed above
 
-1. [Logistic Regression](Weekz-10-Multiple-Linear-Regression#logistic-regression)
-    1. [Categorical to Binary Cat2Bin Variables](Weekz-10-Multiple-Linear-Regression#Categorical-to-Binary-Cat2Bin-Variables)
-1. [And Beyond](Weekz-10-Multiple-Linear-Regression#and-beyond)
+1. [Logistic Regression](https://github.com/pointOfive/stat130chat130/wiki/Weekz-10-Multiple-Linear-Regression#logistic-regression)
+    1. [Categorical to Binary Cat2Bin Variables](https://github.com/pointOfive/stat130chat130/wiki/Weekz-10-Multiple-Linear-Regression#categorical-to-binary-cat2bin-variables)
+1. [And Beyond](https://github.com/pointOfive/stat130chat130/wiki/Weekz-10-Multiple-Linear-Regression#and-beyond)
 
 **Lecture: New Topics**
 
@@ -259,3 +276,34 @@ These are topics introduced in the lecture that build upon the tutorial/homework
 3. ...the deep mathematical details condition numbers, variance inflation factors, K-Folds Cross-Validation...
 4. ...the actual deep details of log odds, link functions, generalized linear models...
 
+Weekz 11 Classification Decision Trees
+
+> Machine Learning
+
+**Tutorial/Homework: Topics**
+
+1. [Classification Decision Trees](https://github.com/pointOfive/stat130chat130/wiki/weekz-11-classification-decision-trees#classification-decision-trees)
+    1. [Classification versus Regression](https://github.com/pointOfive/stat130chat130/wiki/weekz-11-classification-decision-trees#classification-versus-regression) 
+2. [`scikit-learn` versus `statsmodels`](https://github.com/pointOfive/stat130chat130/wiki/weekz-11-classification-decision-trees#scikit-learn-versus-statsmodels)
+    1. [Feature Importances](https://github.com/pointOfive/stat130chat130/wiki/weekz-11-classification-decision-trees#feature-importances)
+3. [Confusion Matrices](https://github.com/pointOfive/stat130chat130/wiki/weekz-11-classification-decision-trees#confusion-matrices)
+    1. [Metrics](https://github.com/pointOfive/stat130chat130/wiki/weekz-11-classification-decision-trees#metrics)
+4. [In Sample versus Out of Sample](https://github.com/pointOfive/stat130chat130/wiki/weekz-11-classification-decision-trees#in-sample-versus-out-of-sample)
+
+**Tutorial/Homework Extensions/New Topics for Lecture**
+
+These are topics introduced in the lecture that build upon the tutorial/homework topics discussed above
+
+1. [Model Fitting: Decision Trees Construction](https://github.com/pointOfive/stat130chat130/wiki/weekz-11-classification-decision-trees#model-fitting-decision-trees-construction) 
+2. [Model Complexity and Machine Learning](https://github.com/pointOfive/stat130chat130/wiki/weekz-11-classification-decision-trees#model-complexity-and-machine-learning)
+3. [Prediction](https://github.com/pointOfive/stat130chat130/wiki/weekz-11-classification-decision-trees#prediction)
+    1. [ROC curves](https://github.com/pointOfive/stat130chat130/wiki/weekz-11-classification-decision-trees#roc-curves)
+    2. [Partial Dependency Plots](https://github.com/pointOfive/stat130chat130/wiki/weekz-11-classification-decision-trees#partial-dependency-plots)
+
+
+**Out of scope:**
+
+1. Additional **classification metrics** and additional considerations around **confusion matrices** beyond those discussed above [previously, "Material covered in future weeks"]
+2. Deeper details of **Decision Tree** and **Random Forest** construction (**model fitting**) processes [previously, "Anything not substantively addressed above"]
+3. ...the actual deep details of log odds, link functions, generalized linear models, and now **multi-class classification** since we can instead just use `.predict()` and we now know about `predict_proba()`...
+4. ...other **Machine Learning** models and the rest of `scikit-learn`, e.g., K-Folds Cross-Validation and **model complexity regularization tuning** with `sklearn.model_selection.GridSearchCV`, etc.
